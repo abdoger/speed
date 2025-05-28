@@ -1,0 +1,631 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<!-- stylesheet for this button -->
+<style type="text/css">
+  .button {
+    backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(180deg,#44bbdd 0%,#40b5d6 30%,#30a5c6 65%,#129abc 100%);
+  border-radius: 8px;
+  border: 0px solid #379;
+  border-width: 0px 0px 5px 0px;
+  padding: 9px 15px 6px 15px;
+  box-shadow: inset 0px 1px 3px rgba(255,255,255,.4);
+    color: #fff;
+  font-size: initial;
+  font-family: Helvetica Neue;
+  font-weight: 900;
+  font-style: normal
+  }
+  .button > div {
+    color: #999;
+  font-size: 10px;
+  font-family: Helvetica Neue;
+  font-weight: initial;
+  font-style: normal;
+  text-align: center;
+  margin: 0px 0px 0px 0px
+  }
+  .button > i {
+    color: #fff;
+  font-size: 1em;
+  background: rgba(0,0,0,0.2);
+  border-radius: 100px;
+  border: 0px solid transparent;
+  border-width: 0px 0px 0px 0px;
+  padding: 5px 5px 5px 5px;
+  margin: 0px 0px 0px 10px;
+  position: static;
+  box-shadow: inset 0px 1px 2px rgba(0,0,0,0.4),inset 0px -1px 0px rgba(255,255,255,.5)
+  }
+  .button > .ld {
+    font-size: initial
+  }
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+  
+.my-num{
+  color: red;
+  font-weight: bold;
+  border: 1px solid darkred;
+  padding: 2px 10px;
+  border-radius: 50px;
+  background-color: yellow;
+}
+.mas{
+  
+  background-color: #111;
+   color: aqua;
+    text-align: center;
+  word-wrap: break-word;
+  font-family: "Almarai", sans-serif;
+ 
+      gap: 3px;
+     border-radius: 1px;
+     font-size: 15px; 
+}
+
+input , label,h1,h2,h3,h4,h5,h6,span,select,a,i,p{
+  font-family: "Almarai", sans-serif; 
+}
+
+</style>
+<style>
+    
+
+
+.h{
+  display: flex;
+   gap: 6px;
+   word-wrap: break-word;
+}
+
+@media screen and (max-width: 500px )  {
+  .h{
+  display: block !important;
+
+   width: 100%;
+  }
+  .fact{
+  display: flex; 
+   align-items: center;
+    background-color: aquamarine; 
+    margin-bottom: 5px;
+    width: 100% !important;
+     border-radius: 20px;
+ }
+}
+
+.gred{
+  width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 1px;
+    }
+    @media screen and (max-width:600px) {
+      .gred{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        gap: 10px;
+    }
+    }
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+    }
+    .fact h2{
+        font-size: 1.8em;
+        box-shadow: #181a34;
+    }
+    .fact p{
+        font-size: 1em;
+        font-weight: 400;
+        color: #50526b;
+        line-height: 1.8em;
+        text-align: justify;
+        margin-top: 0.8em;
+
+    }
+    .btns{
+     cursor: not-allowed;
+     color: red;
+     background-color: #566fff;
+     cursor: pointer;
+    }
+    #sd{
+      display: none;
+    }
+</style>
+<style>
+  .save-btn{
+      border: 0;
+      outline: auto;
+      user-select: none;
+      font-size:22px;
+      color: #fff;
+      background: #29ca8c;
+      width: 150px;
+      height: 30px;
+      cursor: pointer;
+      border-radius: 3px;
+      box-shadow: 0 8px 5px -5px rgba(0, 0, 0, 0.2);
+      display: grid;
+      place-content: center;
+      text-align: center;
+      align-items: center;
+      
+  }
+  .loaderloader{
+      pointer-events: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #fff;
+      animation: anl 1s ease infinite;
+      display:none;
+      cursor : not-allowed;
+     
+  }
+  @keyframes anl{
+      0%{
+          transform: rotate(0turn);
+      }
+      100%{
+          transform: rotate(1turn);
+      }
+  }
+.ssh{
+  outline: auto;
+  padding: 8px 20px;
+
+}
+</style>
+<div   class="content-wrapper">
+  <div class="my-form  p-2 roudend   " >
+
+   
+    
+
+    
+
+<div data-aos="flip-left"
+data-aos-easing="ease-out-cubic"
+data-aos-duration="2000">
+
+
+
+  <div class="mt-2 mb-3 pb-2  text-align-center" style="border:  2px solid rgb(0, 238, 255); width: 100%; color: #fff; background-color: rgb(0, 229, 255); border-radius: 10px; margin-bottom: 5px;">
+    <h2  style="color: #fff; text-align: center;">{% trans  "تاكيد طلب الشراء" %} </h2>
+  </div>
+</div>
+
+
+
+
+    <div class="preloader-wrapper">
+      <div class="preloader">
+      </div>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    {% include 'parts/allert.html'%}
+    {%if not  request.user.is_authenticated or request.user.is_anonymous%}
+    <h5 class="alert alert-warning">
+      You most
+      <a href="{%url 'signin'%}" class="text-dark"> loge in</a>
+    </h5>
+    {% elif not order%}
+    <h5 class="   pb-2  text-align-center" style="text-align: center; width: 100%; color: #fff; background-color: rgb(0, 229, 255); border-radius: 5px; margin-bottom: 5px; border:  10px solid rgb(0, 229, 255);">
+      {% trans  " لا يوجد فاتوره لي يتم تاكيد الطلب"%}
+
+     
+
+    </h5>
+    {% else %}
+    {% if is_added == True%}
+    <form   enctype="multipart/form-data" method="POST" style="display: none;">
+    
+      {% else %}
+      {% csrf_token %}
+      <form   enctype="multipart/form-data" method="POST" >
+        
+        {% endif %}
+        {% csrf_token %}
+        <div style="display: none; align-items: center; justify-content: space-between; word-wrap: break-word;  gap: 3px;">
+          <div style="width: 30%; " class="mas">
+            <i>  {% trans  " رقم الاوردر "%} </i>
+            <i style="color: yellow;"> {{order.id}}  </i>
+          </div>
+
+          <div style="width: 40%; " class="mas">
+            <i>   {% trans  "عدد المنتجات المطلوبه "%}  </i>
+            <i style="color: yellow;">{{orderdetails.count}} </i>
+          </div>
+
+          <div style="width: 30%; " class="mas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+              <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+              <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+              <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+              <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            </svg>
+            <i  >  {% trans  "المجموع " %} :  <span style="color: yellow;" >{{total}}ج.م</span> </i>
+           
+          </div>
+
+     
+        </div>
+        <div style="display: none; align-items: center; justify-content: space-between; word-wrap: break-word;  gap: 3px;">
+          <div style="width: 30%; margin-top: 5px;     " class="mas">
+            <i  > {% trans  "قيمة الشحن "%} </i>
+            <i style="color: yellow;" ></i>
+          </div>
+          <div style="width: 30%; margin-top: 5px;" class="mas">
+            <i  > {% trans  "المطلوب" %} </i>
+            <i style="color: yellow;"  ></i>
+          </div>
+        </div>
+<div  class="gred">
+
+
+        <div class="pymrnt-1 fact">
+       <div style="display: block;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-r-circle" viewBox="0 0 16 16">
+            <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.5 4.002h3.11c1.71 0 2.741.973 2.741 2.46 0 1.138-.667 1.94-1.495 2.24L11.5 12H9.98L8.52 8.924H6.836V12H5.5zm1.335 1.09v2.777h1.549c.995 0 1.573-.463 1.573-1.36 0-.913-.596-1.417-1.537-1.417z"/>
+          </svg>
+        </div>
+            <h6>   {% trans  "رقم الاوردر "%} </h6>
+            <h6 > {{order.id}}  </h6>
+          
+        </div>
+
+        <div class="pymrnt-2 fact">
+      
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-r-circle" viewBox="0 0 16 16">
+            <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.5 4.002h3.11c1.71 0 2.741.973 2.741 2.46 0 1.138-.667 1.94-1.495 2.24L11.5 12H9.98L8.52 8.924H6.836V12H5.5zm1.335 1.09v2.777h1.549c.995 0 1.573-.463 1.573-1.36 0-.913-.596-1.417-1.537-1.417z"/>
+          </svg>
+            <h6> {% trans   " عدد المنتجات المطلوبه " %} </h6>
+            <h6 > {{orderdetails.count}}  </h6>
+          
+        </div>
+     
+        <div class="pymrnt-3 fact">
+    
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+            <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+            <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+          </svg>
+            <h6>   {% trans  "قيمة الشحن "%} </h6>
+            <h6 id="sp">  </h6>
+      
+        </div>
+
+
+        
+        <div class="pymrnt-4 fact">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+            <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+            <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+          </svg>
+      
+            <h6>  {% trans   "اجمالي سعر القطع "%} </h6>
+            <h6 id="total"> {{total}}ج.م </h6>
+        
+        </div>
+        {% if  sd == True %}
+        <p class="ysydyf" style="display: none;">castomar</p>
+        {%else%}
+        <p class="ysydyf" style="display: none;">admin</p>
+
+        {%endif%}
+        {% if  sd == True %}
+        <div class="pymrnt-5 fact">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+            <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+            <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+          </svg>
+        
+                   <h6 style="font-weight: 900; font-size:15px;" >{% trans  "مجموع العموله الكلى"%}</h6>
+
+                   <h6><span>{{td}}</span></h6>
+         
+      </div>
+
+      <div class="pymrnt-6 fact">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+          <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+          <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+          <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+          <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+        </svg>
+        
+        <h6 style="font-weight: 900; font-size:15px;" >{% trans  " المطلوب شامل الشحن ولعموله  "%}</h6>
+        
+        <p id="csshtml" style="display: none;">{{css}}</p>
+        <h6 id="csshtmljsk"></h6>
+
+
+</div>
+      {% endif %}
+      
+  
+      </div>
+
+      <div class="pymrnt-7 fact">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+          <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+          <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+          <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+          <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+        </svg>
+         
+        <h6  > {% trans   "المطلوب شامل الشحن " %}</h6>
+        <h6  id="totals" ></h6>
+     
+    </div>
+  
+
+      <!-- <div class="card-body"> -->
+        <div class="row">
+       
+            <div class="col-lg-12">
+              <label for="names" class="pymrnt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+                {% trans  "  الاسم"%}
+              
+              </label>
+              <input type="text" id="names" class="pymrnt-2 form-control"  name="name" value="{{name}}" required>
+       
+            </div>
+            <div class="col-lg-12">
+              <label for="inputship_address" class="pymrnt-3 ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-houses" viewBox="0 0 16 16">
+                  <path d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207z"/>
+                </svg>
+                {% trans  "العنوان  "%}</label>
+              <input type="text"id="inputship_address" class="pymrnt-4 form-control "  name="ship_address" value="{{ship_address}}" required>
+      
+            </div>
+            <div class="col-lg-12 col-xxl-12">
+              <label for="districtid" class="pymrnt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                </svg>
+                {% trans  " تفاصيل اكثر "%}
+              
+              </label>
+              <input type="text"id="districtid" class="pymrnt-2 form-control"  name="districtid"  required>
+       
+            </div>
+
+          <div class="col-6 col-xxl-12">
+            <label for="inputship_phone" class="pymrnt-5"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-x-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm9.261 1.135a.5.5 0 0 1 .708 0L13 2.793l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3.5l1.147 1.146a.5.5 0 0 1-.708.708L13 4.207l-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3.5l-1.147-1.146a.5.5 0 0 1 0-.708"/>
+              </svg>
+              {% trans  "رقم الهاتف"%}
+               </label>
+            <input type="number"id="inputship_phone" class="pymrnt-6 form-control "  name="ship_phone" value="{{ship_phone}}"required>
+            
+          </div>
+          <div class="col-6 col-xxl-12">
+            <label for="shipment_phone_to" class="pymrnt-5"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-x-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm9.261 1.135a.5.5 0 0 1 .708 0L13 2.793l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3.5l1.147 1.146a.5.5 0 0 1-.708.708L13 4.207l-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3.5l-1.147-1.146a.5.5 0 0 1 0-.708"/>
+              </svg>
+              {% trans  " رقم هاتف اضافى"%}
+               </label>
+            <input type="number"id="shipment_phone_to" class="pymrnt-6 form-control "  name="shipment_phone_to" value="{{ship_phone}}" required  >
+            
+          </div>
+          <div class="col-6 col-xxl-12">
+            <label for="mo" class="pymrnt-7">  
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg>
+              {% trans  "المحافظة "%}</label>
+            <select name="mo"  id="mo" class="pymrnt-8 form-control mttt " required>
+              <option >اختر المحافظة</option>
+
+              {% for i in  mo %}
+              <option value="{{i.mo}}">{{i.mo}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-6 col-xxl-12">
+            <label for="mr" class="pymrnt-9"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg>
+              {% trans  " المركز " %}</label>
+            <select name="mr" id="mr" class="pymrnt-10 form-control mr " required>
+              
+          
+            </select>
+          </div>
+          <div class="col-lg-12">
+            <label for="momr" class="pymrnt-10"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+              </svg>
+              {% trans "الملاحظات"%}
+               </label>
+            <input type="momr"id="momr" class="pymrnt-11 form-control " name="momr" required>
+            
+          </div>
+
+        </div>
+       
+
+      <input type="hidden" class="pymrnt-11 form-control " id="no" placeholder="قيمت الشحن" name="no" value="{{no}}" required readonly>
+    
+      <div class="mt-4" style="display: flex; justify-content: space-between; align-items: center;">
+        <button type="submit"   id="mybtnss" name="btnpayment" class="pymrnt-12 ssh  btn-info">
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 5px;">
+            
+          
+            <div class="loaderloader"></div>
+            {% trans "تاكيد الطلب " %}
+            </div>
+          
+        </button>
+
+        <!-- <button type="button" id="sd" name="btnpayment" class="pymrnt-12 btn  btn-info" >
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 5px;">
+            
+          
+          <div class="loaderloader"></div>
+          {% trans "تاكيد الطلب " %}
+          </div>
+        </button>  -->
+        <!-- <button type="button"  class="save-btn" id="sd" > 
+          <div class="loaderloader"></div>
+      </button> -->
+
+        <a href="{%url 'cart'%}" id="s"  class="pymrnt-13 btn  btn-warning float-right " > {% trans "الرجوع الى الفاتوره " %}</a>
+
+      </div>
+    </form>
+   
+ 
+
+
+
+
+{%endif%}
+</div>
+</div>
+<script>
+  let save = document.getElementById('mybtnss');
+  let names = document.getElementById('names');
+  let inputship_address = document.getElementById('inputship_address');
+  let districtid = document.getElementById('districtid');
+  let inputship_phone = document.getElementById('inputship_phone');
+  let shipment_phone_to = document.getElementById('shipment_phone_to');
+  let mo = document.getElementById('mo');
+  let mr = document.getElementById('mr');
+  let momr = document.getElementById('momr'); 
+  let displays = document.querySelector('.loaderloader');
+ 
+  save.addEventListener('click',()=>{
+    if (names.value != '' && inputship_address.value != '' && districtid.value != '' && inputship_phone.value != ''&& shipment_phone_to.value != ''&& mo.value != ''&& mr.value != ''&& momr.value != ''){
+        setTimeout(()=>{
+         displays.style.display = "block";
+         save.disabled = true;
+         save.style.cursor = 'not-allowed';
+         save.style.background = 'yellow';
+         save.style.border = 'none';
+         save.style.cursor = "not-allowed";
+         const loader = document.querySelector(".loader");
+        //  const content = document.querySelector(".content-wrapper");
+        //  content.classList.add("loader--hidden");
+         loader.classList.add("loader--hidden");
+         loader.addEventListener('transitionend',()=>{
+         document.body.removeChild(loader);
+        //  content.removeChild(loader);
+
+         })
+
+        },100);
+   
+  
+  }
+
+  })
+</script>
+<!-- <script>
+  let save = document.getElementById('mybtnss')
+  window.addEventListener('load',()=>{
+    
+    save.addEventListener('click',(eo)=>{
+      save.style.cursor = "not-allowed";
+        save.style.background = 'red';
+          // eo.defaultPrevented();
+          eo.preventDefault();
+      })
+  })
+</script> -->
+
+<!-- <script>
+  let btnsd = document.getElementById("mybtnss");
+  let s = document.getElementById("s");
+  let sd = document.getElementById("sd");
+
+  // onload = function(){
+  //   setTimeout(()=>{
+  //   sd.style.cursor = "not-allowed";
+  
+  //   btnsd.style.display = 'none';
+  //   sd.style.display = 'block';
+
+  //   // s.style.display = 'none';
+
+  // },10);
+
+  //   setTimeout(()=>{
+  //     btnsd.style.display = 'block';
+  //   sd.style.display = 'none';
+  //   btnsd.style.cursor = "pointer";
+  //   eo.defaultPrevented();
+  //   },15000);
+   
+  // }
+ 
+ 
+ 
+  btnsd.addEventListener('click',(eo)=>{
+    setTimeout(()=>{
+    sd.style.cursor = "not-allowed";
+  
+    btnsd.style.display = 'none';
+    sd.style.display = 'block';
+
+    // s.style.display = 'none';
+
+  },10);
+
+    setTimeout(()=>{
+      btnsd.style.display = 'block';
+    sd.style.display = 'none';
+    btnsd.style.cursor = "pointer";
+    eo.defaultPrevented();
+    },20000);
+   
+  
+  
+  });
+
+  
+   
+</script> -->
+
+{%endblock%}

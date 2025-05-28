@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="col-12 max-auto">
+        <div class="row">
+
+            {% include 'parts/allert.html'%}
+            <form   enctype="multipart/form-data" method="post" style="width: 100%;">
+        
+                {% csrf_token %}
+        
+            
+              <div class="card-body">
+                
+                
+                <input type="email" class="form-control" placeholder="email"name="email"required>
+               
+                <input type="text" class="form-control" placeholder="name"name="name" required>
+                <input type="number" class="form-control" placeholder="mobile"name="mobile"required >
+        
+        
+        
+
+   
+                <div class="g-recaptcha" data-sitekey="6LdeLkopAAAAANDwqtLE1fQK4nEN8Uh85To48KSs"></div>
+                
+        
+        
+                
+      
+              </div>
+              <!-- /.card-body -->
+        
+              <div class="card-footer">
+                <button  class="btn btn-primary">سجل
+                  <button type="reset" class="btn btn-primary">حزف
+                    
+                </button>
+              </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

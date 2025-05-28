@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% include 'parts/allert.html'%}
+<div class="preloader-wrapper">
+    <div class="preloader">
+    </div>
+  </div>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="ارسال">
+</form>
+{% endblock content %}

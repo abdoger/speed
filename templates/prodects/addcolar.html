@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}| card {% endblock%}
+
+
+{% block content %}
+
+<div   class="content-wrapper">
+    <div class="my-form  p-1 roudend ">
+      {% include 'parts/allert.html'%}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- {{form.as_p}} -->
+         <label for=""> اضافة لون </label>
+         <input type="text" name="name"  class="form-control" required>
+         <label for=""> اضافة بالانجليزى </label>
+
+         <input type="text" name="asname"  class="form-control" required>
+         <label for="">الكميه</label>
+
+
+         <input type="number" name="qucolor"   class="form-control" required>
+         <label for=""> اضافة صورة للون </label>
+
+         <input type="file"  name="color"   class="form-control" required>
+
+         <input type="submit"  value="اضافة"  class="btn btn-info mt-3">
+
+
+      </form>
+      <div class="ring ">انتظار
+         <span></span>
+       </div>
+
+
+
+   </div>
+</div>
+
+
+{% endblock %}

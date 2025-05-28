@@ -1,0 +1,245 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+{% block title %}| card {% endblock%}
+
+
+{% block style %}
+
+
+{% endblock  %}
+{% block content %}
+
+<div   class="content-wrapper">
+<div class="my-form  p-2 roudend " >
+
+  <div class="preloader-wrapper">
+    <div class="preloader">
+    </div>
+  </div>
+
+
+  <!-- jjjjjjjjjjjjjjjjjjjjjjjj -->
+
+
+
+
+
+
+
+
+
+<!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+{% if  request.user.is_authenticated or request.user.is_anonymous%}
+<div style="margin-bottom: 10px; width: 100%; height: 100%; background-color: #eee;">
+  <div style="text-align: center;" class="containar">
+  <div  class="row " >
+    <div class="pymrnt-1 col-lg-8">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="pymrnt-2 col-lg-4">
+      <canvas id="polarArea"></canvas>
+    </div>
+    
+    
+
+  </div>
+</div>
+
+{% if castomar  == True %}
+  <div class="pymrnt-1" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid rgb(255, 128, 0); background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(255, 128, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-down" viewBox="0 0 16 16">
+          <path d="M12.5 9a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m.354 5.854 1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V10.5a.5.5 0 0 0-1 0v2.793l-.646-.647a.5.5 0 0 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0"/>
+          <path d="M12.096 6.223A5 5 0 0 0 13 5.698V7c0 .289-.213.654-.753 1.007a4.5 4.5 0 0 1 1.753.25V4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.5 4.5 0 0 1-.813-.927Q8.378 15 8 15c-1.464 0-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13h.027a4.6 4.6 0 0 1 0-1H8c-1.464 0-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10q.393 0 .774-.024a4.5 4.5 0 0 1 1.102-1.132C9.298 8.944 8.666 9 8 9c-1.464 0-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777M3 4c0-.374.356-.875 1.318-1.313C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4"/>
+        </svg>
+      </p>
+    
+    <p > {% trans "العمولة المستلمة للمسوق" %}</p>
+  </div>
+    <span style="background-color: rgb(255, 128, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="b">{{y}}</span>
+  </div>
+
+
+  <div class="pymrnt-1" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid rgb(255, 128, 0); background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(255, 128, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-down" viewBox="0 0 16 16">
+          <path d="M12.5 9a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m.354 5.854 1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V10.5a.5.5 0 0 0-1 0v2.793l-.646-.647a.5.5 0 0 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0"/>
+          <path d="M12.096 6.223A5 5 0 0 0 13 5.698V7c0 .289-.213.654-.753 1.007a4.5 4.5 0 0 1 1.753.25V4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.5 4.5 0 0 1-.813-.927Q8.378 15 8 15c-1.464 0-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13h.027a4.6 4.6 0 0 1 0-1H8c-1.464 0-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10q.393 0 .774-.024a4.5 4.5 0 0 1 1.102-1.132C9.298 8.944 8.666 9 8 9c-1.464 0-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777M3 4c0-.374.356-.875 1.318-1.313C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4"/>
+        </svg>
+      </p>
+    
+    <p > {% trans "العمولة  المتبقيه" %}</p>
+  </div>
+    <span style="background-color: rgb(255, 128, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="b">{{total_nsd}}</span>
+  </div>
+
+
+  <div class="pymrnt-1" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid rgb(255, 128, 0); background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(255, 128, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-down" viewBox="0 0 16 16">
+          <path d="M12.5 9a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m.354 5.854 1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V10.5a.5.5 0 0 0-1 0v2.793l-.646-.647a.5.5 0 0 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0"/>
+          <path d="M12.096 6.223A5 5 0 0 0 13 5.698V7c0 .289-.213.654-.753 1.007a4.5 4.5 0 0 1 1.753.25V4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.5 4.5 0 0 1-.813-.927Q8.378 15 8 15c-1.464 0-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13h.027a4.6 4.6 0 0 1 0-1H8c-1.464 0-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10q.393 0 .774-.024a4.5 4.5 0 0 1 1.102-1.132C9.298 8.944 8.666 9 8 9c-1.464 0-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777M3 4c0-.374.356-.875 1.318-1.313C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4"/>
+        </svg>
+      </p>
+    
+    <p > {% trans "العمولة  الكليه" %}</p>
+  </div>
+    <span style="background-color: rgb(255, 128, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="b">{{total_oos}}</span>
+  </div>
+
+
+  <div class="pymrnt-1" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid rgb(255, 128, 0); background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(255, 128, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-down" viewBox="0 0 16 16">
+          <path d="M12.5 9a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7m.354 5.854 1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V10.5a.5.5 0 0 0-1 0v2.793l-.646-.647a.5.5 0 0 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0"/>
+          <path d="M12.096 6.223A5 5 0 0 0 13 5.698V7c0 .289-.213.654-.753 1.007a4.5 4.5 0 0 1 1.753.25V4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.5 4.5 0 0 1-.813-.927Q8.378 15 8 15c-1.464 0-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13h.027a4.6 4.6 0 0 1 0-1H8c-1.464 0-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10q.393 0 .774-.024a4.5 4.5 0 0 1 1.102-1.132C9.298 8.944 8.666 9 8 9c-1.464 0-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777M3 4c0-.374.356-.875 1.318-1.313C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4"/>
+        </svg>
+      </p>
+    
+    <p > {% trans "العمولة  بعد العمل" %}</p>
+  </div>
+    <span style="background-color: rgb(255, 128, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="b">{{total_ssa}}</span>
+  </div>
+  {%endif%}
+
+  <div class="pymrnt-2" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid rgb(0, 166, 255); background-color: #fff; border-radius: 10px;">
+
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(0, 166, 255); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
+          <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0"/>
+          <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708"/>
+        </svg>
+      </p>
+    
+    <p > {% trans "تم التاكيد" %}</p>
+  </div>
+    <span style="background-color: rgb(0, 166, 255); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="b">{{b}}</span>
+  </div>
+  
+
+  <div class="pymrnt-2" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid red; background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: red; padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/>
+        </svg>
+      </p>
+    
+    <p >  {% trans "طلب جديد " %}</p>
+  </div>
+    <span style="background-color: red; padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="a">{{a}}</span>
+  </div>
+
+
+  <div class="pymrnt-3" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid  rgb(11, 197, 11);; background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(11, 197, 11); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
+          <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0"/>
+          <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708"/>
+        </svg>
+      </p>
+    
+    <p >{% trans "تم التوصيل" %}</p>
+  </div>
+    <span style="background-color:  rgb(11, 197, 11);; padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="c">{{c}}</span>
+  </div>
+
+
+
+
+
+
+  <div class="pymrnt-4" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid rgb(255, 0, 208); background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(255, 0, 208); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+          <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+        </svg>
+      </p>
+    
+    <p > {% trans "فى التوصيل " %}</p>
+  </div>
+    <span style="background-color: rgb(255, 0, 208);; padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="m">{{m}}</span>
+  </div>
+
+
+  <div class="pymrnt-6" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid rgb(255, 136, 0); background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(255, 136, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-reply-all" viewBox="0 0 16 16">
+          <path d="M8.098 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.7 8.7 0 0 0-1.921-.306 7 7 0 0 0-.798.008h-.013l-.005.001h-.001L8.8 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L4.114 8.254l-.042-.028a.147.147 0 0 1 0-.252l.042-.028zM9.3 10.386q.102 0 .223.006c.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96z"/>
+          <path d="M5.232 4.293a.5.5 0 0 0-.7-.106L.54 7.127a1.147 1.147 0 0 0 0 1.946l3.994 2.94a.5.5 0 1 0 .593-.805L1.114 8.254l-.042-.028a.147.147 0 0 1 0-.252l.042-.028 4.012-2.954a.5.5 0 0 0 .106-.699"/>
+        </svg>
+      </p>
+    
+    <p >  {% trans "مرتجع " %}</p>
+  </div>
+    <span style="background-color: rgb(255, 136, 0); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;" id="h">{{h}}</span>
+  </div>
+
+
+  <div class="pymrnt-7" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid blue; background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: blue; padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+          <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1z"/>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+        </svg>
+      </p>
+    
+    <p >  {% trans " طلب ملغي " %}</p>
+  </div>
+    <span style="background-color: blue; padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;"id="d">{{d}}</span>
+  </div>
+
+
+  <div class="pymrnt-8" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid #111; background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: #111; padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-minus" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5"/>
+          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+        </svg>
+      </p>
+    
+    <p >{% trans "عدم الرد" %}</p>
+  </div>
+    <span style="background-color: #111; padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;"id="f">{{f}}</span>
+  </div>
+
+
+  <div class="pymrnt-9" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; width: 100%; height: 70px; box-shadow: 1px 1px 1px 1px rgb(177, 174, 180); border-right: 22px solid rgb(255, 0, 106); background-color: #fff; border-radius: 10px;">
+    <div style=" display: flex; margin-right: 20px; align-items: center;">
+      <p style="background-color: rgb(255, 0, 106); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+          <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+        </svg>
+      </p>
+    
+    <p > {% trans "تم اتشحن " %}</p>
+  </div>
+    <span style="background-color: rgb(255, 0, 106); padding: 10px; margin-left: 6px; border-radius: 100%; color: #fff;"id="g">{{g}}</span>
+  </div>
+
+ 
+ 
+
+</div>
+
+
+
+{%endif%}
+
+
+</div>
+</div>
+
+{% endblock %}

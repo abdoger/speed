@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}| card {% endblock%}
+
+
+{% block content %}
+
+<div   class="content-wrapper">
+    <div class="my-form container p-5 roudend border border-warning">
+      {% include 'parts/allert.html'%}
+   
+      <div style="overflow-x: auto;">
+      <table class="table">
+        <thead style="background-color: black; color: yellow;">
+            <tr>
+                <td>الفقه</td>
+              
+                <td>delete</td>
+                <td>update</td>
+
+           
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in cattger %}
+            <tr>
+                <td>{{i.name}}</td>
+
+                <td><a href="{% url 'deletecattger' i.pk    %}" class="btn btn-outline-danger">delete</a></td>
+                <td><a href="{% url 'updatecattger' i.pk     %}" class="btn btn-outline-primary">update</a></td>
+                
+        
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+      </table>
+    </div>
+
+
+
+   </div>
+</div>
+
+
+{% endblock %}

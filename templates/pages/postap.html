@@ -1,0 +1,290 @@
+
+
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+{% block title %}| card {% endblock%}
+
+{% block content %}
+
+
+<style>
+  body
+  {
+    background-color: #fff;
+  }
+  .my-num{
+  color: red;
+  font-weight: bold;
+  border: 1px solid darkred;
+  padding: 2px 10px;
+  border-radius: 50px;
+  background-color: yellow;
+}
+
+</style>
+  <style>
+    .h{
+  display: flex;
+   gap: 6px;
+   word-wrap: break-word;
+}
+ .kkkk{
+  display: flex; 
+   align-items: center;
+    background-color: aquamarine; 
+    width: 100%;
+     border-radius: 2px;
+ }
+    .table_section{
+      /* height: 65px; */
+      overflow-X: auto;
+    }
+    table{
+      width: 100%;
+      table-layout: fixed;
+      min-width: 1000px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    table tr:nth-child(odd){
+      background-color: #f8f8fb;
+    }
+    table tr{
+      background-color: #fff;
+      text-align: center;
+    }
+    table th{
+      position: static;
+      top: 0;
+      background-color: #f6f9fc;
+      color: #111;
+      font-weight: 66px;
+      font-size: 15px;
+      background-color: #eee;
+      text-align: right;
+    }
+    th{
+      border-bottom:1px solid #2d2b98;
+      padding: 10px 20px;
+      white-space: break-all;
+      /* text-align: center; */
+    }
+    tr td
+    {
+      text-align: right;
+    }
+    tr{
+      /* border-bottom:1px solid #0298cf; */
+      padding: 10px 20px;
+      white-space: break-all;
+      text-align: center;
+      padding-bottom: 66px;
+      margin-top: 66px;
+      
+    }
+    tr,td{
+     padding: 0.8rem 0.8rem  ;
+     text-align: left;
+     min-width: 120px;
+     font-size: 14px;
+
+    }
+    tr:hover{
+      border-bottom:1px solid #2d2b98;
+
+    }
+    td img{
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+      border-radius: 15px;
+      border: 5px solid #ced0d2;
+
+    }
+    tr:hover td{
+      color: #0298cf;
+      background-color: #f6f9fc;
+      cursor: pointer;
+    }
+    td{
+      color: #0298cf;
+    }
+    button{
+      outline: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 5px;
+      color: #fff;
+    }
+    td button:nth-child(1){
+      background-color: #0298cf;
+    }
+    td button:nth-child(2){
+      background-color: #f80000;
+    }
+    .status{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: orange;
+      color: #fff;
+      text-align: center;
+     
+    }
+    .data{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: rgb(255, 68, 0);
+      color: #fff;
+      text-align: center;
+     
+    }
+ 
+  </style>
+<div   class="content-wrapper" style="background-color: #fff;">
+   
+<div class="my-form  p-1 roudend " style="background-color: #fff;">
+
+
+    <div class="preloader-wrapper">
+        <div class="preloader">
+        </div>
+      </div>
+      <div class="pymrnt-1" style="height: 44px; text-align: center; width: 100%; background-color: rgb(0, 166, 255); border-radius: 10px; margin-bottom: 5px;">
+        <h5 style="text-align: center; color: #fff; width: 100%;  text-size-adjust: 100%; "> <span style="">
+
+        </span>
+        {% trans " تقرير بوسطه" %}
+      </h5>
+      </div>
+
+{% include 'parts/allert.html'%}
+
+
+{% if  request.user.is_authenticated or request.user.is_anonymous %}
+
+
+<div  class="h mb-4">
+
+
+  <div class="pymrnt-1 kkkk ">
+    <div style=" color:#fff; font-weight: 900; background-color: rgb(248, 245, 20);  padding: 10px;margin: 8px; margin-left: px; border-radius: 1px; ">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-r-circle" viewBox="0 0 16 16">
+        <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.5 4.002h3.11c1.71 0 2.741.973 2.741 2.46 0 1.138-.667 1.94-1.495 2.24L11.5 12H9.98L8.52 8.924H6.836V12H5.5zm1.335 1.09v2.777h1.549c.995 0 1.573-.463 1.573-1.36 0-.913-.596-1.417-1.537-1.417z"/>
+      </svg>
+    </div>
+    <div style=" ">
+      <h6 >      {% trans "  واصل بوسطه "%} </h6>
+      <h6 >{{y}}</h6>
+    </div>
+  </div>
+
+  <div class="pymrnt-1 kkkk ">
+    <a href="{% url 'dreportpost' %}" class="com btn btn-warning w-100 h-100"> ايضافة تقرير لى بوسطه</a>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- llllllllllllllllll -->
+
+  <div class="table_section" >
+    <table>
+      <thead>
+        <tr class="pymrnt-3">
+          <th>{% trans  "رقم الطلب"%}</th>
+          <th>{% trans "التاريخ"%}</th>
+       
+          <th>{% trans "الحاله" %}</th>
+          <th>   {% trans  "تاكيد الطلب" %}</th>
+      
+          <th>{% trans "المجموع"%}</th>
+          <th>{% trans "group "%}</th>
+
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in x %}
+        <tr class="pymrnt-{{forloop.counter}}" style="padding-bottom: 67px;">
+       
+          <td><span style="padding: 10px; border-radius: 20px; font-weight: 800; background-color: #f800f0; color: #fff;">{{i.id}}</span></td>
+          <td><span class="data">{{i.order_date|date:'Y:m:d'}}</span></td>
+        
+          
+          <td ><span class="status">{{i.status}}</span></td>
+          <td>    {% if i.is_finished == True %}
+            <span style="padding: 10px; border-radius: 20px; font-weight: 800; background-color: #00dff8; color: #fff;"> نعم</span>
+            {% else %}
+            لا
+            
+            {%endif%}
+        </td>
+     
+        <td style=""><span  style="padding: 10px; border-radius: 20px; font-weight: 800; background-color: #f80000; color: #fff;">{{i.total_pasta}}</span></td>
+ 
+        
+        <td>{{i.user_group }}</td>
+     
+        </tr>
+       
+        
+   
+         {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<!-- تتتتتتتتتتتتتتتتتتتتت -->
+
+
+<!-- تتتتتتتتتتتتتتتتتتتتتتتتتت -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endif%}   
+
+</div>
+
+</div>
+
+</div>
+
+
+
+{% endblock %}

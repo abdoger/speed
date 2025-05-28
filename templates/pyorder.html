@@ -1,0 +1,131 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: small;
+        }
+        .table{
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: auto;
+            border: 1px solid white;
+            
+            /* font-family: ; */
+        }
+    </style>
+</head>
+<body>
+    <div style="padding: 5px; border: 1px solid rgb(0, 255, 251); border-radius: 5px;"></td>
+
+        <div style="width: 100%; height: 20%;"></td>
+           
+            <td><img style="width: 100%; height: 23%;border-radius: 10%;" src="https://i.pinimg.com/1200x/7e/1b/ad/7e1bad95412f6ebcfa1079dfd79ae204.jpg"></td>
+        
+        </div>
+      
+         
+         <div style="text-align: center; font-size: 20px;"></td>
+            <span style="font-weight: 900; color: yellow; font-size: 30px;"></td>s</span>peed  future
+            
+         </div>
+        
+            <div style="text-align: center;"></td>
+                {{t}}
+    
+            </div>
+            <div style="text-align: center;"></td>
+                {% trans "رقم الطلب " %} {{orders_id.id}}
+                
+            </div>
+    
+            <div style="text-align: center;"></td>
+                <table class="table" style=" width: 100%;"></td>
+                    <thead>
+                        <tr>
+                            <th>{% trans "المنتج" %}</th>
+                            <th>{% trans "الكميه" %}</th>
+                            <th>{% trans "السعر" %}</th>
+    
+                            <th>{% trans "المقاس" %}</th>
+                            <th>{% trans "اللون" %}</th>
+                            <th>{% trans "الاجمالى" %}</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for line in order %}
+                        <tr>
+    
+                            {% if line.product.boonimg == True  %}
+                
+                            <td>{{line.nameimg}}</td>
+                            {% elif line.product.facat == True  %}
+                     
+                            <td>{{line.product.name}} {{line.colar}}</td>
+                            
+                            {% else %}
+                              <td>{{line.product.name}}</td>
+                              {% endif %}
+                              <td>{{line.quantity}}</td>
+                              <td>{{line.price}}</td>
+                              {% if   line.size %}
+                              <td>{{line.size}}</td>
+                              {% else %}
+                              <td>#</td>
+                              {%endif%}
+                              
+                              {% if   line.colar %}
+                              <td>{{line.colar}}</td>
+                              {% else %}
+                              <td>#</td>
+                              {%endif%}
+                            
+    
+                           
+                            </td> {{ line.price__quantity }}</td>
+    
+                        </tr>
+                        {% endfor  %}
+                    </tbody>
+               
+                    
+                </table>
+                <hr/>
+
+                <div style="text-align:center;">
+                    <p>{% trans "الاجمالى:" %} <span id="printt" style="color:red;"></td>{{s}}</span></p>
+                        
+                  <hr/>
+                    <p >{% trans " قيمة الشحن :" %}<span id="prints">{{no}}</span> </p>
+                    <hr/>
+                    {% if he == True %}
+                    <p >{% trans " العموله :" %} <span id="totaltotal">{{n}}</span></p>
+                    <hr/>
+                    <p >{% trans "المطلوب شامل الشحن ولعموله  :" %}: <span id="totaltotal">{{ru}}</span></p>
+                    <hr/>
+                    {% else %}
+                 
+                    <p >{% trans "المطلوب شامل الشحن :" %} <span id="totaltotal">{{ru}}</span></p>
+
+                    {%endif%}
+        
+                </div>
+
+                <hr/>
+                <div style="text-align:center;">
+                    <p>{% trans " مدة تجهيز الطلب من يوم الى اربعة ايام " %} <span style="color:rgb(0, 255, 72);"></span></p>
+                
+                </div>
+          
+            </div>
+        </div>
+ 
+
+
+</body>
+</html>

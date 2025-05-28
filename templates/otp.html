@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+{% include 'parts/allert.html'%}
+<div class="container">
+    <div class="preloader-wrapper">
+        <div class="preloader">
+        </div>
+      </div>
+    <div class="col-6 max-auto">
+        <div class="row">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="otp " class="form-control" name="otp" required>
+                <a href="{% url 'register' %}"></a>
+                <button class="btn btn-primary"> ارسال</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

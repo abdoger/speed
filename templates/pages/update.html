@@ -1,0 +1,64 @@
+
+{% extends 'base.html'%}
+{% load static %}
+<style>
+
+  .vc{
+    outline:none;
+    border:none;
+    padding:14px;
+  }
+</style>
+{% block content %}
+<style>
+
+  .vc{
+    outline:none;
+    border:none;
+    padding:10px 20px;
+    border-radius: 15px;
+  }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">تعديل </h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+
+    <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    
+      <div class="card-body">
+
+        {{form}}
+       
+      </div>
+    
+      <div class="card-footer">
+        <button type="submit" class=" vc btn-primary">تعديل</button>
+
+      </div>
+    </form>
+  </div>
+
+  
+  <div class="ring ">انتظار
+    <span></span>
+  </div>
+
+
+</div>
+</div>
+  
+
+{% endblock%}
+
+
+

@@ -1,0 +1,103 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f2f4f8;
+    
+    }
+    /* .m{
+        display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    th, td {
+      padding: 15px 20px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    tr:hover {
+      background-color: #f1f9ff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    tr.active {
+      background-color: #d1eaff !important;
+    }
+  </style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    
+
+<button style="border: none; outline: auto;"> <a class="card-title btn btn-info mb-3 mt-1" href="{% url 'mor' %}">اضافة المحفظات</a></button>
+
+<div style="overflow-x: auto; display: block;">
+    <table id="animatedTable">
+      <thead>
+        <tr>
+            <th>المحفظات</th>
+            <th>قيمة الشحن</th>
+            <th> تعديل</th>
+            <th> حزف</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in no %}
+        <tr>
+            <td><a href="{% url 'readMr' i.id %}">{{i.mo}}</a></td>
+            <td>{{i.na}}</td>
+            <td><a href="{% url 'updatemo' i.id%}" class="btn btn-outline-primary">تعديل</a></td>
+            <td><a href="{% url 'modelete' i.id%}" class="btn btn-outline-danger">حذف</a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+    <script>
+      // تمييز الصف عند النقر عليه
+      const rows = document.querySelectorAll("#animatedTable tbody tr");
+      rows.forEach(row => {
+        row.addEventListener("click", () => {
+          rows.forEach(r => r.classList.remove("active"));
+          row.classList.add("active");
+        });
+      });
+    </script>
+
+</div>
+</div>
+
+  
+<!-- abdodjangopaymants -->
+{%endblock%}

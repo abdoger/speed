@@ -1,0 +1,508 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content%}
+<style>
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+        /* cursor: not-allowed; */
+        /* background:yellow; */
+    }
+    .control{
+      display: none;
+    
+    }
+    .gred{
+      display: grid;
+      grid-template-columns: repeat(3,auto);
+    }
+    @media screen and (max-width: 768px) {
+      .gred{
+      display: grid;
+      grid-template-columns: repeat(2,auto);
+    }
+    }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  {% for book in Product %}
+
+  {% if book.price != None %}
+  
+  <p class="totalprice"> {{book.price}}</p>
+  
+  {% endif %}
+  
+  
+  {% endfor %}
+  
+  
+  {% for book in Product %}
+  {% if book.id != None %}
+  <p class="totalid"> {{book.id}}</p>
+  {% endif %}
+  {% endfor %}
+  
+  {% for pro in Product %}
+  {% if pro.qu != None %}
+  
+    <p class="quffffff" >{{pro.qu}}</p>
+  
+  {% endif %}
+  {% endfor %}
+  
+  {% for pro in Product %}
+  {% if pro.qur != None %}
+  
+  <p class="dqurhgyu" >{{pro.qur}}</p>
+  
+  {% endif %}
+  {% endfor %}
+  
+  {% for pro in Product %}
+  {% if pro.qur != None and pro.pricels != None %}
+  
+  <p class="totalwhm" >{% widthratio pro.qur 1 pro.pricels %}</p>
+  
+  {% endif %}
+  {% endfor %}
+  
+  {% for pro in Product %}
+  {% if pro.qu != None and pro.pricels != None %}
+  
+  <p class="totalwhmuur" >{% widthratio pro.qu 1 pro.pricels %}</p>
+  
+  {% endif %}
+  {% endfor %}
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div   class="content-wrapper">
+      {% include 'parts/allert.html'%}
+      <!-- Content Header (Page header) -->
+  
+  
+      <!--الاحصائيات-->
+      <div class="content">
+
+
+        <div class="container-fluid">
+          <div id="cart-1" class="fact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+            </svg>
+             <h5  style="font-weight: 900; font-size:15px;">  ملحوظه </h6>
+              <ul>
+              <li>مدة التعديل والحذف 10 دقايق بعد الاضافه</li>
+              <li> أذا تم السحب من الكميه لا يتم الحذف او التعديل </li>
+              <li>  اى استفسار عن اى شئ اتصل على خدمة العملاء </li>
+              <li> عند الضغط على الكنترول العام فسوف تظهر ازرار الكنترول الجدول لمدة 1 دقيقه لى حفظ البيانات  </li>
+              <li> ازرار كنترول الجدول مدة التفعيل بعد اضافة المنتج  بى 10  دقايق</li>
+             <li style="color: red;font-weight: 700;"> بعد اصافة المنتج يجب الاتصال بخدمة العملاء لتفعيل المنتج </li>
+              <li>  ارقم خدمة العملاء فى القائمه الاساسية </li>
+             
+              </ul>
+              <ul style="padding-right: 70px;">
+                {% for i in cint %}
+                <li style="padding-right: 10px;"><a href="tel:20{{i.number}}">{{i.number}}</a></li>
+             {% endfor %}
+              </ul>
+              
+
+             <span ></span>
+  
+          </div>
+          <a href="{% url 'addprodectfactorygx' %}"  id="cart-2" class="btn btn-info w-100"> اضافة تاجر </a>
+          <!-- /.row -->
+          <div  class="gred"> 
+           
+            <div  id="cart-2" class="fact" >
+              <p> الكمية الأصليه </p>
+              <p class="qurrigfu8f8e"></p>
+                
+            </div> 
+            <div id="cart-3" class="fact" >
+                  <p>  مجموع الأصل  </p>
+                  <p class="totalwhmy"></p>
+            </div>
+            
+          
+
+          <div id="cart-4" class="fact" >
+            <p>  الكمية المتبقيه  </p>
+            <p class="quffffffs"></p>
+           </div>
+          <div id="cart-5" class="fact" >
+           <p>   مجموع المتبقي </p>
+             <p class="totalwhmuury"></p>
+          </div>
+        
+
+          <div  id="cart-6" class="fact">
+           <p>   الكمية الحالية  </p>
+            <p class="totaltalotstyy"></p>
+           </div>
+          <div  id="cart-7" class="fact">
+           <p>   مجموع الحالي </p>
+             <p class="totaltalotst"></p>
+          </div>
+        </div>
+          <!-- form add books -->
+           <div style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="{% url 'addprodectfactory' %}" id="cart-8" class="btn btn-primary"> اضافه منتج</a>
+            <form style="display: inline;">
+              <button type="submit" id="cart-9" class="btn btn-danger controls"> الكنترول العام </button>
+            </form>
+           </div>
+          
+         
+           <div style="display: flex;" >
+       
+
+
+
+           <form   enctype="multipart/form-data" method="POST" class="mt-2 mb-5 w-100"  style="display: block;">
+        
+       
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="text"id="lg" class="form-control" placeholder="بداية التاريخ" name="lg" >
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="text"id="ls" class="form-control" placeholder=" نهاية التاريخ" name="ls" >
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="text" id="name" class="form-control" placeholder="  اسم المنتج" name="name" >
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="number"id="number" class="form-control" placeholder="  رقم صاحب المنتج" name="number" >
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="text"id="facat" class="form-control" placeholder="  المنتجات المتعددة" name="facat" >
+
+              </div>
+           
+              <!-- col-md-12 col-xl-12 col-sm-12 col-xll-112 -->
+              <div class="col-lg-6 ">
+                <input type="text"id="gx" class="form-control" placeholder="اسم  التاجر" name="gx" >
+              </div>
+
+              <div class="col-lg-12 ">
+                <input type="text"id="id" class="form-control" placeholder=" ID " name="id" >
+              </div>
+            </div>
+          <button type="submit" name="p" class=" w-100 mt-4 mb-3" style="border-radius:30px; background:aqua; color: red; border: 1px solid aqua; font-size: 25px; font-weight: 700; background-color: aquamarine;" >بحث</button>
+        </form>
+          <div id="bookform" class="card card-primary collapse">
+            <div class="card-header">
+            
+      
+
+              
+            </div>
+            <!-- Button trigger modal -->
+
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="POST" enctype="multipart/form-data"  > 
+              {% include 'parts/allert.html'%}
+
+              <div class="card-body">
+                {% csrf_token %} 
+           {{from}}
+                <small id='totalrente' class="form-text text-muted"></small>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">اضافة</button>
+              </div>
+            </form>
+          </div>
+  
+                <!-- /.card -->
+          </div>
+          <!-- end form add books -->
+  
+  
+          <!-- تصنيفات-->
+           <div style="overflow-x: auto;">
+            
+      
+
+          <!-- books -->
+
+          <div class="row">
+
+          <!-- الكتب -->
+       
+          <div style="overflow-x: auto;">
+            <table class="table">
+              <thead>
+                <tr style="background-color: black; color: yellow;">
+                  <td>الكنترول</td>
+                  <td>uuid</td>
+
+                  <td>حذف</td>
+                  <td>تعديل</td>
+                
+                 
+
+
+                  <td> التفعيل</td>
+                  <td>حالة المنتج</td>
+
+                  <td>التاجر</td>
+
+
+                  <!-- <td>اسم صاحب المنتج</td> -->
+                  <td>رقم صاحب التاجر</td>
+                  <td>اسم المنتج</td>
+                  
+                  <td>الكمية الموجودة حاليا</td>
+                  <td>الكمية الصلية</td>
+                  <td>السعر الحقيقي للمنتج</td>
+             
+                  <td>   الفئات</td>
+                  <td>  متعدد الفئات</td>
+                 
+                  <td>الشخص الذي أضاف المنتج</td>
+                  <td>  تاريخ بداية المنتج</td>
+                  <td>صورة المنتج</td>
+                  <td> صورة اضافيه للمنتج</td>
+
+                </tr>
+              </thead>
+              <tbody>
+                {% for pro in Product%}
+                <tr  class="  bookhide book{{pro.category.id}}" id="cart-{{forloop.counter}}">
+                  <td>
+                    <div style="position: absolute;" class="btn-group">   
+                      <button type="button" class="btn dropdown-toggle dropdown-toggle-split control control-{{forloop.counter}}"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: black; color: aqua;">
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                  
+                  <div id="p">
+                  {% if pro.pro_dahte >= g %}
+
+                      {% if pro.user_create == request.user %}
+                      <div class="dropdown-menu" style="background-color: #111; color: aqua; width: 90px;">
+                        {% if pro.facat == True%}
+                        <a class="dropdown-item"  style="color: rgb(0, 255, 234); width: 100%;"  href="{% url 'w_to_colar' pro.id %}">اضافة الوان ومقاسات</a>
+                        {% endif %}
+                        {% if pro.boonimg == True %}
+                        <a class="dropdown-item" style="color: rgb(0, 255, 234);"  href="{% url 'dimgs' pro.id %}">اضافة الوان </a>
+                        {% endif %}
+                        
+                        
+                        <!-- <a class="dropdown-item" href="{% url 'add_to_colar' pro.id%}">اضافة الوان</a> -->
+                       
+                    
+                      </div>
+                      {% endif %}
+
+                    
+                    {% endif %}
+                  </div>
+                  </td>
+                  <td ><P style="background-color:#111;color:#fff;padding:7px; text-align:center;">{{pro.uuid}}</p></td>
+
+                  <td>
+                  <a  class="btn btn-outline-danger" href="{% url 'deletefactory' pro.id%}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                      <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15zM5.5 7pa.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1M.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8z"/>
+                    </svg>
+                  </a>
+                    
+                  </td>
+                  <td>
+                    <a style="color: aqua;" class="btn btn-outline-primary"  href="{% url 'updatefactory' pro.id%}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                      </svg>
+                    </a>
+                  </td>
+                  
+
+                 
+                    {% if pro.is_active == True %}
+                  <td>
+                    <P style="padding:4px; border-radius:50%; color:#fff;">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="color: green;" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </svg>
+                      </p>
+                    </td>
+                 
+                  {%else%}
+                  <td>
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                      </svg>
+                  </td>
+
+                  {%endif%}
+
+
+                  <td style="color: #fff; font-size: 15px;">
+                    {% if pro.statusu == 'completed'%}
+                   
+                    <p style="background-color: #111; color: green; padding: 7px; text-align:center;  border-radius: 5px;">{{pro.statusu}}</p>
+                  </div>
+                    {% elif pro.statusu == 'work'%}
+
+                    <p style="background-color: #111; color: yellow; padding: 7px; text-align:center;  border-radius: 5px;">{{pro.statusu}}</p>
+                 
+                  {% elif pro.statusu == 'conduct' %}
+
+                    <p style="background-color: #111; color: rgb(255, 0, 166); padding: 7px; text-align:center;  border-radius: 5px;">{{pro.statusu}}</p>
+              
+                    {% else %}
+                   
+                    <p style="background-color: #111; color: red; padding: 7px; text-align:center;  border-radius: 5px;">{{pro.statusu}}</p>
+                 
+                    {% endif%}
+                  </td>
+
+                  <td>
+
+
+                   {{pro.gx}}
+                  </td>
+                  <!-- <td>
+                    <p>{{pro.namel}}</p>
+                  </td> -->
+                  <td>
+                   <a href="tel:+20{{pro.gx.number}}"><p  class="widget-user-username">{{pro.gx.number}}</p></a> 
+                   <!-- {{pro.gx.number}} -->
+                  </td>
+                  <td>
+                    <p class="widget-user-username">{{pro.name}}</ح>
+                  </td>
+                  <td class="">
+                    <p class="description-header" >{{pro.qu}}</p>
+                  </td>
+                  <td class="">
+                    <p class="description-header" >{{pro.qur}}</p>
+                  </td>
+                  <td class=" " style="display: none;">
+                    <p class="description-header" >{% widthratio pro.qur 1 pro.pricels %}</p>
+                  </td>
+                  <td class=" " style="display: none;">
+                    <p class="description-header" >{% widthratio pro.qu 1 pro.pricels %}</p>
+                  </td>
+                  <td >
+                    <p class="description-header">{{pro.pricels}}</p>
+                  </td>
+                 
+                  <td>
+                    <p class="description-header">{{pro.category.name}}</p>
+                  </td>
+                  <td>
+                    {% if pro.facat == True %}
+                    <p>متعدد</p>
+                    {% else %}
+                    <p>ليس متعدد</p>
+
+                    {% endif  %}
+                  </td>
+                  
+                  <td>
+                    <p class="description-header">{{pro.user_create}}</p>
+                  </td>
+                  <td>
+                    <p class="description-header">{{pro.publish_date|date:'Y-m-d'}}</p>
+                  </td>
+                  
+                  <td>
+                    <div class="widget-user-image">
+                      {% if pro.photo %}
+                      <img style="width:100px; height: 100px;" class="img-circle elevation-2" src="{{pro.photo.url}} " alt="User Avatar">
+                      {%else%}
+                      <p>no</p>
+                      {%endif%}
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="widget-user-image">
+                      {% if pro.photos%}
+                      <img style="width:100px; height: 100px;" class="img-circle elevation-2" src="{{pro.photos.url}} " alt="User Avatar">
+                      {%else%}
+                      <p>no</p>
+                      {%endif%}
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+
+            </table>
+          </div>
+
+          </div>    
+      </div>
+    </div>
+
+    <div class="ring ">انتظار
+      <span></span>
+    </div>
+        <!-- /.container-fluid -->
+  </div>
+      <!-- /.content -->
+</div>
+
+<script>
+  let controls = document.querySelector(".controls")
+  let control = document.querySelectorAll(".control")
+  // const control = [...document.querySelectorAll('[class^="control-"]')]
+  window.onload = function(){
+    control.forEach(function(control){
+      setTimeout(()=>{
+
+control.style.display = 'block';
+
+
+
+
+
+},100); 
+
+setTimeout(()=>{
+
+control.style.display = 'none';
+
+
+
+
+
+},1000*60);
+})
+    }
+
+    
+
+
+</script>
+    <!-- /.content-wrapper -->
+{% endblock%}
+
+
+
+
+

@@ -1,0 +1,45 @@
+
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<div style="direction: rtl;" class="wrapper ">
+  
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+    <div class="card-header titleo">
+      <h3 class="card-title ">  هل تريد ايضافة اطلب الى بوسطه </h3>
+    </div>
+
+    <form  method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      
+        <div class="card-body">
+  
+    
+         
+        </div>
+      
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary postantn">بوسطه</button>
+        </div>
+      </form>
+   
+  </div>
+
+
+  
+  <div class="ring ">انتظار
+    <span></span>
+  </div>
+
+
+</div>
+</div>
+  
+
+{% endblock%}

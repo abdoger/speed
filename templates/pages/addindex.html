@@ -1,0 +1,153 @@
+
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block content%}
+<style>
+  #submit-btn{
+    border: none;
+    outline: auto;
+    padding: 12px;
+    border-radius: 12px;
+  }
+</style>
+<style>
+  .fact{
+      /* width: 25%; */
+      background-color: #ffffff;
+      box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+      margin: 5px 5px 5px 5px;
+      padding: 1em 1.8em;
+      border-radius: 0.6em;
+      border: none;
+      border-bottom: 3px solid #566fff;
+      display: block;
+      /* background:yellow; */
+  }
+  .loaderloader{
+    pointer-events: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #fff;
+    animation: anl 1s ease infinite;
+    display:none;
+    cursor : not-allowed;
+   
+}
+@keyframes anl{
+    0%{
+        transform: rotate(0turn);
+    }
+    100%{
+        transform: rotate(1turn);
+        /* cursor: pointer; */
+    }
+}
+.ssh{
+  outline: none;
+  padding: 6px 10px;
+  border: none;
+}
+
+</style>
+<div style="direction: rtl;" class="wrapper">
+  {% include 'parts/allert.html'%}
+
+  <p id="userpor">{{request.user.id}}</p>
+{% for book in Product %}
+
+
+{% if book.price != None %}
+
+
+
+<p class="totalprice"> {{book.price}}</p>
+
+
+
+
+{% endif %}
+
+
+{% endfor %}
+
+
+{% for book in Product %}
+
+
+{% if book.id != None %}
+
+
+
+<p class="totalid"> {{book.id}}</p>
+
+{% endif %}
+
+
+{% endfor %}
+
+
+    <div   class="content-wrapper">
+
+            <form method="POST" enctype="multipart/form-data"  > 
+           
+
+              <div class="card-body">
+                {% csrf_token %} 
+           {{from}}
+                <small id='totalrente' class="form-text text-muted"></small>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" id="submit-btn" class="ssh btn-primary"> 
+                 <div div style="display: flex; justify-content: space-between; align-items: center; gap: 5px;">
+
+                  <div class="loaderloader"></div>
+                  اضافة
+                  </div>
+                </span></button>
+              </div>
+            </form>
+        
+</div><script>
+  let save = document.getElementById('submit-btn'); 
+  let id_name = document.getElementById('id_name'); 
+  let id_price_decint = document.getElementById('id_price_decint'); 
+  let price = document.getElementById('price'); 
+  let qu = document.getElementById('qu'); 
+  let total = document.getElementById('total'); 
+
+  let id_asname = document.getElementById('id_asname'); 
+  let id_asdescription = document.getElementById('id_asdescription'); 
+  let id_description = document.getElementById('id_description'); 
+  let id_qur = document.getElementById('id_qur'); 
+  let id_gx = document.getElementById('id_gx'); 
+  let id_qus = document.getElementById('id_qus'); 
+
+  
+  let id_category = document.getElementById('id_category'); 
+
+ 
+let displays = document.querySelector('.loaderloader');
+
+save.addEventListener('click',()=>{
+
+ 
+    if (id_name.value != '' && id_asname.value != '' && id_asdescription.value != '' && id_description.value != ''&& id_qur.value != ''&& id_gx.value != '' & id_category.value != '' & id_price_decint.value != ''  & price.value != '' & qu.value != '' & total.value != '' & id_qus.value != ''   ){
+     
+      setTimeout(()=>{
+       displays.style.display = "block";
+       save.style.cursor = "not-allowed";
+       save.disabled = true;
+      
+      },3);
+    }
+
+      
+});
+</script>
+
+{% endblock%}

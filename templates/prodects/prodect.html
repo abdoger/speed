@@ -1,0 +1,1639 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+
+
+{% block style %}
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i');
+body {
+  font-family: 'Muli', sans-serif;
+  background:#ddd;
+}
+
+.shell{
+  padding:80px 0;
+}
+.wsk-cp-product{
+  background:#fff;
+  padding:15px;
+  border-radius:6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  position:relative;
+  margin:20px auto;
+}
+.wsk-cp-img{
+  position:absolute;
+  top:5px;
+  left:50%;
+  transform:translate(-50%);
+  -webkit-transform:translate(-50%);
+  -ms-transform:translate(-50%);
+  -moz-transform:translate(-50%);
+  -o-transform:translate(-50%);
+  -khtml-transform:translate(-50%);
+  width: 100%;
+  padding: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.wsk-cp-img img{
+  width:100%;
+  transition: all 0.2s ease-in-out;
+  border-radius:6px;
+}
+.wsk-cp-product:hover .wsk-cp-img{
+  top:-40px;
+}
+.wsk-cp-product:hover .wsk-cp-img img{
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.wsk-cp-text{
+  padding-top:150%;
+}
+.wsk-cp-text .category{
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  padding:5px;
+  margin-bottom:45px;
+  position:relative;
+  transition: all 0.2s ease-in-out;
+}
+.wsk-cp-text .category > *{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  -khtml-transform: translate(-50%,-50%);
+    
+}
+.wsk-cp-text .category > span{
+  padding: 12px 30px;
+  border: 1px solid #313131;
+  background:#212121;
+  color:#fff;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  border-radius:27px;
+  transition: all 0.05s ease-in-out;
+  
+}
+.wsk-cp-product:hover .wsk-cp-text .category > span{
+  border-color:#ddd;
+  box-shadow: none;
+  padding: 11px 28px;
+}
+.wsk-cp-product:hover .wsk-cp-text .category{
+  margin-top: 0px;
+}
+.wsk-cp-text .title-product{
+  text-align:center;
+}
+.wsk-cp-text .title-product h3{
+  font-size:20px;
+  font-weight:bold;
+  margin:15px auto;
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  width:100%;
+}
+.wsk-cp-text .description-prod p{
+  margin:0;
+}
+/* Truncate */
+.wsk-cp-text .description-prod {
+  text-align:center;
+  width: 100%;
+  height:62px;
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  margin-bottom:15px;
+}
+.card-footer{
+  padding: 25px 0 5px;
+  border-top: 1px solid #ddd;
+}
+.card-footer:after, .card-footer:before{
+  content:'';
+  display:table;
+}
+.card-footer:after{
+  clear:both;
+}
+
+.card-footer .wcf-left{
+  float:left;
+  
+}
+
+.card-footer .wcf-right{
+  float:right;
+}
+
+.price{
+  font-size:14px;
+  font-weight:bold;
+}
+
+a.buy-btn{
+  display:block;
+  color:#212121;
+  text-align:center;
+  font-size: 18px;
+  width:35px;
+  height:35px;
+  line-height:35px;
+  border-radius:50%;
+  border:1px solid #212121;
+  transition: all 0.2s ease-in-out;
+}
+a.buy-btn:hover , a.buy-btn:active, a.buy-btn:focus{
+  border-color: #FF9800;
+  background: #FF9800;
+  color: #fff;
+  text-decoration:none;
+}
+.wsk-btn{
+  display:inline-block;
+  color:#212121;
+  text-align:center;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+  border-color: #FF9800;
+  background: #FF9800;
+  padding:12px 30px;
+  border-radius:27px;
+  margin: 0 5px;
+}
+.wsk-btn:hover, .wsk-btn:focus, .wsk-btn:active{
+  text-decoration:none;
+  color:#fff;
+}  
+.red{
+  color:#F44336;
+  font-size:22px;
+  display:inline-block;
+  margin: 0 5px;
+}
+@media screen and (max-width: 991px) {
+  .wsk-cp-product{
+    margin:40px auto;
+  }
+  .wsk-cp-product .wsk-cp-img{
+  top:-40px;
+}
+.wsk-cp-product .wsk-cp-img img{
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+  .wsk-cp-product .wsk-cp-text .category > span{
+  border-color:#ddd;
+  box-shadow: none;
+  padding: 11px 28px;
+}
+.wsk-cp-product .wsk-cp-text .category{
+  margin-top: 0px;
+}
+a.buy-btn{
+  border-color: #FF9800;
+  background: #FF9800;
+  color: #fff;
+}
+}
+
+/* ظظظظظظظظظظظظظظظظظ */
+.ring
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  background:transparent;
+  border:3px solid #3c3c3c;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-family:sans-serif;
+  font-size:20px;
+  color:aqua;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px #fff000;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+  display:none;
+}
+.ring:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid #fff000;
+  border-right:3px solid #fff000;
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+.ring span
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+.ring  span:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fff000;
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px #fff000;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}
+</style>
+
+
+<!-- llllllllllllllllllll -->
+
+<style>
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.labls {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.product-container {
+  display: flex;
+  /* flex-wrap:wrap; */
+  justify-content: start;
+  align-items: start;
+  gap: 40px;
+}
+
+/* .img-card{
+    width: 40%;
+} */
+
+.img-card img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 4px;
+  height: 520px;
+  object-fit: cover;
+}
+
+.small-Card {
+  display: flex;
+  flex-wrap:wrap;
+  
+  justify-content: start;
+  align-items: center;
+  margin-top: 15px;
+  gap: 12px;
+}
+
+
+.small-Card img {
+  width: 104px;
+  height: 104px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.small-Card img:active {
+  border: 1px solid #17696a;
+}
+
+.sm-card {
+  border: 2px solid darkred;
+}
+
+.product-info{
+  width: 60%;
+}
+.product-info h3 {
+  font-size: 32px;
+  font-family: Lato;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.product-info h5 {
+  font-size: 24px;
+  font-family: Lato;
+  font-weight: 500;
+  line-height: 130%;
+  color: #ff4242;
+  margin: 6px 0;
+}
+
+.product-info del {
+  color: #a9a9a9;
+}
+
+.product-info p {
+  color: #424551;
+  margin: 15px 0;
+  width: 70%;
+}
+
+.sizes p {
+  font-size: 22px;
+  color: black;
+}
+
+.size-option {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.quantity input {
+  width: 51px;
+  height: 33px;
+  margin-bottom: 15px;
+  padding: 6px;
+}
+
+button {
+  background: #17696a;
+  border-radius: 4px;
+  padding: 10px 37px;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #ff4242;
+  transition: ease-in 0.4s;
+}
+
+.delivery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  color: #787a80;
+  font-size: 12px;
+  font-family: Lato;
+  line-height: 150%;
+  letter-spacing: 1px;
+}
+
+hr {
+  color: #787a80;
+  width: 58%;
+  opacity: 0.67;
+}
+
+.pagination {
+    color: #787a80;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+  .product-container{
+    flex-direction: column;
+  }
+  .small-Card img{
+    width: 100px;
+  }
+  .product-info{
+    width: 100%;
+  }
+
+  .product-info p{
+    width: 100%;
+  }
+
+  .delivery{
+    width: 100%;
+  }
+
+  hr{
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 300px) {
+  .small-Card {
+    width: 100px;
+    width: 50%;
+  }
+  .product-container{
+    width: 100px;
+    width: 50%;
+  }
+ 
+  .small-Card img{
+    width: 100px;
+  }
+}
+
+</style>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=El+Messiri:wght@400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+
+  .n , .bbbbb {
+  font-family: "El Messiri", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+.nmn{
+  width: 90%; margin-bottom: 10px; background-color: #fff; border-radius: 20px; color: #0298cf; border: 2px solid #0298cf; font-weight: 700; font-size: 30px; 
+}
+.nmn:hover{
+background-color: #0298cf;
+color: #fff;
+}
+  </style>
+
+
+</style>
+<!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+
+
+<style>
+  :root{
+      --first-color: hsl(176,88%,27%);
+      --first-color-alt:hsl(129,44%,94%);
+      --border-color:hsl(129,36%,85%);
+      --body-color:hsl(0,0%,100%);
+
+      --body-color:hsl(0,0%,100%);
+      --text-color:hsl(154,13%,32%);
+      --text-color-light:hsl(60,1%,56%);
+      
+      --transition: cubic-bezier(0,0,0.05,1) ;
+
+
+  }
+  body{
+    background-color: var(--body-color);
+  }
+  .container{
+      max-width: 1320px;
+      margin-inline: auto;
+      padding-inline: 0.75rem;
+  }
+  .flex{
+      display: flex;
+      align-items: center;
+      column-gap: .5rem;
+  }
+ 
+  .section{
+      padding-block: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content:center;
+  }
+  .prodects_container {
+      display: grid;
+      grid-template-columns:  repeat(4, 1fr);
+      
+      overflow: hidden;
+      
+      column-gap: .5rem;
+
+  }
+  @media (max-width:900px) {
+      .prodects_container {
+      display: grid;
+      grid-template-columns:  repeat(2, 1fr);
+      }
+      
+  }
+  .prodect_item{
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    transition:  all 0.2s var(--transition);
+    margin-bottom: 7px;
+  }
+  .prodect__banner{
+      padding: .625rem .75rem .75rem  ;
+  }
+  .prodect_images{
+      position: relative;
+      
+  }
+  .prodect_images{
+      display: block;
+      overflow: hidden;
+      border-radius: 1.25rem;
+  }
+  .prodect_img{
+    vertical-align: middle;
+    transition:  all 1.5s var(--transition);
+  }
+  .prodect_item:hover .prodect_img{
+     transform: scale(1.1);
+  }
+  .prodect__banner,
+  .prodect_images{
+    
+      position: relative;
+  }
+  .prodect_img.hover{
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  .tab__ptn.active-tab{
+      color: red;
+      background-color: hsl(154,13%,32%);;
+  }
+  .prodect_actions{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      display: flex;
+      column-gap: .5rem;
+      transition: all .2s var(--transition);
+  }
+  .tab_item:not(.active-tab){
+      display: none;
+  } 
+  .prodect_images{
+      overflow: hidden;
+      border-radius: 1.5rem;
+  }
+  .prodect_images img{
+    width: 100%;
+      
+  }
+  .action_btn{
+      width: 40px;
+      height: 40px;
+      line-height: 42px;
+      text-align: center;
+      border-radius: 50px;
+      background-color: var(--first-color-alt);
+      border: 1px solid var(--body-color) ;
+      color: var(--text-color);
+      font-size: small;
+      position: relative;
+  }
+  .prodct_bage{
+      position: absolute;
+      left:  1.25rem;
+      top: 1.25rem;
+      background-color: rgb(245, 11, 132);
+      color: white;
+      width: 35px;
+      height: 25px;
+      padding: 0.25rem 0.625rem;
+      line-height: 18px;
+      border-radius: 40%;
+      text-align: center;
+      font-size: small;
+     
+  }
+  .action_btn::before,
+  .action_btn::after{
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+transition:  all .3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  }
+  .action_btn::before{
+      content: '';
+      top: -2px;
+      border: .5rem solid transparent;
+      border-top-color: var(--first-color) ;
+  }
+  .action_btn::after{
+      content: attr(aria-label);
+      bottom: 100%;
+      background-color: var(--first-color);
+      color: var(--body-color);
+      font-size: small;
+      font-weight: 500;
+      white-space: nowrap;
+      padding-inline: .625;
+      border-radius: 3px;
+      line-height: 2.58;
+      padding: 4px;
+
+  }
+  .prodect_img.hover,
+  .prodect_actions,
+  .action_btn::before,
+  .action_btn::after,
+  .prodect_item:hover  .prodect_img.defaulf{
+      opacity: 0;
+  }
+  .prodect_item:hover .prodect_img.hover,
+  .prodect_item:hover .prodect_actions,
+  .action_btn:hover::before,
+  .action_btn:hover::after{
+      opacity: 1;
+  }
+  .action_btn:hover::before,
+  .action_btn:hover::after{
+      transform:  translateX(-50%) translateY(-0.5rem);
+  }
+  .action_btn:hover{
+      background-color: var(--first-color);
+      border-color: var(--first-color) ;
+      color: var(--body-color);
+  }
+  .prodect_item:hover{
+      box-shadow:  0 0 10px hsla(0, 0%, 0%, 0.1);
+  }
+  .brodect__content{
+      padding:  0 1.25rem 1.125rem;
+      position: relative;
+
+  }
+  .prodect_category{
+      color: var(--text-color-light);
+      font-size: smaller;
+  }
+  .prodect_title{
+      font-size: 12px;
+      margin-block:  0.75rem 0.5rem;
+      color: black;
+      text-decoration: none;
+
+  }
+  .prodect_rating{
+      color: hsl(42, 100%, 50%);
+      font-size: smaller;
+      margin-bottom: 0.75rem;
+  }
+  .cart_btn{
+      position: absolute;
+      bottom: 1.6rem;
+      left: 6px;
+  }
+  .new__price{
+      color: var(--first-color);
+      font-weight: 600;
+  }
+  .old__price{
+      color: var(--text-color-light);
+      font-weight: small;
+      text-decoration: line-through;
+  }
+  .prodect_price .new__price{
+      font-size: large;
+      font-weight: 900;
+  }
+  a{
+      text-decoration: none;
+  }
+  .prodect_rating i{
+      font-size: 20px;
+      font-weight: 900;
+  }
+   .slider-btns{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 25px auto 10px auto;
+    padding: 0px 10px;
+    
+  }
+ 
+  .slider-btns button{
+   position: static !important;
+   transform: translate(0,0);
+   display: flex;
+   font-size: 388px !important;
+   margin-left: 33px;
+   padding: 3px;
+   justify-content: center;
+   top: 2.875rem !important; 
+
+  } 
+  
+  /* .slider-btns{
+    overflow: initial !important;
+  } */
+
+  .swiper-button-next::after,
+    .swiper-button-prev::after{
+        content: 'f';
+    }
+    .swiper-button-next,
+    .swiper-button-prev{
+        /* top: -1.875rem !important; */
+        background-color: var(--first-color-alt);
+        border: 1px solid var(--border-color);
+        color: var(--border-color) !important;
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 50%;
+        font-size: 19rem !important;
+        font-weight: 100 !important;
+        text-align: center;
+        cursor: pointer;
+        overflow: hidden;
+
+    }
+    .vr{
+      color: red !important;
+    }
+  
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+        text-align: center;
+    }
+
+ .number-button{
+background-color: white;
+color: #666;
+border: 1px solid #666; 
+border-radius: 5px;
+padding: 5px 10px;
+font-size: 18px;
+cursor: pointer;
+transition: all 0.3s ease;
+ }
+ .number-button:hover{
+  background-color: #666;
+  color: white;
+ }
+ .numbers-buttons{
+  background-color: white;
+color: #666;
+border: 1px solid #666; 
+border-radius: 5px;
+padding: 5px 10px;
+font-size: 18px;
+cursor: pointer;
+transition: all 0.3s ease;
+ }
+ .numbers-buttons:hover{
+  background-color: #666;
+  color: white;
+ }
+
+</style>
+
+{% endblock%}
+{% block content %}
+
+
+<div style="direction: rtl;" class="wrapper">
+ 
+  <div   class="content-wrapper ">
+
+    {% include 'parts/allert.html'%}
+    <div class="labls">
+     
+      <!-- product section -->
+      <section class="product-container" >
+          <!-- left side -->
+          <div  class="img-card" style="margin-top: 7px;" >
+              <img style="border-radius: 30px;" name="imgspro" src="{{pro.photo.url}}" alt="" id="featured-image"  class="pymrnt-1 videor" >
+              <!-- small img -->
+              
+              <div class="small-Card" >
+                <img src="{{pro.photo.url}}" alt="" class="small-Img" id="cart-{{forloop.counter}}">
+                {% if pro.photos %}
+                <img src="{{pro.photos.url}}" alt="" class="small-Img" id="cart-{{forloop.counter}}">
+                {%else%}
+                <img src="{{pro.photo.url}}" alt="" class="small-Img" id="cart-{{forloop.counter}}">
+  
+                {%endif%}
+                {% if pro.boonimg == True %}
+            
+              {% for i in pro.Img.all %}
+                  <img  src="{{i.photos.url}}" alt="" class="small-Img" id="cart-{{forloop.counter}}">
+                  
+                  {% endfor %}
+                  {% endif %}
+                  {% if pro.facat == True %}
+            
+                  {% for i in pro.productcolors.all %}
+                      <img  src="{{i.color.url}}" alt="" class="small-Img" id="cart-{{forloop.counter}}">
+                      {% endfor %}
+                      {% endif %}
+              </div>
+             
+
+
+          </div>
+
+<!-- vvvvvvvvvvvvvvvvvvvv -->
+
+
+<!-- vvvvvvvvvvvvvvvvvvvv -->
+
+
+
+
+          <!-- Right side -->
+          <div class="product-info" style="font-size: 15px;" data-aos='fade-down' >
+            <div class="pymrnt-2 fact" >
+              <h5 style="text-align: center; color: #0298cf; width: 100%; font-weight: 90px;  text-size-adjust: 100%; font-weight: bold; ">{% trans "تفاصيل المنتج" %}</h5>
+            </div>
+            
+              <div class="pymrnt-3 fact" style="overflow: hidden;">
+                <h3 style="color: #777; display: flex;  word-wrap: break-word;">
+                  <samp>
+                    {% trans "كود المنتج " %}:{{pro.uuid}}
+                  </samp>
+                </h3>
+                <h4 style="color: #0298cf;;"> {% trans "تحميل الميديا" %}</h4>
+                <h4 style="color: #777; margin-top: 10px;"> {% trans "السعر قبل الخصم" %}: <del>{{pro.price_decint}}</del> {% trans "جنيه" %} </h4>
+                <h4 style="color: #777; margin-top: 40px;"> {% trans "السعر" %}: {{pro.price}} {% trans "جنيه" %}</h4>
+
+<hr style="width: 100%;">
+
+            {% get_current_language as lang %}
+                  {% if lang == 'ar' %}
+                  <h4 >{% trans "اسم المنتج " %}:{{pro.name}}</h4>
+                  {%else%}
+                  <h4 >{% trans "اسم المنتج " %}:{{pro.asname}}</h4>
+                  {%endif%}
+                  
+             
+                  <span style="color: #777;">  {% trans "عدد القطع المتاحه بالمخازن" %}: {{pro.qu}} <span style="color: red;"></span> </span>
+                  <br>
+                  {% if qus %}
+                  <span style="color: #777;">{% trans "العموله للمنتج " %} :{{pro.qus}}</span>
+                  {% endif %}
+               
+         
+
+           
+                <h4 style="color: #0298cf;;">{% trans "وصف المنتج وخاماته" %}</h4>
+                {% if lang == 'ar' %}
+                <h6 style="font-weight:900; color:hsl(176,88%,27%);  word-wrap: break-word;"> 
+                 
+                   <ul>
+                    <li>
+                      {{pro.description}}
+                    </li>
+                   </ul>
+                    
+                    
+                  </h5>
+                  {%else%}
+                  <h6 style="font-weight:900; color:hsl(176,88%,27%);  word-wrap: break-word;"> 
+                    <ul >
+                      <li>{{pro.asdescription}}</li>
+                    </ul>
+                    </h5>
+                  {%endif%}
+                  
+               
+             
+         
+  <br><br><br>
+              <button class="pymrnt-4 com nmn"  type="button"   data-toggle="modal" data-target="#exampleModal"> الكميه المطلوبه</button>
+  
+            
+              
+  
+              <div>
+                  
+                  {% if pro.facat == True %}
+            <h6>{% trans " الالوان والمقاسات بالكميات المتاحه  فى المخازن" %}</h6>
+                  {% for i in pro.productcolors.all %}
+                  <div style=""class="pymrnt-{{forloop.counter}} ">
+                    <div style="width: 100%; height: 200px;" >
+                      <img src="{{i.color.url}}" alt="Product" style="width: 100%; border-radius: 10px; height: 200px;"  />
+                    </div>
+                    <div style="width: 100%;">
+                      {% if lang == 'ar' %}
+                      <button value="{{i.name}}"   class="selectedcoors number-button w-100 m-2"  > اللون {{i.name}}</button>
+
+                      {%else%}
+                      <button value="{{i.name}}"    class="selectedcoors number-button w-100 m-2"> اللون {{i.asname}}</button>
+
+                      {%endif%}
+                    </div>
+                    <div style="gap: 3px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;">
+                      
+                    <div style="display: block;  ">
+                      
+
+                      <button style="display: block; "class="number-button" > {% trans "المقاس" %}</button>
+                      <button style="display: block; margin-top: 10px; margin-bottom: 10px;" class="numbers-buttons" >{% trans "الكميه" %}</button>
+                    </div>
+                    {% for s in i.productsises.all %}
+                 
+                    <div style="display: block; ">
+                      <button style="display: block;  " class="number-button qusisequsise" value="{{s.sisel}}">{{s.sisel}}</button>
+                      <!-- <p style="display: block;  margin: 4px;" class="btn btn-outline-info">{{s.sisel}}</p> -->
+                      <button style="display: block;   margin-top: 10px; margin-bottom: 10px; "class="numbers-buttons qusisequsise" value="{{s.qusise}}">{{s.qusise}}</button>
+
+                    </div>
+       
+                    {% endfor %}
+                  </div>
+                  </div>
+
+           
+                  {% endfor %}
+                  {% endif%}
+
+
+
+                  {% if pro.boonimg == True  %}
+            
+                  {% for i in pro.Img.all %}
+                  <div style=""class="pymrnt-{{forloop.counter}} ">
+                    <div style="width: 100%; height: 200px;" >
+                      <img class="pymrnt-1" src="{{i.photos.url}}" alt="Product" style="border-radius: 10px; width: 100%; height: 200px;"  />
+                    </div>
+                    <div  class="pymrnt-2 " >
+                      <p style="text-align: center; width: 100%; " class="btn btn-info"  >{{i.name}}</p>
+                    </div>
+                    <div style="gap: 3px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;">
+                      
+                    <div style="display: block;  text-align:center;">
+                      <p style="display: block;   padding-left:  33px; "class="pymrnt-3 btn btn-outline-warning">{% trans "الكميه" %}</p>
+                    </div>
+                    
+                 
+                    <div style="display: block;  text-align:center;">
+                      
+                      <p style="display: block;   margin: 4px; "class="pymrnt-3 btn btn-outline-warning ">{{i.quimg}}</p>
+
+                    </div>
+       
+                  </div>
+                  </div>
+
+           
+                  {% endfor %}
+                  {% endif%}
+                 
+                 
+     
+
+              </div>
+          </div>
+      </section>
+  
+      <!-- script tags -->
+      <script src="js/cart.js"></script>
+  </div>
+
+    <!-- kkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Content Header (Page header) -->
+
+            <form action="{% url 'add_to_cart' %}" id="frmddtocart">
+              
+        </section>
+        
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        
+       
+        {{name}}
+
+      </div>
+
+    </div>
+    
+        <!-- Main content -->
+        
+        <section class="content " >                  
+          <!-- Default box -->
+           <div style="">
+          <div class="card card-solid" style="  ">
+            <div class="card-body pb-0" >
+              <!-- mmmmmmmmmmmmm -->
+
+               <!-- mmmmmmmmmmmmmmmmmmmm -->
+              <div class="row  ">
+                <!-- بداية الكتاب -->
+                <div  id="" class="card bg-light" >
+                   
+                  <div class="card-body pt-0">
+                    <div class="row">
+                 
+                      <div class=" text-center" class="card-footer d-flex " style="display: flex; justify-content:center; align-items: center;">
+                          <!-- <img style="height: 100%; width: 100%; border-radius: 10%;"  src="{% static 'dist/img/photo1.png'%}" alt="" class=" img-fluid"> -->
+                          <!-- <img  lass="btn btn-primary" data-target="#exampleModalToggle" data-toggle="modal" style="width: 50%; border-radius: 10%;"  src="{{pro.photo.url}} " alt="User Avatar"> -->
+                        </div>
+                    </div>
+                  </div>
+                
+                  <!-- <div class="card-footer d-flex " style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="text-right" style="  word-wrap: normal;">
+                   
+                      
+                      <ul class="  fa-ul text-muted">
+                        <li class="small"><span class="fa-li"></span>: {{pro.name}}</li>
+
+                        <li class="small"><span class="fa-li"></span>السعر: {{pro.price}}</li>
+
+                      </ul>
+                      
+                      
+                     
+                      
+                    
+                    </div>
+                    <div class="text-lift">
+                   
+                  
+                      <button type="button" style="font-size: large;" class="btn btn-outline-info w-100" data-toggle="modal" data-target="#exampleModal">
+                        الكميه
+                      </button>
+                      
+            
+                    </div>
+                    
+                   
+
+                  </div>
+                   -->
+         
+                </div>
+
+           
+
+                
+            
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">اختر الكميه </h1>
+                                <button type="button" class="com btn btn-outline-danger" data-dismiss="modal" aria-label="Close">X</button>
+                              </div>
+                              <div class="modal-body">
+                                <label for="inputQty">الكميه:</label>
+                                <select  id="inputQty" class="form-control" required name="qty">
+                                 
+                                 
+                                  
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+
+                                    <select>
+                                {% if pro.boonimg == True  %}
+                                <label for="namei">اختر الون:</label>
+                                
+                                <select name="namei" id="namei" class="form-control" >
+                                  <optgroup selected  label="اختر الون">
+                                    {% for i in pro.Img.all %}
+                                  
+                                    <option value="{{i.name}}">{{i.name}}</option>
+                                    {% endfor %}
+                               
+
+                                  </optgroup>
+
+                                </select>
+                                {% endif %}
+                                {% if pro.facat == True  %}
+                                <label for="colar">اختر الون:</label>
+
+                                <select name="colar" id="colar" class="form-control">
+                                  <!-- <optgroup selected  label="اختر الون"> -->
+                                   <option selected > اختر الون  </option>
+
+                                    {% for i in pro.productcolors.all %}
+                                   
+                                  
+                                    
+                                    <option value="{{i.name}}">{{i.name}}</option>
+                                    {% endfor %}
+                               
+
+                                  </optgroup>
+
+                                </select>
+                                <label for="size">اختر المقاس:</label>
+
+                                
+                                <select name="size" id="size"  class="sizesizesized form-control">
+                                  <optgroup label="اختر المقاس">
+                                    
+                                
+                                  </optgroup>
+
+                                </select> 
+                                {% endif %}
+
+                                
+                               
+
+                                <input type="hidden" id="pro_id" name="pro_id" value="{{pro.id}}">
+                                <input type="hidden" id="uuid" name="uuid" value="{{pro.uuid}}">
+
+                                <input type="hidden" name="price" value="{{pro.price}}">
+                                
+                              </div>
+                              <div class="modal-footer">
+                                <button  class="com btn btn-outline-danger" type="button"data-dismiss="modal" id="btnclose">الغاء</button>
+                                <button   class="com btn btn-primary" onclick="addtocard()" >شراء</button>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        
+                      </div>
+                    </div>
+          </div>
+        </div>
+                  
+            
+  
+        </section>
+        </form>
+
+        <section class="prodects section ffrd">
+
+          <div class="tab_items">
+              <div class="tab_item active-tab">
+                  <div class=" prodects_container grid">
+                    {% for pro in bb %}
+                      <div class="prodect_item  bookhide book{{pro.category.id}} "  data-aos="{% cycle 'fade-up' 'fade-down' 'zoom-in' 'flip-left' %}">
+                          <div class="prodect__banner">
+  
+                              <div  class="prodect_images">
+                                  
+                                  <img src="{{pro.photo.url}}" alt="" class="prodect_img defaulf">
+                                  {% if pro.photos %}
+                                  <img src="{{pro.photos.url}}" alt="" class="prodect_img hover">
+                                  {%else%}
+                                  <img src="{{pro.photo.url}}" alt="" class="prodect_img hover">
+
+                                  {%endif%}
+                              </div>
+                             <div class="prodect_actions">
+                              <a  href="{% url 'prodect_favorite' uuid=pro.uuid%}"  class="action_btn" aria-label="اعجاب">
+                                <i ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                  <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+                                </svg></i>
+                              </a>
+                            
+                              <a href="{% url 'prodect' uuid=pro.uuid%}" class="action_btn" aria-label=" تفاصيل المنتج ">
+                                  <i><i class="fa fa-eye"></i> </i>
+                              </a>
+  
+                              </div>
+<!--   
+                              <div class="prodct_bage light-pink">
+                                {% if pro.qudesconts %}
+                               {{pro.qudesconts}}%
+                                {%else%}
+  0
+                                {%endif%}
+                              </div> -->
+  
+                          </div>
+  
+                          
+  
+                          <div class="brodect__content">
+                              <span class="prodect_category">{{pro.category.name}}</span>
+                            
+                                  <h3 class="prodect_title">
+                                    {{pro.name}}
+                                  </h3>
+                                  {% if qus %}
+                                  <p class="price" style="font-weight:600;">العموله: {{pro.qus}}</p>
+                                  {% endif %}
+                              
+                              <div class="prodect_rating">
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="fas fa-star"></li>
+                                <li class="far fa-star"></li>
+                                <li class="far fa-star"></li>
+                              </div>
+                              <div class="prodect_price flex">
+                                  <span class="new__price">
+                                     ج {{pro.price}}
+                                  </span>
+                                  <span class="old__price">
+                                      {{pro.price_decint}}
+                                  </span>
+                              </div>
+                              <a href="{% url 'prodect' uuid=pro.uuid %}"class="action_btn cart_btn" aria-label="اضف الى السله">
+                                  <i> <svg style="color: #202020;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                  </svg></i>
+                              </a>
+                          </div>
+                      </div>
+                      {%endfor%} 
+  
+  
+  
+  
+                
+  
+  
+                    
+  
+                  </div>
+              </div>
+          </div>
+  
+      </section>
+
+      </div>
+    
+
+
+    
+    
+  </div>
+ 
+</div>
+
+
+
+
+
+
+
+
+<!-- سسسسسسسسسسسسسسسسسسسسسسسسسسسس -->
+
+
+<!-- سسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسس -->
+
+
+
+
+
+
+
+
+
+<!-- <script>
+ var colar = document.querySelectorAll('.selectedcoors');
+ colar.forEach( (eo)=>{
+  eo.addEventListener('click',() =>{
+  alert(eo.value);
+  console.log();
+  let pro_id = parseInt($('#pro_id').val())
+  let colar = parseInt($('#colar').val())
+//     $.ajax({
+    
+//     url:'/orders/ajex/',
+//     data:{
+//       'pro_id':pro_id,
+//       'colar':$('#colar').val(),
+//     },
+//     dataType :'json',
+//     success: function(data){
+ 
+//       let form_data = JSON.parse(data.data)
+//       $('#size').each(function(){
+//         $(this).children("option").remove()
+//       });
+      
+//       let i;
+//       for(i=0;form_data.length;i++){
+//          $.each(form_data[i].fields,function(i,value){
+//           if(i=='sisel')
+//            $('#size').append(`<option value="${value}">${value} </option>`),
+        
+//            console.log(i+'+----------'+value)
+//          });
+//         }
+
+//     },
+//     error: function(data){
+//       console.log('lllllllllllllllllllllnbb')
+
+// },
+//   });
+  
+// });
+
+  })
+  
+</script> -->
+<script>
+  var colar = document.querySelectorAll('.selectedcoors');
+  var sizesizesized = document.querySelector('.sizesizesized');
+  var qusisequsise = document.querySelectorAll('.qusisequsise');
+
+
+  var colars = document.getElementById('colar');
+  
+
+
+  colar.forEach(function(eo){
+    console.log(colar.value)
+    eo.addEventListener('click',() =>{
+      
+      colars.value = eo.value;
+      
+    let pro_id = parseInt($('#pro_id').val())
+    let colar = parseInt($('#colar').val())
+    $.ajax({
+    
+    url:'/orders/ajex/',
+    data:{
+      'pro_id':pro_id,
+      'colar':$('#colar').val(),
+    },
+    dataType :'json',
+    success: function(data){
+ 
+      let form_data = JSON.parse(data.data)
+      $('#size').each(function(){
+        $(this).children("option").remove()
+      });
+      
+      let i;
+      for(i=0;form_data.length;i++){
+         $.each(form_data[i].fields,function(i,value){
+          if(i=='sisel')
+           $('#size').append(`<option value="${value}">${value} </option>`),
+        
+           console.log(i+'+----------'+value)
+         });
+        }
+
+    },
+    error: function(data){
+      console.log('lllllllllllllllllllllnbb')
+
+},
+  });
+  
+
+
+  });
+  })
+
+  qusisequsise.forEach(function(eo){
+    
+    eo.addEventListener('click',() =>{
+      
+      sizesizesized.value = eo.value;
+    console.log(eo.value)
+  })
+  })
+ 
+ 
+
+</script>
+
+
+<script>
+   function seletValuet(value){
+   var size = document.getElementById('size');
+   size.value = value;
+};
+
+  function addtocard(){
+    document.getElementById('btnclose').click();
+
+    document.getElementById('frmddtocart').submit();
+
+  }
+</script>
+
+<script>
+let featuedImg = document.getElementById('featured-image');
+let m = document.getElementById('mtd');
+
+let smallImgs = document.getElementsByClassName('small-Img');
+
+
+smallImgs[0].addEventListener('mouseenter', () => {
+    featuedImg.src = smallImgs[0].src;
+    m.value = smallImgs[0].src;
+  
+    smallImgs[0].classList.add('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+})
+smallImgs[1].addEventListener('mouseenter', () => {
+    featuedImg.src = smallImgs[1].src;
+    m.value = smallImgs[1].src;
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.add('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+})
+smallImgs[2].addEventListener('mouseenter', () => {
+    featuedImg.src = smallImgs[2].src;
+    m.value = smallImgs[2].src;
+
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.add('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+})
+smallImgs[3].addEventListener('mouseenter', () => {
+    featuedImg.src = smallImgs[3].src;
+    m.value = smallImgs[3].src;
+
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.add('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+})
+smallImgs[4].addEventListener('mouseenter', () => {
+  featuedImg.src = smallImgs[4].src;
+  m.value = smallImgs[4].src;
+
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.add('sm-card')
+})
+
+smallImgs[5].addEventListener('mouseenter', () => {
+  featuedImg.src = smallImgs[5].src;
+  m.value = smallImgs[5].src;
+
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+
+    smallImgs[5].classList.add('sm-card')
+})
+
+smallImgs[5].addEventListener('mouseenter', () => {
+  featuedImg.src = smallImgs[6].src;
+  m.value = smallImgs[6].src;
+
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+    smallImgs[5].classList.remove('sm-card')
+    
+
+    smallImgs[6].classList.add('sm-card')
+})
+smallImgs[5].addEventListener('mouseenter', () => {
+  featuedImg.src = smallImgs[6].src;
+  m.value = smallImgs[6].src;
+
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+    smallImgs[5].classList.remove('sm-card')
+    
+
+    smallImgs[6].classList.add('sm-card')
+})
+smallImgs[5].addEventListener('mouseenter', () => {
+  featuedImg.src = smallImgs[7].src;
+  m.value = smallImgs[7].src;
+
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+    smallImgs[5].classList.remove('sm-card')
+    smallImgs[6].classList.remove('sm-card')
+    
+
+    smallImgs[7].classList.add('sm-card')
+})
+smallImgs[5].addEventListener('mouseenter', () => {
+  featuedImg.src = smallImgs[8].src;
+  m.value = smallImgs[8].src;
+
+    smallImgs[0].classList.remove('sm-card')
+    smallImgs[1].classList.remove('sm-card')
+    smallImgs[2].classList.remove('sm-card')
+    smallImgs[3].classList.remove('sm-card')
+    smallImgs[4].classList.remove('sm-card')
+    smallImgs[5].classList.remove('sm-card')
+    smallImgs[6].classList.remove('sm-card')
+    smallImgs[7].classList.remove('sm-card')
+
+
+
+    smallImgs[8].classList.add('sm-card')
+})
+
+
+</script>
+
+
+
+
+{% endblock%}

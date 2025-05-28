@@ -1,0 +1,157 @@
+
+
+{% extends 'base.html'%}
+{% load i18n %}
+{% block content %}
+
+
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    <style>
+      .my-num{
+        color: red;
+        font-weight: bold;
+        border: 1px solid darkred;
+        padding: 2px 10px;
+        border-radius: 50px;
+        background-color: yellow;
+        
+      }
+      .h{
+  display: flex;
+   gap: 6px;
+   word-wrap: break-word;
+}
+ .kkkk{
+  display: flex; 
+   align-items: center;
+    background-color: aquamarine; 
+    width: 100%;
+     border-radius: 20px;
+ }
+      </style>
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary p-2">
+    <div class="pymrnt-2" style="text-align: center; color: #fff; width: 100%; text-align: center; border-radius: 10px; margin-bottom: 5px;">
+
+
+      <div class="preloader-wrapper">
+        <div class="preloader">
+        </div>
+       
+  
+
+      </div class="pymrnt-2" style="text-align: center;">
+      <div class="pymrnt-1" style="width: 100%; background-color: #fbb230; border-radius: 10px; margin-bottom: 5px; text-align: center; height: 44px;">
+        <h6 style="padding:10px; text-align: center; color: #fff; width: 100%;   "> <span style="">
+
+        </span style="text-align: center; padding:7px;">
+        {% trans " تعديل معلومات الشحن للاوردر الذى طلبته" %}
+      </h6>
+      </div>
+    </div>
+  
+    <div  class="h">
+
+      <div class="pymrnt-3 kkkk">
+        <div style=" color:#fff; font-weight: 66px; background-color: rgb(243, 50, 50);  padding: 22px;margin: 8px; margin-left: px; border-radius: 10px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+            <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+            <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+          </svg>
+        </div>
+        <div style=" ">
+          <h6>  {% trans " قيمة الشحن " %} </h6>
+          <h6 id="spands">  </h6>
+        </div>
+      </div>
+    </div>
+    <form   enctype="multipart/form-data" method="POST" >
+        
+ 
+        {% csrf_token %}
+
+    
+     
+        
+
+
+
+
+    
+      <div class="card-body">
+        <label for="inputship_address" class="pymrnt-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+          </svg>
+          {% trans "الاسم " %}</label>
+        <input type="text"id="inputship_address" class="pymrnt-2 form-control"  name="name" value="{{name}}" required>
+
+
+        <label for="inputship_address" class="pymrnt-3"> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-houses" viewBox="0 0 16 16">
+            <path d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207z"/>
+          </svg>
+          {% trans "العنوان بالتفصيل "%} </label>
+        <input type="text"id="inputship_address" class="pymrnt-4 form-control"  name="ship_address" value="{{v}}" required>
+
+        <label for="inputship_phone" class="pymrnt-5"> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-x-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm9.261 1.135a.5.5 0 0 1 .708 0L13 2.793l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3.5l1.147 1.146a.5.5 0 0 1-.708.708L13 4.207l-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3.5l-1.147-1.146a.5.5 0 0 1 0-.708"/>
+          </svg>
+          {% trans "التليفون"%} </label>
+        <input type="number"id="inputship_phone"  class="pymrnt-6 form-control" name="ship_phone" value="{{phone}}"required>
+        <label for="mo" class="pymrnt-7"> 
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+          </svg>
+          {% trans  "المحافظة" %} </label>
+        <select name="mo" class="pymrnt-8 form-control mohafay" required>
+          <option > اختر المحافظة </option>
+
+          {% for i in  mo %}
+          <option value="{{i.mo}}">{{i.mo}}</option>
+          {% endfor %}
+        </select>
+       <label for="mr" class="pymrnt-9 "> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+          <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+          <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+        {% trans "المركز"%}  </label>
+        <select name="mr"  class="pymrnt-10 form-control marcas" required>
+        
+         
+        </select>
+        <input type="hidden" class="form-control tyrt"   placeholder="قيمت الشحن" name="na"  required readonly >
+        
+        
+      </div>
+  
+
+      <div class="card-footer">
+        <button type="submit" name="btnpayment" class="pymrnt-11  m-1 p-2 com" style="border: 1px solid #0298cf;color: #0298cf; border-radius: 30px; font-weight: 700;">{% trans  "تعديل" %}
+          
+            
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+
+  <div class="ring ">{% trans "انتظار" %}
+    <span></span>
+  </div>
+
+</div>
+</div>
+  
+
+{% endblock%}

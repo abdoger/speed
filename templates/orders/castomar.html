@@ -1,0 +1,309 @@
+
+
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+{% block title %}| card {% endblock%}
+
+{% block content %}
+
+
+<style>
+  body
+  {
+    background-color: #fff;
+  }
+  .my-num{
+  color: red;
+  font-weight: bold;
+  border: 1px solid darkred;
+  padding: 2px 10px;
+  border-radius: 50px;
+  background-color: yellow;
+}
+
+</style>
+  <style>
+    .h{
+  display: flex;
+   gap: 6px;
+   word-wrap: break-word;
+}
+ .kkkk{
+  display: flex; 
+   align-items: center;
+    background-color: aquamarine; 
+    width: 100%;
+     border-radius: 20px;
+ }
+    .table_section{
+      /* height: 65px; */
+      overflow-X: auto;
+    }
+    table{
+      width: 100%;
+      table-layout: fixed;
+      min-width: 1000px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    table tr:nth-child(odd){
+      background-color: #f8f8fb;
+    }
+    table tr{
+      background-color: #fff;
+      text-align: center;
+    }
+    table th{
+      position: static;
+      top: 0;
+      background-color: #f6f9fc;
+      color: #111;
+      font-weight: 66px;
+      font-size: 15px;
+      background-color: #eee;
+      text-align: right;
+    }
+    th{
+      border-bottom:1px solid #2d2b98;
+      padding: 10px 20px;
+      white-space: break-all;
+      /* text-align: center; */
+    }
+    tr td
+    {
+      text-align: right;
+    }
+    tr{
+      /* border-bottom:1px solid #0298cf; */
+      padding: 10px 20px;
+      white-space: break-all;
+      text-align: center;
+      padding-bottom: 66px;
+      margin-top: 66px;
+      
+    }
+    tr,td{
+     padding: 0.8rem 0.8rem  ;
+     text-align: left;
+     min-width: 120px;
+     font-size: 14px;
+
+    }
+    tr:hover{
+      border-bottom:1px solid #2d2b98;
+
+    }
+    td img{
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+      border-radius: 15px;
+      border: 5px solid #ced0d2;
+
+    }
+    tr:hover td{
+      color: #0298cf;
+      background-color: #f6f9fc;
+      cursor: pointer;
+    }
+    button{
+      outline: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 5px;
+      color: #fff;
+    }
+    td button:nth-child(1){
+      background-color: #0298cf;
+    }
+    td button:nth-child(2){
+      background-color: #f80000;
+    }
+    .status{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: orange;
+      color: #fff;
+      text-align: center;
+     
+    }
+    .data{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: rgb(255, 68, 0);
+      color: #fff;
+      text-align: center;
+     
+    }
+ 
+  </style>
+<div   class="content-wrapper" style="background-color: #fff;">
+   
+<div class="my-form  p-1 roudend " style="background-color: #fff;">
+
+
+    <div class="preloader-wrapper">
+        <div class="preloader">
+        </div>
+      </div>
+      <div class="pymrnt-1" style="height: 44px; text-align: center; width: 100%; background-color: rgb(0, 166, 255); border-radius: 10px; margin-bottom: 5px;">
+        <h5 style="padding-top:10px;text-align: center; color: #fff; width: 100%;  text-size-adjust: 100%; "> <span style="">
+
+        </span>
+        {% trans " تقرير  المسوقين" %}
+      </h5>
+      </div>
+
+{% include 'parts/allert.html'%}
+
+
+{% if  request.user.is_authenticated or request.user.is_anonymous %}
+
+
+
+
+
+<form   enctype="multipart/form-data" method="POST" >
+        
+
+  {% csrf_token %}
+ 
+
+
+
+<!-- <div class="card-body"> -->
+  <div class="row">
+ 
+   
+
+   
+
+
+    <div class="col col-xxl-6">
+      <label for="mo" class="pymrnt-7">  
+       
+        {% trans  "بداية التاريخ "%}</label>
+        <input type="text"id="inputship_address" class="pymrnt-4 form-control " placeholder=" 2025:12:20" name="gr" >
+
+    </div>
+    <div class="col col-xxl-6">
+      <label for="mr" class="pymrnt-9"> 
+      
+        {% trans  "  نهاية التاريخ" %}</label>
+        <input type="text"id="" class="pymrnt-4 form-control " placeholder="2025:12:20 " name="mr" value="" >
+
+    </div>
+    <div class="col-lg-12 col-xxl-12">
+      <label for="mo" class="pymrnt-10"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+        </svg>
+        {% trans "رقم الطلب"%}
+         </label>
+      <input type="number" class="pymrnt-11 form-control " placeholder="ID" name="id" >
+      
+    </div>
+
+  </div>
+ 
+  <button type="submit"  name="btnpayment" class="pymrnt-12 mt-3 btn btn-primary" >{% trans " بحث " %}
+  
+  </button>
+ 
+
+
+</form>
+
+<!-- llllllllllllllllll -->
+
+  <div class="table_section" >
+    <table>
+      <thead>
+        <tr class="pymrnt-3">
+          <th>{% trans  "  ID"%}</th>
+          <th>{% trans  "  رقم الهاتف"%}</th>
+
+          <th>{% trans  " الاسم الاول"%}</th>
+          <th>{% trans  "  اليوزر"%}</th>
+
+
+          <th>{% trans " العنوان" %}</th>
+     
+          <th>   {% trans  "  صورة المسوق" %}</th>
+          <!-- <th>   {% trans  " الجروب" %}</th> -->
+
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in users %}
+        <tr class="pymrnt-{{forloop.counter}}" style="padding-bottom: 67px;">
+            <td ><span class="status"> <a href="{% url 'castomarorder' i.user.id %}">{{i.user.id}}</a></span></td>
+            <td ><span class="status">{{i.zip_number}}</span></td>
+            <td ><span class="status">{{i.user.first_name}}</span></td>
+            <td ><span class="status">{{i.user.username}}</span></td>
+            <td ><span class="status">{{i.address}}</span></td>
+            {%if i.userimg %}
+           
+            <td ><img src="{{i.userimg.url}}"></td>
+            {%else%}
+            <td ><span class="status">no</span></td>
+
+            {%endif%}
+
+
+
+        </tr>
+       
+        
+   
+         {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<!-- تتتتتتتتتتتتتتتتتتتتت -->
+
+
+<!-- تتتتتتتتتتتتتتتتتتتتتتتتتت -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endif%}   
+
+</div>
+
+</div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,3168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-19 14:21+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\accounts\views.py:301
+msgid "تم اضافة تعليق"
+msgstr ""
+
+#: .\accounts\views.py:335 .\accounts\views.py:379 .\accounts\views.py:1052
+#: .\accounts\views.py:1195 .\accounts\views.py:1327
+msgid "  انا لست برنامج روبوت "
+msgstr ""
+
+#: .\accounts\views.py:339 .\accounts\views.py:383
+msgid " خطا فى التسجيل"
+msgstr ""
+
+#: .\accounts\views.py:421 .\accounts\views.py:447 .\accounts\views.py:542
+#: .\accounts\views.py:721 .\accounts\views.py:747 .\accounts\views.py:847
+#: .\accounts\views.py:873 .\accounts\views.py:1015 .\accounts\views.py:1156
+#: .\accounts\views.py:1288 .\accounts\views.py:1364 .\orders\views.py:3488
+msgid "يجب ان يكون رقم الهاتف  مكون من 11 رقم"
+msgstr ""
+
+#: .\accounts\views.py:433 .\accounts\views.py:554 .\accounts\views.py:568
+#: .\accounts\views.py:733 .\accounts\views.py:859 .\accounts\views.py:996
+#: .\accounts\views.py:1137 .\accounts\views.py:1269
+msgid "رقم الهاتف ليس صالح"
+msgstr ""
+
+#: .\accounts\views.py:438 .\accounts\views.py:443 .\accounts\views.py:559
+#: .\accounts\views.py:564 .\accounts\views.py:738 .\accounts\views.py:743
+#: .\accounts\views.py:864 .\accounts\views.py:869
+msgid " هذا الحساب موجود مسبقا"
+msgstr ""
+
+#: .\accounts\views.py:481 .\accounts\views.py:602 .\accounts\views.py:781
+#: .\accounts\views.py:907
+msgid "تم انشاء حساب مسوق"
+msgstr ""
+
+#: .\accounts\views.py:484 .\accounts\views.py:605 .\accounts\views.py:784
+#: .\accounts\views.py:910
+msgid " انا لست برنامج روبوت "
+msgstr ""
+
+#: .\accounts\views.py:488 .\accounts\views.py:609 .\accounts\views.py:788
+#: .\accounts\views.py:914 .\accounts\views.py:1057 .\accounts\views.py:1200
+#: .\accounts\views.py:1332
+msgid "برجاء الموافقة على سياسات الموقع"
+msgstr ""
+
+#: .\accounts\views.py:492 .\accounts\views.py:613 .\accounts\views.py:792
+#: .\accounts\views.py:918 .\orders\views.py:1164 .\orders\views.py:1242
+msgid "يوجد مربع فارغ"
+msgstr ""
+
+#: .\accounts\views.py:1002 .\accounts\views.py:1143 .\accounts\views.py:1275
+msgid "اليوزر موجود "
+msgstr ""
+
+#: .\accounts\views.py:1007 .\accounts\views.py:1148 .\accounts\views.py:1280
+msgid "الاميل موجود"
+msgstr ""
+
+#: .\accounts\views.py:1049 .\accounts\views.py:1192 .\accounts\views.py:1324
+msgid "تم انشاء حساب عميل"
+msgstr ""
+
+#: .\accounts\views.py:1061 .\accounts\views.py:1204 .\accounts\views.py:1336
+msgid "يوجد فيلد فارغ"
+msgstr ""
+
+#: .\accounts\views.py:1367 .\orders\views.py:2387
+msgid "رقم الهاتف ليس صحيح"
+msgstr ""
+
+#: .\accounts\views.py:1390
+msgid "تم حفظ التغير"
+msgstr ""
+
+#: .\accounts\views.py:1429
+msgid "هذا  المنتج موجود فى المفضلة"
+msgstr ""
+
+#: .\accounts\views.py:1437
+msgid "تم اضافة المنتج فى المفضلة"
+msgstr ""
+
+#: .\accounts\views.py:1442
+msgid "سجل اولا"
+msgstr ""
+
+#: .\accounts\views.py:1728 .\accounts\views.py:1747 .\accounts\views.py:2055
+#: .\accounts\views.py:2882 .\accounts\views.py:2904 .\orders\views.py:230
+#: .\orders\views.py:693 .\orders\views.py:969 .\orders\views.py:986
+msgid " الطلب اكتمل ولا يمكن التعديل عليه "
+msgstr ""
+
+#: .\accounts\views.py:1750 .\accounts\views.py:1753 .\accounts\views.py:2036
+#: .\orders\views.py:233 .\orders\views.py:696
+msgid "يجب ان تختار حاله"
+msgstr ""
+
+#: .\accounts\views.py:1756
+msgid "  انت لست اليوزر الى اخترت الحاله ولا يمكن التعديل على الطلب "
+msgstr ""
+
+#: .\accounts\views.py:1760 .\accounts\views.py:1763
+msgid "عملية خاطئة"
+msgstr ""
+
+#: .\accounts\views.py:1767
+msgid "  تم تاكيد الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\accounts\views.py:1830 .\accounts\views.py:1872 .\accounts\views.py:1923
+#: .\accounts\views.py:1995 .\accounts\views.py:2075 .\orders\views.py:3255
+msgid "عملية ناجحه"
+msgstr ""
+
+#: .\accounts\views.py:1833
+msgid "    الكميه اكبر من القيمه المطلوبه"
+msgstr ""
+
+#: .\accounts\views.py:1837
+msgid "  هناك خطْأ ما"
+msgstr ""
+
+#: .\accounts\views.py:1875 .\accounts\views.py:1926
+msgid "الكميه اكبر من القيمه المطلوبه"
+msgstr ""
+
+#: .\accounts\views.py:1879
+msgid "  هناك خطأ ما"
+msgstr ""
+
+#: .\accounts\views.py:1929
+msgid "هناك خطأ ما"
+msgstr ""
+
+#: .\accounts\views.py:1933
+msgid "الطلب لم يتم التاكيد"
+msgstr ""
+
+#: .\accounts\views.py:1988
+msgid "مربع الحاله فارغ"
+msgstr ""
+
+#: .\accounts\views.py:2039
+msgid "مربع الوصول فارغ"
+msgstr ""
+
+#: .\accounts\views.py:2043
+msgid "يجب العمل فى الطلب اولا"
+msgstr ""
+
+#: .\accounts\views.py:2048
+msgid "عملية خطأه"
+msgstr ""
+
+#: .\accounts\views.py:2052
+msgid " ليس مسوق"
+msgstr ""
+
+#: .\accounts\views.py:2069 .\orders\views.py:237 .\orders\views.py:700
+msgid " العمل فى الطلب اولا"
+msgstr ""
+
+#: .\accounts\views.py:2078
+msgid "الكمية الواصله اكبر من قيمة المسوق"
+msgstr ""
+
+#: .\accounts\views.py:2236 .\accounts\views.py:2389 .\accounts\views.py:2540
+#: .\accounts\views.py:2685 .\accounts\views.py:2836 .\orders\views.py:124
+#: .\orders\views.py:457
+msgid "عملية بحث ناجحه"
+msgstr ""
+
+#: .\accounts\views.py:2240 .\accounts\views.py:2393 .\accounts\views.py:2544
+#: .\accounts\views.py:2689 .\accounts\views.py:2840 .\orders\views.py:127
+#: .\orders\views.py:461
+msgid "عملية بحث فاشله "
+msgstr ""
+
+#: .\accounts\views.py:2885 .\accounts\views.py:2907
+msgid " مربع الحاله فارغ "
+msgstr ""
+
+#: .\accounts\views.py:2888 .\accounts\views.py:2910
+msgid " يجب ان تختار حالة شحن غير اوردر جديد"
+msgstr ""
+
+#: .\accounts\views.py:2945
+msgid "لم يتم تاكيدالطلب"
+msgstr ""
+
+#: .\accounts\views.py:3224
+msgid "you are now logged in"
+msgstr ""
+
+#: .\accounts\views.py:3312
+msgid "عملية ناجه"
+msgstr ""
+
+#: .\accounts\views.py:3316
+msgid "عملية خاظاءه"
+msgstr ""
+
+#: .\d\d\settings.py:151 .\mtcoffee\settings.py:203
+msgid "English"
+msgstr ""
+
+#: .\d\d\settings.py:152 .\mtcoffee\settings.py:204
+msgid "Arabic"
+msgstr ""
+
+#: .\orders\views.py:240
+msgid "   القيمه الواصله اكبر من قيمة التقرير"
+msgstr ""
+
+#: .\orders\views.py:245 .\orders\views.py:705
+msgid "هذا الطلب تم الايضافه الى بوسطه من قبل"
+msgstr ""
+
+#: .\orders\views.py:248 .\orders\views.py:711
+msgid "يجب تاكيد الطلب اولا"
+msgstr ""
+
+#: .\orders\views.py:329 .\orders\views.py:360
+msgid "القيمه الراجعه الكبر من القيمة الواصله"
+msgstr ""
+
+#: .\orders\views.py:617
+msgid " تم اضافة الطلب الى شركة الشحن "
+msgstr ""
+
+#: .\orders\views.py:708
+msgid "هذا الطلب تم الايضافه الى شركة شحن من قبل"
+msgstr ""
+
+#: .\orders\views.py:757
+msgid "تم الضافة الى بوسطه"
+msgstr ""
+
+#: .\orders\views.py:760
+msgid "kkk"
+msgstr ""
+
+#: .\orders\views.py:792
+msgid "Accomnt email"
+msgstr ""
+
+#: .\orders\views.py:838
+msgid " تفعيل الحساب"
+msgstr ""
+
+#: .\orders\views.py:841
+msgid " انتهت صلاحيت رقم التفعيل"
+msgstr ""
+
+#: .\orders\views.py:844
+msgid " رقم تفعيل خاطئ"
+msgstr ""
+
+#: .\orders\views.py:927
+msgid "تم ارسال الرمز الى حسابك"
+msgstr ""
+
+#: .\orders\views.py:945
+msgid "الرجاء ارسال ايميل صالح"
+msgstr ""
+
+#: .\orders\views.py:974
+msgid "تم انشا حاله"
+msgstr ""
+
+#: .\orders\views.py:992
+msgid " يجب ان يكون الكميه الواصله الكبر من او يساوى اقيمه الواصله"
+msgstr ""
+
+#: .\orders\views.py:997
+msgid "عمليه ناجحه"
+msgstr ""
+
+#: .\orders\views.py:1117 .\orders\views.py:1122 .\orders\views.py:1491
+#: .\orders\views.py:1590 .\orders\views.py:1666 .\orders\views.py:1717
+msgid "  مربع اللون فارغ "
+msgstr ""
+
+#: .\orders\views.py:1127 .\orders\views.py:1209
+msgid "  مربع   الكمية فارغ "
+msgstr ""
+
+#: .\orders\views.py:1134
+msgid "هذا اللون موجود مسبقا من هذا المنتج"
+msgstr ""
+
+#: .\orders\views.py:1158 .\orders\views.py:1236
+msgid "تمت العمليه بنجاح"
+msgstr ""
+
+#: .\orders\views.py:1161 .\orders\views.py:1239 .\orders\views.py:1383
+#: .\orders\views.py:1942 .\orders\views.py:2794
+msgid "  الكمية غير   كافية"
+msgstr ""
+
+#: .\orders\views.py:1204 .\orders\views.py:1496 .\orders\views.py:1530
+#: .\orders\views.py:1673 .\orders\views.py:1794
+msgid "  مربع المقاس فارغ "
+msgstr ""
+
+#: .\orders\views.py:1215
+msgid "هذا المقاس موجود مسبقا من هذا اللون"
+msgstr ""
+
+#: .\orders\views.py:1301 .\orders\views.py:1333
+msgid "تم الحذف بنجاح"
+msgstr ""
+
+#: .\orders\views.py:1378 .\orders\views.py:1427 .\orders\views.py:2791
+msgid "تم التعديل بنجاح"
+msgstr ""
+
+#: .\orders\views.py:1430 .\orders\views.py:1576 .\orders\views.py:2109
+msgid "الكمية غير   كافية"
+msgstr ""
+
+#: .\orders\views.py:1468
+msgid "سجل الدخول اولا"
+msgstr ""
+
+#: .\orders\views.py:1472
+msgid "قيمه خاطئه "
+msgstr ""
+
+#: .\orders\views.py:1503 .\orders\views.py:1524 .\orders\views.py:1789
+msgid "  مربع الون فارغ "
+msgstr ""
+
+#: .\orders\views.py:1540
+#, python-brace-format
+msgid ""
+" كمية هذا المقاس  {sizes.sisel}   غير   كافية يوجد الان   كمية {sizes.qusise}"
+msgstr ""
+
+#: .\orders\views.py:1549
+msgid " كمية هذا الون غير   كافية "
+msgstr ""
+
+#: .\orders\views.py:1570
+#, python-brace-format
+msgid "تم زيادة الكمية بامقدار {qty}"
+msgstr ""
+
+#: .\orders\views.py:1614 .\orders\views.py:1649
+#, python-brace-format
+msgid "تم زيادة هذا المنتج  {pros.name}   بقيمة  {qty}"
+msgstr ""
+
+#: .\orders\views.py:1618
+#, python-brace-format
+msgid "كمية هذا المنتج  {pros.name} غير   كافية يوجد الان   كمية {pros.quimg}"
+msgstr ""
+
+#: .\orders\views.py:1653
+#, python-brace-format
+msgid "كمية هذا المنتج  {pros.name} غير   كافية يوجد الان   كمية {pros.qu}"
+msgstr ""
+
+#: .\orders\views.py:1680
+#, python-brace-format
+msgid ""
+"   كمية هذا المقاس  {sizes.sisel}  غير   كافية  يوجد الان   كمية {sizes."
+"qusise}"
+msgstr ""
+
+#: .\orders\views.py:1685 .\orders\views.py:1811 .\orders\views.py:1976
+msgid " كمية هذا اللون غير   كافية "
+msgstr ""
+
+#: .\orders\views.py:1708 .\orders\views.py:1747 .\orders\views.py:1767
+#: .\orders\views.py:1848 .\orders\views.py:1902 .\orders\views.py:1935
+#: .\orders\views.py:2013 .\orders\views.py:2071 .\orders\views.py:2105
+msgid "  تم الطلب بنجاح"
+msgstr ""
+
+#: .\orders\views.py:1724
+#, python-brace-format
+msgid ""
+"   كمية هذا المنتج  {img.name}  غير   كافية  يوجد الان   كمية {img.quimg}"
+msgstr ""
+
+#: .\orders\views.py:1772
+#, python-brace-format
+msgid ""
+"الكمية التى طلبتها من هذا المنتج {pros.name} غير   كافية يوجد الان   كمية "
+"{pros.qu}"
+msgstr ""
+
+#: .\orders\views.py:1802
+#, python-brace-format
+msgid ""
+" كمية هذا المقاس {sizes.sisel} غير   كافية يوجد الان   كمية {sizes.qusise}"
+msgstr ""
+
+#: .\orders\views.py:1855 .\orders\views.py:2024
+msgid "  مربع المنتج فارغ "
+msgstr ""
+
+#: .\orders\views.py:1864
+#, python-brace-format
+msgid ""
+" كمية هذا المنتج {imdfg.name} غير   كافية يوجد الان   كمية {imdfg.quimg}"
+msgstr ""
+
+#: .\orders\views.py:1967
+#, python-brace-format
+msgid ""
+" كمية هذا المقاس  {sizes.sisel} غير   كافية يوجد الان   كمية {sizes.qusise}"
+msgstr ""
+
+#: .\orders\views.py:2033
+#, python-brace-format
+msgid ""
+" كمية هذا المقاس {imdfg.name} غير   كافية يوجد الان   كمية {imdfg.quimg}"
+msgstr ""
+
+#: .\orders\views.py:2115
+msgid "هذا المنتج غير موجود"
+msgstr ""
+
+#: .\orders\views.py:2173
+#, python-brace-format
+msgid " تم خذف المنتج {orderdetails.product.name} "
+msgstr ""
+
+#: .\orders\views.py:2202
+msgid "تم زيادة الكمية بقيمة واحد"
+msgstr ""
+
+#: .\orders\views.py:2204
+msgid ""
+" كمية هذا المقاس {sizes.sisel}  غير   كافية يوجد الان   كمية {sizes.qusise } "
+"ولا يمكن الاضافة عليها"
+msgstr ""
+
+#: .\orders\views.py:2220
+msgid "تم زيادة الكمية   بقيمة واحد"
+msgstr ""
+
+#: .\orders\views.py:2222
+#, python-brace-format
+msgid ""
+" كمية هذا المقاس {imfg.name}  غير   كافية يوجد الان   كمية {imfg.quimg} ولا "
+"يمكن   الاضافة عليها"
+msgstr ""
+
+#: .\orders\views.py:2238
+msgid "تم زيادة الكمية بمقدار واحد"
+msgstr ""
+
+#: .\orders\views.py:2240
+#, python-brace-format
+msgid ""
+" كمية هذا المنتج {orderdetails.product.name} غير كفيه يوجد الان   كمية {o."
+"qu} ولا يمكن الاضافة"
+msgstr ""
+
+#: .\orders\views.py:2258
+msgid "تم تقليل الكمية بمقدار واحد "
+msgstr ""
+
+#: .\orders\views.py:2289
+msgid " الفاتوره"
+msgstr ""
+
+#: .\orders\views.py:2374
+msgid "مربع المركز فارغ"
+msgstr ""
+
+#: .\orders\views.py:2384
+msgid "لبد ان يكون رقم الهاتف  يسوى 11 رقم"
+msgstr ""
+
+#: .\orders\views.py:2390
+msgid "يجب ان يكون رقم الهاتف الاضافى يسوى 11 رقم"
+msgstr ""
+
+#: .\orders\views.py:2393
+msgid "رقم الهاتف الاضافى ليس صالح"
+msgstr ""
+
+#: .\orders\views.py:2426
+#, python-brace-format
+msgid "  كمية هذا المنتج {im.name} غير كفيه يوجد   كمية {im.quimg}"
+msgstr ""
+
+#: .\orders\views.py:2474
+msgid "  يوجد مربع فارغ"
+msgstr ""
+
+#: .\orders\views.py:2650
+msgid " هذة المحافظة موجود مسبقا"
+msgstr ""
+
+#: .\orders\views.py:2741 .\orders\views.py:2755
+msgid "    مربع المركز فارغ "
+msgstr ""
+
+#: .\orders\views.py:2744
+msgid " هذا المركز موجود مسبقا"
+msgstr ""
+
+#: .\orders\views.py:2752
+msgid "تمت العملية بنجاح"
+msgstr ""
+
+#: .\orders\views.py:2843
+msgid "أكد الطلب اولا ثم عدل فيه"
+msgstr ""
+
+#: .\orders\views.py:2883
+msgid "الطلب   تم تأكيده ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:2889 .\orders\views.py:3005 .\orders\views.py:3303
+#: .\orders\views.py:3455
+msgid "الطلب  قيد الوصول ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:2893
+msgid "     الطلب ملغي ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:2897 .\orders\views.py:3013
+msgid "لم يتم الرد على الطلب  ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:2901
+msgid "   الطلب  اتشحن ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:2905 .\orders\views.py:3021 .\orders\views.py:3184
+#: .\orders\views.py:3471
+msgid "الطلب   مرتج ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:2909 .\orders\views.py:3323
+msgid "الطلب فى  التوصيل ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:2914 .\orders\views.py:3030
+msgid "تم حذف الطلب  ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3001
+msgid "تم التاكيد الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3009
+msgid "     الطلب ملغى ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3017
+msgid "   تم شحن الطلب  ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3025
+msgid "الطلب   قيد الوصول ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3051
+msgid "   كمية هذا المقاس غير  كافية "
+msgstr ""
+
+#: .\orders\views.py:3084 .\orders\views.py:3127
+msgid " تم زيادة الكمية بامقدار واحد"
+msgstr ""
+
+#: .\orders\views.py:3087
+msgid "   كمية هذا اللون غير   كافية "
+msgstr ""
+
+#: .\orders\views.py:3098
+msgid " كمية   هذا المنتج غير   كافية "
+msgstr ""
+
+#: .\orders\views.py:3146
+#, python-brace-format
+msgid "تم زيادة هذا المنتج {pro.name}    بقيمة واحد"
+msgstr ""
+
+#: .\orders\views.py:3149
+#, python-brace-format
+msgid "كمية هذا المنتج {pro.name} غير كافيه"
+msgstr ""
+
+#: .\orders\views.py:3167
+msgid "الطلب قيد الوصول ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3171
+msgid "     تم الغاء الطلب  ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3175 .\orders\views.py:3311
+msgid " لم يتم الرد على الطلب  ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3180
+msgid "     تم شحن الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3188
+msgid "الطلب قيد  التوصيل ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3193
+msgid "   تم حذف الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3201
+msgid "  مربع الون فارغ"
+msgstr ""
+
+#: .\orders\views.py:3209
+msgid "   مربع الون فارغ"
+msgstr ""
+
+#: .\orders\views.py:3259
+msgid "   كمية هذا المقاس غير   كافية "
+msgstr ""
+
+#: .\orders\views.py:3299
+msgid "   تم تاكيد الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3307 .\orders\views.py:3459
+msgid "      تم الغاء الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3315
+msgid "   تم شحن الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3319
+msgid "الطلب مرتج ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3328
+msgid "الطلب   اتحذف ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3348 .\orders\views.py:3393
+msgid "لا يمكن ان تقل   الكمية عن واحد "
+msgstr ""
+
+#: .\orders\views.py:3365
+msgid "لا يمكن ان تقل الكمية عن واحد "
+msgstr ""
+
+#: .\orders\views.py:3379 .\orders\views.py:3416 .\orders\views.py:3431
+msgid " تم تقليل   الكمية بامقدار واحد"
+msgstr ""
+
+#: .\orders\views.py:3435
+msgid "لا يمكن   الكمية عن تقل عن واحد"
+msgstr ""
+
+#: .\orders\views.py:3451
+msgid "   تم توصيل الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3463
+msgid "لم يتم الرد على الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3467
+msgid "تم شحن الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3475
+msgid "جارى توصيل الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\orders\views.py:3480
+msgid "تم حذف الطلب ولا يمكن التعديل عليه"
+msgstr ""
+
+#: .\templates\accounts\Shippingcompanies.html:260
+#: .\templates\accounts\Shippingcompanies.html:330
+msgid "انشاء حساب شركة شحن"
+msgstr ""
+
+#: .\templates\accounts\Shippingcompanies.html:266
+#: .\templates\accounts\castomar.html:270 .\templates\accounts\factory.html:265
+#: .\templates\accounts\profile.html:35 .\templates\accounts\signup.html:269
+#: .\templates\orders\detelscardorder.html:521
+msgid "الاسم"
+msgstr ""
+
+#: .\templates\accounts\Shippingcompanies.html:275
+#: .\templates\accounts\castomar.html:279
+#: .\templates\accounts\dShippingcompanies.html:290
+#: .\templates\accounts\factory.html:274
+#: .\templates\accounts\orfactrory.html:290
+#: .\templates\accounts\signup.html:278 .\templates\resend_otp.html:267
+msgid "الايميل"
+msgstr ""
+
+#: .\templates\accounts\Shippingcompanies.html:283
+#: .\templates\accounts\castomar.html:287 .\templates\accounts\factory.html:282
+#: .\templates\accounts\signup.html:286
+msgid "الباسورد"
+msgstr ""
+
+#: .\templates\accounts\Shippingcompanies.html:293
+#: .\templates\accounts\castomar.html:297 .\templates\accounts\factory.html:292
+#: .\templates\accounts\signup.html:296 .\templates\resend_otp.html:282
+msgid "العنوان باتفصيل"
+msgstr ""
+
+#: .\templates\accounts\Shippingcompanies.html:302
+#: .\templates\accounts\castomar.html:306 .\templates\accounts\factory.html:301
+#: .\templates\accounts\signup.html:305
+msgid "رقم فودافون كاش"
+msgstr ""
+
+#: .\templates\accounts\Shippingcompanies.html:308
+#: .\templates\accounts\castomar.html:312 .\templates\accounts\factory.html:307
+#: .\templates\accounts\signup.html:311
+msgid "اوافق على سياسات الموقع  "
+msgstr ""
+
+#: .\templates\accounts\Shippingcompanies.html:321
+#: .\templates\accounts\castomar.html:325 .\templates\accounts\factory.html:320
+msgid "ايعادة  رقم التفعيل"
+msgstr ""
+
+#: .\templates\accounts\castomar.html:264
+#: .\templates\accounts\castomar.html:334 .\templates\accounts\signin.html:228
+msgid "انشاء حساب مسوق"
+msgstr ""
+
+#: .\templates\accounts\dShippingcompanies.html:273
+msgid " اعدادات شركات الشحن "
+msgstr ""
+
+#: .\templates\accounts\dShippingcompanies.html:284
+#: .\templates\accounts\orfactrory.html:284
+msgid "ID"
+msgstr ""
+
+#: .\templates\accounts\dShippingcompanies.html:285
+#: .\templates\accounts\orfactrory.html:285
+msgid "اسم التاجر "
+msgstr ""
+
+#: .\templates\accounts\dShippingcompanies.html:286
+#: .\templates\accounts\orfactrory.html:286
+msgid " رقم الهاتف"
+msgstr ""
+
+#: .\templates\accounts\dShippingcompanies.html:288
+#: .\templates\accounts\orfactrory.html:288
+msgid " العنوان "
+msgstr ""
+
+#: .\templates\accounts\dShippingcompanies.html:291
+#: .\templates\accounts\orfactrory.html:291
+msgid " صورة اليوزر"
+msgstr ""
+
+#: .\templates\accounts\factory.html:259 .\templates\accounts\factory.html:329
+msgid "انشاء حساب تاجر"
+msgstr ""
+
+#: .\templates\accounts\orfactrory.html:273
+msgid " اعدادات التجار "
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:183 .\templates\pages\shipping.html:183
+#: .\templates\pages\shipping.html:191
+msgid " تقرير شركه الشحن"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:203
+#: .\templates\accounts\orshipping.html:294
+#: .\templates\pages\rsreportpartener.html:200
+#: .\templates\pages\rsreportpartener.html:226
+#: .\templates\pages\rsreportpartener.html:370
+#: .\templates\pages\shipping.html:203 .\templates\pages\shipping.html:349
+msgid " قيمة الطلب"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:215
+#: .\templates\pages\rsreportpartener.html:212
+#: .\templates\pages\rsreportpartener.html:234
+#: .\templates\pages\shipping.html:211
+msgid "  القيمه الواصله"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:246
+#: .\templates\orders\castomar.html:191
+#: .\templates\pages\rsreportpartener.html:322
+#: .\templates\pages\shipping.html:301
+msgid "بداية التاريخ "
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:256
+#: .\templates\orders\castomar.html:198
+#: .\templates\pages\rsreportpartener.html:332
+#: .\templates\pages\shipping.html:311 .\templates\prodects\masd.html:250
+msgid "  نهاية التاريخ"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:266
+#: .\templates\accounts\orshipping.html:289
+#: .\templates\orders\castomar.html:208
+#: .\templates\orders\castomarorder.html:238
+#: .\templates\orders\show_orders.html:230 .\templates\pages\postap.html:210
+#: .\templates\pages\rsreportpartener.html:342
+#: .\templates\pages\rsreportpartener.html:365
+#: .\templates\pages\shipping.html:321 .\templates\pages\shipping.html:344
+#: .\templates\prodects\gxd.html:212 .\templates\prodects\gxproduct.html:264
+msgid "رقم الطلب"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:274
+#: .\templates\orders\castomar.html:216
+#: .\templates\orders\castomarorder.html:246
+#: .\templates\pages\rsreportpartener.html:350
+#: .\templates\pages\shipping.html:329 .\templates\prodects\gxd.html:220
+#: .\templates\prodects\gxproduct.html:272 .\templates\prodects\masd.html:277
+msgid " بحث "
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:288
+#: .\templates\pages\rsreportpartener.html:364
+#: .\templates\pages\shipping.html:343
+msgid " اسم الشركه"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:290
+#: .\templates\accounts\orshipping.html:291 .\templates\pages\shipping.html:345
+#: .\templates\pages\shipping.html:346
+msgid " حالة الشحن"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:297
+#: .\templates\pages\rsreportpartener.html:373
+#: .\templates\pages\shipping.html:352
+msgid "القيمه الواصله"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:298
+#: .\templates\orders\show_orders.html:231
+#: .\templates\orders\show_orders_user.html:294
+#: .\templates\pages\dreportpost.html:251 .\templates\pages\postap.html:211
+#: .\templates\pages\rsreportpartener.html:374
+#: .\templates\pages\shipping.html:353
+msgid "التاريخ"
+msgstr ""
+
+#: .\templates\accounts\orshipping.html:299
+#: .\templates\orders\show_orders.html:235
+#: .\templates\orders\show_orders_user.html:300
+#: .\templates\pages\postap.html:214
+#: .\templates\pages\rsreportpartener.html:375
+#: .\templates\pages\shipping.html:354
+msgid "تاكيد الطلب"
+msgstr ""
+
+#: .\templates\accounts\profile.html:15
+msgid "معلوماتك الشخصيه"
+msgstr ""
+
+#: .\templates\accounts\profile.html:38
+msgid "الاميل"
+msgstr ""
+
+#: .\templates\accounts\profile.html:41
+msgid "كلمة المرور"
+msgstr ""
+
+#: .\templates\accounts\profile.html:44
+msgid "العنوان بالتفصيل"
+msgstr ""
+
+#: .\templates\accounts\profile.html:48
+#: .\templates\orders\detelscardorder.html:537
+msgid "رقم الهاتف "
+msgstr ""
+
+#: .\templates\accounts\profile.html:52
+msgid "اضف صورة البروفيل"
+msgstr ""
+
+#: .\templates\accounts\profile.html:63
+msgid "تغير معلوماتك الشخصيه"
+msgstr ""
+
+#: .\templates\accounts\signin.html:227 .\templates\accounts\signup.html:263
+#: .\templates\accounts\signup.html:333
+msgid "انشاء حساب عميل"
+msgstr ""
+
+#: .\templates\accounts\signin.html:235 .\templates\parts\asidepar.html:671
+msgid "تسجيل الدخول "
+msgstr ""
+
+#: .\templates\accounts\signin.html:252
+msgid "نسيت كلمت المرور"
+msgstr ""
+
+#: .\templates\accounts\signin.html:262
+msgid "تسجبل الدخول"
+msgstr ""
+
+#: .\templates\accounts\signup.html:324
+msgid "نسيت رقم التفعيل"
+msgstr ""
+
+#: .\templates\change_password.html:17
+msgid "  تغير كلمت السر "
+msgstr ""
+
+#: .\templates\main_ta.html:19 .\templates\orders\detelscardorder.html:338
+msgid " رقم الطلب "
+msgstr ""
+
+#: .\templates\main_ta.html:26
+msgid " تفاصيل الطلب"
+msgstr ""
+
+#: .\templates\main_ta.html:34
+msgid "  id "
+msgstr ""
+
+#: .\templates\main_ta.html:35
+msgid "  المنتج "
+msgstr ""
+
+#: .\templates\main_ta.html:36
+msgid "  السعر "
+msgstr ""
+
+#: .\templates\main_ta.html:37
+msgid "  الكميه "
+msgstr ""
+
+#: .\templates\main_ta.html:38
+msgid "  المقاس "
+msgstr ""
+
+#: .\templates\main_ta.html:39
+msgid "  الون "
+msgstr ""
+
+#: .\templates\main_ta.html:40
+msgid "  المجموع "
+msgstr ""
+
+#: .\templates\main_ta.html:61
+msgid "  المجموع الكلى "
+msgstr ""
+
+#: .\templates\main_ta.html:68
+msgid " تفاصيل الشحن"
+msgstr ""
+
+#: .\templates\main_ta.html:76
+msgid "  الاسم "
+msgstr ""
+
+#: .\templates\main_ta.html:77
+msgid "  رقم الهاتف "
+msgstr ""
+
+#: .\templates\main_ta.html:78
+msgid "  العنوان  "
+msgstr ""
+
+#: .\templates\main_ta.html:79
+msgid "  قيمة شحن  "
+msgstr ""
+
+#: .\templates\main_ta.html:100
+msgid "  رقم الهاتف اضافى"
+msgstr ""
+
+#: .\templates\main_ta.html:101
+msgid "  تفاصيل اكثر "
+msgstr ""
+
+#: .\templates\main_ta.html:120
+msgid " ملحوظه "
+msgstr ""
+
+#: .\templates\main_ta.html:127
+msgid " المجموع الكلى شامل الشحن  "
+msgstr ""
+
+#: .\templates\main_temp.html:23
+msgid "هذا رقم التفعيل"
+msgstr ""
+
+#: .\templates\orders\card.html:227
+msgid "يجب التسجيل اولا"
+msgstr ""
+
+#: .\templates\orders\card.html:237 .\templates\orders\card.html:244
+msgid "  السله"
+msgstr ""
+
+#: .\templates\orders\card.html:257
+msgid " تاكيد الطلب"
+msgstr ""
+
+#: .\templates\orders\card.html:261 .\templates\orders\show_orders.html:300
+#: .\templates\reqqer\OrderDetails.html:347
+msgid "تسوق من المنتجات"
+msgstr ""
+
+#: .\templates\orders\card.html:325
+msgid "السعر "
+msgstr ""
+
+#: .\templates\orders\card.html:327 .\templates\orders\detelscardorder.html:420
+msgid "الون"
+msgstr ""
+
+#: .\templates\orders\card.html:330 .\templates\orders\detelscardorder.html:421
+#: .\templates\prodects\prodect.html:936 .\templates\pyorder.html:54
+msgid "المقاس"
+msgstr ""
+
+#: .\templates\orders\card.html:350 .\templates\orders\detelscardorder.html:355
+#: .\templates\orders\detelscardorder.html:425
+#: .\templates\orders\show_orders.html:233
+#: .\templates\orders\show_orders_user.html:297
+#: .\templates\pages\postap.html:216
+msgid "المجموع"
+msgstr ""
+
+#: .\templates\orders\card.html:352 .\templates\orders\detelscardorder.html:427
+msgid "العموله"
+msgstr ""
+
+#: .\templates\orders\card.html:375
+msgid " لا يوجد منتجات متطلوبه"
+msgstr ""
+
+#: .\templates\orders\card.html:385
+#: .\templates\orders\show_orders_user.html:293 .\templates\pyorder.html:42
+msgid "رقم الطلب "
+msgstr ""
+
+#: .\templates\orders\card.html:397
+msgid "صاحب الطلب "
+msgstr ""
+
+#: .\templates\orders\card.html:410
+msgid "المجموع الكلى "
+msgstr ""
+
+#: .\templates\orders\card.html:411 .\templates\prodects\prodect.html:877
+#: .\templates\prodects\prodect.html:878
+msgid "جنيه"
+msgstr ""
+
+#: .\templates\orders\card.html:425 .\templates\orders\payment.html:350
+msgid "مجموع العموله الكلى"
+msgstr ""
+
+#: .\templates\orders\card.html:439
+msgid "عدد المنتجات المطلوبة "
+msgstr ""
+
+#: .\templates\orders\card.html:451
+msgid "تاريخ الطلب "
+msgstr ""
+
+#: .\templates\orders\castomar.html:159
+#: .\templates\orders\castomarorder.html:177
+msgid " تقرير  المسوقين"
+msgstr ""
+
+#: .\templates\orders\castomar.html:230
+#: .\templates\orders\castomarorder.html:260 .\templates\prodects\dgxr.html:235
+#: .\templates\prodects\fintion.html:213 .\templates\prodects\gxd.html:236
+#: .\templates\prodects\gxproduct.html:292
+msgid "  ID"
+msgstr ""
+
+#: .\templates\orders\castomar.html:231 .\templates\prodects\gxd.html:198
+#: .\templates\prodects\gxd.html:239
+msgid "  رقم الهاتف"
+msgstr ""
+
+#: .\templates\orders\castomar.html:233
+msgid " الاسم الاول"
+msgstr ""
+
+#: .\templates\orders\castomar.html:234
+msgid "  اليوزر"
+msgstr ""
+
+#: .\templates\orders\castomar.html:237
+msgid " العنوان"
+msgstr ""
+
+#: .\templates\orders\castomar.html:239
+msgid "  صورة المسوق"
+msgstr ""
+
+#: .\templates\orders\castomar.html:240
+#: .\templates\orders\castomarorder.html:274
+msgid " الجروب"
+msgstr ""
+
+#: .\templates\orders\castomarorder.html:261
+msgid " بوسطه "
+msgstr ""
+
+#: .\templates\orders\castomarorder.html:263
+msgid "  انتهاء الطلب"
+msgstr ""
+
+#: .\templates\orders\castomarorder.html:264
+msgid "  العموله الواصله"
+msgstr ""
+
+#: .\templates\orders\castomarorder.html:265
+msgid "  العموله بعد العمل"
+msgstr ""
+
+#: .\templates\orders\castomarorder.html:269
+msgid " قيمة الطلب بعد الانتهاء"
+msgstr ""
+
+#: .\templates\orders\castomarorder.html:271
+msgid "   حالة الطلب"
+msgstr ""
+
+#: .\templates\orders\castomarorder.html:272
+msgid "    شركة الشحن"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:299
+msgid "طلب الشراء"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:308
+msgid "يجب "
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:309
+msgid "تسجل الدخول"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:324
+msgid "اسم  "
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:372
+msgid "عدد المنتجات "
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:394
+msgid "مجموع العموله الكوليه "
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:413
+msgid "اسم المنتج"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:414
+msgid "صورت المنتج المطلوبه"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:415
+#: .\templates\prodects\prodect.html:937 .\templates\prodects\prodect.html:971
+#: .\templates\pyorder.html:51
+msgid "الكميه"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:416
+msgid " الكميه الواصلة"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:419
+#: .\templates\prodects\prodect.html:878 .\templates\pyorder.html:52
+msgid "السعر"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:423
+msgid " مجموع الواصل "
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:430
+msgid "حزف"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:530
+msgid "العنوان"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:547
+#: .\templates\orders\payment.html:276 .\templates\orders\payment.html:316
+msgid "قيمة الشحن "
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:558
+msgid "المحافظه"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:569
+#: .\templates\orders\updeateorde.html:127
+msgid "المركز"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:578
+msgid "التعديل"
+msgstr ""
+
+#: .\templates\orders\detelscardorder.html:584
+#: .\templates\orders\updeateorde.html:149
+msgid "انتظار"
+msgstr ""
+
+#: .\templates\orders\es.html:59
+msgid "العمولة المستلمة للمسوق"
+msgstr ""
+
+#: .\templates\orders\es.html:74
+msgid "العمولة  المتبقيه"
+msgstr ""
+
+#: .\templates\orders\es.html:89
+msgid "العمولة  الكليه"
+msgstr ""
+
+#: .\templates\orders\es.html:104
+msgid "العمولة  بعد العمل"
+msgstr ""
+
+#: .\templates\orders\es.html:120
+msgid "تم التاكيد"
+msgstr ""
+
+#: .\templates\orders\es.html:134
+msgid "طلب جديد "
+msgstr ""
+
+#: .\templates\orders\es.html:149
+msgid "تم التوصيل"
+msgstr ""
+
+#: .\templates\orders\es.html:167
+msgid "فى التوصيل "
+msgstr ""
+
+#: .\templates\orders\es.html:182
+msgid "مرتجع "
+msgstr ""
+
+#: .\templates\orders\es.html:197
+msgid " طلب ملغي "
+msgstr ""
+
+#: .\templates\orders\es.html:212
+msgid "عدم الرد"
+msgstr ""
+
+#: .\templates\orders\es.html:227
+msgid "تم اتشحن "
+msgstr ""
+
+#: .\templates\orders\payment.html:214
+msgid "تاكيد طلب الشراء"
+msgstr ""
+
+#: .\templates\orders\payment.html:235
+msgid " لا يوجد فاتوره لي يتم تاكيد الطلب"
+msgstr ""
+
+#: .\templates\orders\payment.html:252
+msgid " رقم الاوردر "
+msgstr ""
+
+#: .\templates\orders\payment.html:257
+msgid "عدد المنتجات المطلوبه "
+msgstr ""
+
+#: .\templates\orders\payment.html:268
+msgid "المجموع "
+msgstr ""
+
+#: .\templates\orders\payment.html:280
+msgid "المطلوب"
+msgstr ""
+
+#: .\templates\orders\payment.html:293
+msgid "رقم الاوردر "
+msgstr ""
+
+#: .\templates\orders\payment.html:303
+msgid " عدد المنتجات المطلوبه "
+msgstr ""
+
+#: .\templates\orders\payment.html:331
+msgid "اجمالي سعر القطع "
+msgstr ""
+
+#: .\templates\orders\payment.html:364
+msgid " المطلوب شامل الشحن ولعموله  "
+msgstr ""
+
+#: .\templates\orders\payment.html:384
+msgid "المطلوب شامل الشحن "
+msgstr ""
+
+#: .\templates\orders\payment.html:398
+msgid "  الاسم"
+msgstr ""
+
+#: .\templates\orders\payment.html:409
+msgid "العنوان  "
+msgstr ""
+
+#: .\templates\orders\payment.html:419
+msgid " تفاصيل اكثر "
+msgstr ""
+
+#: .\templates\orders\payment.html:431
+msgid "رقم الهاتف"
+msgstr ""
+
+#: .\templates\orders\payment.html:441
+msgid " رقم هاتف اضافى"
+msgstr ""
+
+#: .\templates\orders\payment.html:452
+msgid "المحافظة "
+msgstr ""
+
+#: .\templates\orders\payment.html:467
+msgid " المركز "
+msgstr ""
+
+#: .\templates\orders\payment.html:479
+msgid "الملاحظات"
+msgstr ""
+
+#: .\templates\orders\payment.html:497 .\templates\orders\payment.html:507
+#: .\templates\parts\asidepar.html:310
+msgid "تاكيد الطلب "
+msgstr ""
+
+#: .\templates\orders\payment.html:514
+msgid "الرجوع الى الفاتوره "
+msgstr ""
+
+#: .\templates\orders\show_orders.html:168
+#: .\templates\orders\show_orders.html:177
+#: .\templates\reqqer\OrderDetails.html:187
+msgid " الطلبات"
+msgstr ""
+
+#: .\templates\orders\show_orders.html:190
+#: .\templates\reqqer\OrderDetails.html:200
+msgid "  يجب "
+msgstr ""
+
+#: .\templates\orders\show_orders.html:191
+#: .\templates\reqqer\OrderDetails.html:201
+msgid "تسجيل الدخول"
+msgstr ""
+
+#: .\templates\orders\show_orders.html:207
+#: .\templates\reqqer\OrderDetails.html:217
+msgid "عدد الطلبات الحاليه "
+msgstr ""
+
+#: .\templates\orders\show_orders.html:232
+msgid " عدد المنتجات"
+msgstr ""
+
+#: .\templates\orders\show_orders.html:234
+#: .\templates\orders\show_orders_user.html:299
+#: .\templates\pages\postap.html:213
+msgid "الحاله"
+msgstr ""
+
+#: .\templates\orders\show_orders.html:300
+#: .\templates\reqqer\OrderDetails.html:347
+msgid "  لا توجد منتجات  "
+msgstr ""
+
+#: .\templates\orders\show_orders_user.html:273
+msgid " طلبات اليوزر"
+msgstr ""
+
+#: .\templates\orders\show_orders_user.html:295
+msgid "عدد المنتجات"
+msgstr ""
+
+#: .\templates\orders\updeateorde.html:52
+msgid " تعديل معلومات الشحن للاوردر الذى طلبته"
+msgstr ""
+
+#: .\templates\orders\updeateorde.html:69
+msgid " قيمة الشحن "
+msgstr ""
+
+#: .\templates\orders\updeateorde.html:92
+msgid "الاسم "
+msgstr ""
+
+#: .\templates\orders\updeateorde.html:100
+msgid "العنوان بالتفصيل "
+msgstr ""
+
+#: .\templates\orders\updeateorde.html:107
+msgid "التليفون"
+msgstr ""
+
+#: .\templates\orders\updeateorde.html:114
+msgid "المحافظة"
+msgstr ""
+
+#: .\templates\orders\updeateorde.html:139
+#: .\templates\pages\dreportpost.html:255
+#: .\templates\pages\dsnamepartener.html:230
+#: .\templates\pages\rnamepartener.html:200
+msgid "تعديل"
+msgstr ""
+
+#: .\templates\pages\dreportpost.html:183
+#: .\templates\pages\dreportpost.html:187 .\templates\pages\postap.html:162
+msgid " تقرير بوسطه"
+msgstr ""
+
+#: .\templates\pages\dreportpost.html:207
+msgid "  تقرير بوسطه شامل"
+msgstr ""
+
+#: .\templates\pages\dreportpost.html:220
+msgid "  تقرير القيمه الواصله  "
+msgstr ""
+
+#: .\templates\pages\dreportpost.html:248
+msgid " اسم الواصل "
+msgstr ""
+
+#: .\templates\pages\dreportpost.html:249
+msgid "  القيمه الواصله "
+msgstr ""
+
+#: .\templates\pages\dreportpost.html:253
+msgid "انتهاء"
+msgstr ""
+
+#: .\templates\pages\dreportpost.html:254
+#: .\templates\pages\dsnamepartener.html:229
+#: .\templates\pages\rnamepartener.html:199
+msgid "حذف"
+msgstr ""
+
+#: .\templates\pages\dsnamepartener.html:184
+msgid " تقرير رجع شركاة الشحن"
+msgstr ""
+
+#: .\templates\pages\dsnamepartener.html:223
+#: .\templates\pages\rnamepartener.html:189
+msgid " اسم الشركه "
+msgstr ""
+
+#: .\templates\pages\dsnamepartener.html:224
+#: .\templates\pages\rnamepartener.html:193
+msgid "   راجع الوصل "
+msgstr ""
+
+#: .\templates\pages\dsnamepartener.html:225
+msgid "   التاريخ "
+msgstr ""
+
+#: .\templates\pages\dsnamepartener.html:226
+msgid "   اليوزر الذى ضاف القيمه "
+msgstr ""
+
+#: .\templates\pages\postap.html:182
+msgid "  واصل بوسطه "
+msgstr ""
+
+#: .\templates\pages\postap.html:217
+msgid "group "
+msgstr ""
+
+#: .\templates\pages\rnamepartener.html:160
+msgid " تقرير شركاة الشحن"
+msgstr ""
+
+#: .\templates\pages\rnamepartener.html:190 .\templates\prodects\gxd.html:240
+msgid "  الايميل "
+msgstr ""
+
+#: .\templates\pages\rnamepartener.html:192
+msgid "   واصل "
+msgstr ""
+
+#: .\templates\pages\rnamepartener.html:195
+msgid "   رقم الهاتف "
+msgstr ""
+
+#: .\templates\pages\rnamepartener.html:201
+msgid "   العنوان "
+msgstr ""
+
+#: .\templates\pages\rsreportpartener.html:180
+msgid " تقرير الشركه الشحن"
+msgstr ""
+
+#: .\templates\pages\rsreportpartener.html:244
+#: .\templates\pages\shipping.html:223
+msgid " طلب مرتحع"
+msgstr ""
+
+#: .\templates\pages\rsreportpartener.html:251
+#: .\templates\pages\shipping.html:230
+msgid "  مجموع الكميه المرتجعه "
+msgstr ""
+
+#: .\templates\pages\rsreportpartener.html:261
+#: .\templates\pages\shipping.html:240
+msgid "  مجموع  الحساب "
+msgstr ""
+
+#: .\templates\pages\rsreportpartener.html:366
+#: .\templates\pages\rsreportpartener.html:367
+msgid " حالة الطلب من شركة الشحن"
+msgstr ""
+
+#: .\templates\pages\rsreportpartener.html:376
+msgid " اليوزر الضايف"
+msgstr ""
+
+#: .\templates\pages\rsreportpartener.html:378
+msgid " group"
+msgstr ""
+
+#: .\templates\parts\asidepar.html:101
+msgid "الترجمه"
+msgstr "الترجمه"
+
+#: .\templates\parts\asidepar.html:151
+msgid "أقسام المنتجات "
+msgstr "أقسام المنتجات "
+
+#: .\templates\parts\asidepar.html:195
+msgid " خدمة العمله "
+msgstr ""
+
+#: .\templates\parts\asidepar.html:252
+msgid "الصفحه الرئيسيه "
+msgstr "الصفحه الرئيسيه "
+
+#: .\templates\parts\asidepar.html:261
+msgid "مرحبا:"
+msgstr "مرحبا:"
+
+#: .\templates\parts\asidepar.html:274
+msgid " تغير كلمة المرور "
+msgstr " تغير كلمة المرور "
+
+#: .\templates\parts\asidepar.html:286
+msgid " السلة "
+msgstr " السلة "
+
+#: .\templates\parts\asidepar.html:300
+msgid " الطلبات "
+msgstr " الطلبات "
+
+#: .\templates\parts\asidepar.html:327
+msgid "الحساب الشخصي "
+msgstr "الحساب الشخصي "
+
+#: .\templates\parts\asidepar.html:340
+msgid " المنتجات المفضلة"
+msgstr " المنتجات المفضلة"
+
+#: .\templates\parts\asidepar.html:355
+msgid " الاحصائيات "
+msgstr " الاحصائيات "
+
+#: .\templates\parts\asidepar.html:367
+msgid "  خدمة العمله "
+msgstr "  خدمة العمله "
+
+#: .\templates\parts\asidepar.html:415
+msgid " الاعلانات "
+msgstr " الاعلانات "
+
+#: .\templates\parts\asidepar.html:428
+msgid " اعدادات المستخدمين "
+msgstr " اعدادات المستخدمين "
+
+#: .\templates\parts\asidepar.html:438
+msgid "  الاعدادات "
+msgstr "  الاعدادات "
+
+#: .\templates\parts\asidepar.html:446 .\templates\parts\asidepar.html:508
+msgid "  اعدادات التجار "
+msgstr "  اعدادات التجار "
+
+#: .\templates\parts\asidepar.html:453 .\templates\parts\asidepar.html:500
+msgid "  اعدادات شركات الشحن "
+msgstr "  اعدادات شركات الشحن "
+
+#: .\templates\parts\asidepar.html:468
+msgid "  تقرير شركاة شحن "
+msgstr "  اعدادات شركات الشحن "
+
+#: .\templates\parts\asidepar.html:479
+msgid " تقرير بوسطه "
+msgstr " تقرير بوسطه "
+
+#: .\templates\parts\asidepar.html:491
+msgid "  تقرير المسوقين"
+msgstr "  تقرير المسوقين"
+
+#: .\templates\parts\asidepar.html:517
+msgid "  طلبات اليوم"
+msgstr "  طلبات اليوم"
+
+#: .\templates\parts\asidepar.html:526
+msgid "  طابات جديدة "
+msgstr "  طابات جديدة "
+
+#: .\templates\parts\asidepar.html:537
+msgid "  كنترول مكتمل "
+msgstr "  كنترول مكتمل "
+
+#: .\templates\parts\asidepar.html:547
+msgid " كنترول شامل"
+msgstr " كنترول شامل"
+
+#: .\templates\parts\asidepar.html:558
+msgid " الكنترول العام "
+msgstr " الكنترول العام "
+
+#: .\templates\parts\asidepar.html:572
+msgid "  اعدادات التاجر "
+msgstr "  اعدادات التاجر "
+
+#: .\templates\parts\asidepar.html:587
+msgid "  اعدادات شركة الشحن  "
+msgstr "  اعدادات شركة الشحن  "
+
+#: .\templates\parts\asidepar.html:602
+msgid " تسجيل الخروج "
+msgstr " تسجيل الخروج "
+
+#: .\templates\parts\asidepar.html:615
+msgid " انشاء حساب مسوق "
+msgstr " انشاء حساب مسوق "
+
+#: .\templates\parts\asidepar.html:624
+msgid " انشاء حساب  "
+msgstr " انشاء حساب  "
+
+#: .\templates\parts\asidepar.html:633
+msgid "  دخول  "
+msgstr ""
+
+#: .\templates\parts\asidepar.html:642
+msgid "  تسجيل حساب مسوق فيك  "
+msgstr ""
+
+#: .\templates\parts\asidepar.html:653
+msgid "انشاء حساب عميل "
+msgstr ""
+
+#: .\templates\parts\asidepar.html:679
+msgid " انتظار  "
+msgstr ""
+
+#: .\templates\prodects\deteilcolar.html:170
+msgid "  اضافة الوان ومقاسات  "
+msgstr ""
+
+#: .\templates\prodects\dgxr.html:194
+msgid " تقرير القيمه الواصله للتاجر "
+msgstr ""
+
+#: .\templates\prodects\dgxr.html:236
+msgid "   القيمه الواصله "
+msgstr ""
+
+#: .\templates\prodects\dgxr.html:237
+msgid " اسم ضايف القيمه الواصله "
+msgstr ""
+
+#: .\templates\prodects\dgxr.html:238 .\templates\prodects\gxd.html:242
+msgid "  التاريخ "
+msgstr ""
+
+#: .\templates\prodects\dgxr.html:239 .\templates\prodects\gxd.html:243
+msgid " تعديل  "
+msgstr ""
+
+#: .\templates\prodects\dgxr.html:240 .\templates\prodects\gxd.html:244
+msgid "  حذف "
+msgstr ""
+
+#: .\templates\prodects\fintion.html:178
+msgid " تقرير المنتج للتاجر"
+msgstr ""
+
+#: .\templates\prodects\fintion.html:214
+msgid "    id order"
+msgstr ""
+
+#: .\templates\prodects\fintion.html:215
+msgid "  حالة الطلب"
+msgstr ""
+
+#: .\templates\prodects\fintion.html:216
+msgid "  القيمه المسحوبه "
+msgstr ""
+
+#: .\templates\prodects\fintion.html:217
+msgid "   رقم تفاصيل الطلب"
+msgstr ""
+
+#: .\templates\prodects\gxd.html:159
+msgid " تقرير  التجار"
+msgstr ""
+
+#: .\templates\prodects\gxd.html:191 .\templates\prodects\gxd.html:237
+msgid "  اسم التاجر"
+msgstr ""
+
+#: .\templates\prodects\gxd.html:205
+msgid "   الايميل "
+msgstr ""
+
+#: .\templates\prodects\gxd.html:238
+msgid "  العنوان"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:180
+msgid " تقرير المنتجات للتاجر"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:256
+msgid " اسم المنتج "
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:293
+msgid "   اسم المنتج"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:294
+msgid "   القيم المكتمله"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:295
+msgid "  مجموع القيم المكتمله"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:297
+msgid "   القيم الغير  المكتمله"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:298
+msgid "  مجموع الغير القيم المكتمله"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:302
+msgid "  السعر"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:303
+msgid "  العموله "
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:304
+msgid "  الكميه المسحوبه"
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:305
+msgid "  الكميه الاصليه "
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:308
+msgid "  الفقه "
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:310
+msgid "  مجموع القيمه المسحوبه "
+msgstr ""
+
+#: .\templates\prodects\gxproduct.html:313
+msgid "  مجموع القيمه الحقيقيه "
+msgstr ""
+
+#: .\templates\prodects\masd.html:195
+msgid "  حاصل المصاريف "
+msgstr ""
+
+#: .\templates\prodects\masd.html:241
+msgid " بداية التاريخ"
+msgstr ""
+
+#: .\templates\prodects\masd.html:261
+msgid " اسم  "
+msgstr ""
+
+#: .\templates\prodects\masd.html:269
+msgid " user"
+msgstr ""
+
+#: .\templates\prodects\masd.html:292
+msgid "  ID "
+msgstr ""
+
+#: .\templates\prodects\masd.html:293
+msgid "   اسم الصارف"
+msgstr ""
+
+#: .\templates\prodects\masd.html:294
+msgid "   القيم المصروفة"
+msgstr ""
+
+#: .\templates\prodects\masd.html:295
+msgid "    التاريخ"
+msgstr ""
+
+#: .\templates\prodects\masd.html:297
+msgid "   اليوزر المستخدم "
+msgstr ""
+
+#: .\templates\prodects\masd.html:299
+msgid "    تعديل "
+msgstr ""
+
+#: .\templates\prodects\masd.html:301
+msgid " حذف "
+msgstr ""
+
+#: .\templates\prodects\masd.html:303
+msgid " الملحوظه "
+msgstr ""
+
+#: .\templates\prodects\prodect.html:869
+msgid "تفاصيل المنتج"
+msgstr ""
+
+#: .\templates\prodects\prodect.html:875
+msgid "كود المنتج "
+msgstr ""
+
+#: .\templates\prodects\prodect.html:876
+msgid "تحميل الميديا"
+msgstr ""
+
+#: .\templates\prodects\prodect.html:877
+msgid "السعر قبل الخصم"
+msgstr ""
+
+#: .\templates\prodects\prodect.html:884 .\templates\prodects\prodect.html:886
+msgid "اسم المنتج "
+msgstr ""
+
+#: .\templates\prodects\prodect.html:890
+msgid "عدد القطع المتاحه بالمخازن"
+msgstr ""
+
+#: .\templates\prodects\prodect.html:893
+msgid "العموله للمنتج "
+msgstr ""
+
+#: .\templates\prodects\prodect.html:899
+msgid "وصف المنتج وخاماته"
+msgstr ""
+
+#: .\templates\prodects\prodect.html:918
+msgid " الالوان والمقاسات بالكميات المتاحه  فى المخازن"
+msgstr ""
+
+#: .\templates\prodects\w_size.html:170
+msgid "  اضافة  المقاسات  "
+msgstr ""
+
+#: .\templates\pyorder.html:50
+msgid "المنتج"
+msgstr ""
+
+#: .\templates\pyorder.html:55
+msgid "اللون"
+msgstr ""
+
+#: .\templates\pyorder.html:56
+msgid "الاجمالى"
+msgstr ""
+
+#: .\templates\pyorder.html:101
+msgid "الاجمالى:"
+msgstr ""
+
+#: .\templates\pyorder.html:104
+msgid " قيمة الشحن :"
+msgstr ""
+
+#: .\templates\pyorder.html:107
+msgid " العموله :"
+msgstr ""
+
+#: .\templates\pyorder.html:109
+msgid "المطلوب شامل الشحن ولعموله  :"
+msgstr ""
+
+#: .\templates\pyorder.html:113
+msgid "المطلوب شامل الشحن :"
+msgstr ""
+
+#: .\templates\pyorder.html:121
+msgid " مدة تجهيز الطلب من يوم الى اربعة ايام "
+msgstr ""
+
+#: .\templates\resend_otp.html:261
+msgid "  send otp "
+msgstr ""
+
+#: .\templates\resend_otp.html:275
+msgid "رقم  الهاتف"
+msgstr ""
+
+#: .\templates\resend_otp.html:291 .\templates\verify_token.html:255
+msgid " ارسال رقم التفعيل  "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:15
+msgid "Messages"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:50
+msgid "That page number is not an integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:52
+msgid "That page number is less than 1"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:54
+msgid "That page contains no results"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:104
+#: .\venv\Lib\site-packages\django\forms\fields.py:752
+msgid "Enter a valid URL."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:165
+msgid "Enter a valid integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:176
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:259
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:267
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:279
+#: .\venv\Lib\site-packages\django\core\validators.py:287
+#: .\venv\Lib\site-packages\django\core\validators.py:316
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:296
+#: .\venv\Lib\site-packages\django\core\validators.py:317
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:308
+#: .\venv\Lib\site-packages\django\core\validators.py:315
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:351
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:357
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:392
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:401
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:410
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:420
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:438
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:461
+#: .\venv\Lib\site-packages\django\forms\fields.py:347
+#: .\venv\Lib\site-packages\django\forms\fields.py:386
+msgid "Enter a number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:463
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:468
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:544
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:605
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1423
+#: .\venv\Lib\site-packages\django\forms\models.py:893
+msgid "and"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1425
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:17
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:128
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:129
+msgid "This field cannot be null."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:130
+msgid "This field cannot be blank."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:131
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:173
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1094
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1095
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1097
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1147
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1149
+msgid "String (unlimited)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1253
+msgid "Comma-separated integers"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1354
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1358
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1493
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1362
+msgid "Date (without time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1489
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1497
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1502
+msgid "Date (with time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1626
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1628
+msgid "Decimal number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1789
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1793
+msgid "Duration"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1845
+msgid "Email address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1870
+msgid "File path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1948
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1950
+msgid "Floating point number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1990
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1992
+msgid "Integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2088
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2105
+msgid "Small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2113
+msgid "IPv4 address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2144
+msgid "IP address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2237
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2238
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2240
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2291
+msgid "Positive big integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2306
+msgid "Positive integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2321
+msgid "Positive small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2337
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2373
+msgid "Text"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2448
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2452
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2456
+msgid "Time"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2564
+msgid "URL"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2588
+msgid "Raw binary data"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2653
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2655
+msgid "Universally unique identifier"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:232
+msgid "File"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:393
+msgid "Image"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "A JSON object"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:28
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:919
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:921
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1212
+msgid "One-to-one relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1269
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1271
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1319
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:184
+msgid ":?.!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:91
+msgid "This field is required."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:298
+msgid "Enter a whole number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:467
+#: .\venv\Lib\site-packages\django\forms\fields.py:1241
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:490
+#: .\venv\Lib\site-packages\django\forms\fields.py:1242
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:517
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:551
+msgid "Enter a valid duration."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:552
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:621
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:622
+msgid "No file was submitted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:623
+msgid "The submitted file is empty."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:625
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:630
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:694
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:857
+#: .\venv\Lib\site-packages\django\forms\fields.py:949
+#: .\venv\Lib\site-packages\django\forms\models.py:1566
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:951
+#: .\venv\Lib\site-packages\django\forms\fields.py:1070
+#: .\venv\Lib\site-packages\django\forms\models.py:1564
+msgid "Enter a list of values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1071
+msgid "Enter a complete value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1310
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1340
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:98
+msgid ":"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:244
+#: .\venv\Lib\site-packages\django\forms\forms.py:328
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:63
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:67
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:72
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:886
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:891
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:898
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:907
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1338
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1429
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1568
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:226
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:463
+msgid "Clear"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:464
+msgid "Currently"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:465
+msgid "Change"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:794
+msgid "Unknown"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:795
+msgid "Yes"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:796
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:861
+msgid "yes,no,maybe"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:891
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:908
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:910
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:912
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:914
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:916
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:918
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:73
+msgid "p.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "a.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:79
+msgid "PM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "AM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:152
+msgid "midnight"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:154
+msgid "noon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:78
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:254
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:273
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:111
+msgid "Forbidden"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:112
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:116
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:122
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:127
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" …> for links to third-party sites."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:136
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:142
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:148
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:349
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:380
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:652
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:692
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:169
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:38
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:40
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:79
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:220
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:221
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:229
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:230
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:238
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:239
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:247
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
+msgid "Connect, get help, or contribute"
+msgstr ""

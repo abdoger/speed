@@ -1,0 +1,70 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">تعديل الكتاب</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form  action="{% url 'prodects'%}" enctype="multipart/form-data" method="GET">
+    
+      <div class="card-body">
+        
+        <input type="text" class="form-control" placeholder="الاسم" name="searchname">
+        <input type="text" class="form-control" placeholder="الوصف "name="searchdesc">
+        <input type="number" class="form-control" placeholder="السعر "name="searchpricefrom" >
+        <input type="number" class="form-control" placeholder="من "name="searchpriceto" >
+       
+   
+
+        <small id='totalrente' class="form-text text-muted"></small>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">سجل
+            
+        </button>
+      </div>
+    </form>
+
+
+   {% if query %}
+   <h1>por ......... {{query}}</h1>
+   <h3>
+    {% with results.count as total_results %}
+    Found {{total_results}} results {{ total_results|pluralize }}
+    {% endwith %}
+   </h3>
+   {% for post in results %}
+   <h4>
+    <a href="{% url 'home' }">{{post.name}}</a>
+   </h4>
+ 
+   {% empty %}
+   <p>لا يو جد اى نتاج</p>
+
+   {% endfor %}
+   {% else %}
+   <h1>search ......... pro </h1>
+   <form  method="get">
+    {{j}}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary" value="search">sss
+   </form>
+
+   {% endif %}
+  </div>
+</div>
+</div>
+  
+
+{% endblock%}

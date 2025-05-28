@@ -1,0 +1,375 @@
+
+
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+{% block title %}| card {% endblock%}
+
+{% block content %}
+
+
+<style>
+  body
+  {
+    background-color: #fff;
+  }
+  .my-num{
+  color: red;
+  font-weight: bold;
+  border: 1px solid darkred;
+  padding: 2px 10px;
+  border-radius: 50px;
+  background-color: yellow;
+}
+
+</style>
+  <style>
+    .h{
+  display: flex;
+   gap: 6px;
+   word-wrap: break-word;
+}
+ .kkkk{
+  display: flex; 
+   align-items: center;
+    background-color: aquamarine; 
+    width: 100%;
+     border-radius: 20px;
+ }
+    .table_section{
+      /* height: 65px; */
+      overflow-X: auto;
+    }
+    table{
+      width: 100%;
+      table-layout: fixed;
+      min-width: 1000px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    table tr:nth-child(odd){
+      background-color: #f8f8fb;
+    }
+    table tr{
+      background-color: #fff;
+      text-align: center;
+    }
+    table th{
+      position: static;
+      top: 0;
+      background-color: #f6f9fc;
+      color: #111;
+      font-weight: 66px;
+      font-size: 15px;
+      background-color: #eee;
+      text-align: right;
+    }
+    th{
+      border-bottom:1px solid #2d2b98;
+      padding: 10px 20px;
+      white-space: break-all;
+      /* text-align: center; */
+    }
+    tr td
+    {
+      text-align: right;
+    }
+    tr{
+      /* border-bottom:1px solid #0298cf; */
+      padding: 10px 20px;
+      white-space: break-all;
+      text-align: center;
+      padding-bottom: 66px;
+      margin-top: 66px;
+      
+    }
+    tr,td{
+     padding: 0.8rem 0.8rem  ;
+     text-align: left;
+     min-width: 120px;
+     font-size: 14px;
+
+    }
+    tr:hover{
+      border-bottom:1px solid #2d2b98;
+
+    }
+    td img{
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+      border-radius: 15px;
+      border: 5px solid #ced0d2;
+
+    }
+    tr:hover td{
+      color: #0298cf;
+      background-color: #f6f9fc;
+      cursor: pointer;
+    }
+    button{
+      outline: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 5px;
+      color: #fff;
+    }
+    td button:nth-child(1){
+      background-color: #0298cf;
+    }
+    td button:nth-child(2){
+      background-color: #f80000;
+    }
+    .status{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: orange;
+      color: #fff;
+      text-align: center;
+     
+    }
+    .data{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: rgb(255, 68, 0);
+      color: #fff;
+      text-align: center;
+     
+    }
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      text-align: center;
+    }
+    .grid div{
+     
+      background-color: #fff;
+      border:1px hsl(129,36%,85%) solid;
+      color: hsl(176,88%,27%);
+      font-weight: 900;
+      font-size: large;
+    }
+ 
+  </style>
+  <style>
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+    }
+</style>
+<div   class="content-wrapper" style="background-color: #fff;">
+   
+<div class="my-form  p-1 roudend " style="background-color: #fff;">
+
+      <div class="pymrnt-1 fact" >
+        <h6 > 
+
+    
+        {% trans " تقرير المنتجات للتاجر" %}
+      </h6>
+      </div>
+
+{% include 'parts/allert.html'%}
+
+
+{% if  request.user.is_authenticated or request.user.is_anonymous %}
+
+
+<div class="pymrnt-7 grid" >
+<div>
+<p> مجموع القيمه المتبقيه</p>
+<p class="gxqur"></p>
+  </div>
+  <div>
+    <p>مجموع القيمه المسحوبه</p>
+    <p class="totalqutotal"></p>
+  </div>
+  <div>
+    <p>مجموع القيمه الحقيقيه</p>
+    <p class="gxqurd"></p>
+  </div>
+
+  <div>
+    <p>مجموع القيمه الواصله</p>
+    <p class="hf">{{hf}}</p>
+  </div>
+</div>
+
+
+<div class="pymrnt-7 grid" >
+  <div>
+  <p>   مجموع الغير القيم المكتمله</p>
+  <p >{{sa}}</p>
+    </div>
+    <div>
+   
+    </div>
+    <div>
+     
+    </div>
+  
+    <div>
+      <p>  مجموع القيم المكتمله</p>
+      <p >{{sad}}</p>
+    </div>
+  </div>
+
+
+<!-- زززززززززززز -->
+
+
+
+
+<div class="fact">
+
+<form   enctype="multipart/form-data" method="POST"  >
+        
+
+  {% csrf_token %}
+ 
+
+
+
+<!-- <div class="card-body"> -->
+  <div class="row">
+ 
+   
+
+   
+
+
+    <div class="col col-xxl-6">
+      <label for="mo" class="pymrnt-7">  
+       
+        {% trans  " اسم المنتج "%}</label>
+        <input type="text"id="inputship_address" class="pymrnt-4 form-control " name="gr" >
+
+    </div>
+
+    <div class="col col-xxl-6">
+      <label for="mo" class="pymrnt-10"> 
+       
+        {% trans "رقم الطلب"%}
+         </label>
+      <input type="number" class="pymrnt-11 form-control " placeholder="ID" name="id" >
+      
+    </div>
+
+  </div>
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <button type="submit"  name="btnpayment" class="pymrnt-12 mt-3 btn btn-primary" >{% trans " بحث " %}
+  
+    </button>
+    <button>
+   
+    <a href="{% url 'dgxr' gr.id%}" class='pymrnt-13 btn btn-primary  mt-3 mb-2'>اضافة قيمة واصله</a>
+  
+  </button>
+  </div>
+ 
+ 
+</form>
+
+</div>
+<!-- llllllllllllllllll -->
+
+  <div class="table_section" >
+    <table>
+      <thead>
+        <tr class="pymrnt-3">
+          <th>{% trans  "  ID"%}</th>
+          <th>{% trans  "   اسم المنتج"%}</th>
+          <!-- <th>{% trans  "   القيم المكتمله"%}</th>
+          <th>{% trans  "  مجموع القيم المكتمله"%}</th>
+
+          <th>{% trans  "   القيم الغير  المكتمله"%}</th>
+          <th>{% trans  "  مجموع الغير القيم المكتمله"%}</th> -->
+
+
+
+          <th>{% trans  "  السعر"%}</th>
+          <th>{% trans  "  العموله "%}</th>
+          <th>{% trans  "  الكميه المسحوبه"%}</th>
+          <th>{% trans  "  الكميه الاصليه "%}</th>
+          
+          
+          <th>{% trans  "  الفقه "%}</th>
+
+          <th>{% trans  "  مجموع القيمه المسحوبه "%}</th>
+          
+          
+          <th>{% trans  "  مجموع القيمه الحقيقيه "%}</th>
+        
+
+
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in gx %}
+        <tr class="pymrnt-{{forloop.counter}}" style="padding-bottom: 67px;">
+            <td ><span class="status"><a href="{% url 'prodects_id_user' i.id%}">{{i.id}}</a></span></td>
+
+            <td ><span class="status">{{i.name}}</span></td>
+           
+            <!-- <td ><span class="status">{{i.nsd}}</span></td>
+           
+            <td><span class="status ">{% widthratio i.ns 1 i.pricels %}</span></td>
+          
+            <td ><span class="status">{{i.nd}}</span></td>
+
+            <td><span class="status ">{% widthratio i.nd 1 i.pricels %}</span></td> -->
+
+            
+
+            <td ><span class="status">{{i.pricels}}</span></td>
+            <td ><span class="status">{{i.qus}}</span></td>
+            <td ><span class="status">{{i.qu}}</span></td>
+            <td ><span class="status">{{i.qur}}</span></td>
+            <td ><span class="status">{{i.category.name}}</span></td>
+            <td><span class="status widthratio">{% widthratio i.qu 1 i.pricels%}</span></td>
+            <td><span class="status widthratiod">{% widthratio i.qur 1 i.pricels %}</span></td>
+
+        </tr>
+         {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endif%}   
+
+</div>
+
+</div>
+
+</div>
+
+{% for i in gx %}
+{% if i.ns != None %}
+
+   <span class="status toatacomplites">{% widthratio i.ns 1 i.pricels %}</span>
+ 
+    {% endif %}
+
+
+    {% if i.nd != None %}
+
+
+    <span class="status toatanonecomplites">{% widthratio i.nd 1 i.pricels %}</span>
+    {% endif %}
+{% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,530 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content%}
+<style>
+  .gred{
+        display: grid;
+        grid-template-columns: repeat(3,auto);
+        gap: 1px;
+    }
+    @media screen and (max-width:500px) {
+      .gred{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        gap: 1px;
+        
+    }
+    }
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+    }
+    .fact h2{
+        font-size: 1.8em;
+        box-shadow: #181a34;
+    }
+    .fact p{
+        font-size: 1em;
+       
+        color: #50526b;
+        line-height: 1.8em;
+        text-align: justify;
+        margin-top: 0.8em;
+        font-weight: bold;
+
+    }
+    .vvd{
+      padding: 10px;
+      outline: auto;
+      border:1px solid white;
+      border-radius: 6px;
+      text-align: center;
+    }
+</style>
+
+<div style="direction: rtl;" class="wrapper">
+
+
+{% for book in Product %}
+
+{% if book.price != None %}
+
+<p class="totalprice"> {{book.price}}</p>
+
+{% endif %}
+
+
+{% endfor %}
+
+
+{% for book in Product %}
+{% if book.id != None %}
+<p class="totalid"> {{book.id}}</p>
+{% endif %}
+{% endfor %}
+
+{% for pro in Product %}
+{% if pro.qu != None %}
+
+  <p class="quffffff" >{{pro.qu}}</p>
+
+{% endif %}
+{% endfor %}
+
+{% for pro in Product %}
+{% if pro.qur != None %}
+
+<p class="dqurhgyu" >{{pro.qur}}</p>
+
+{% endif %}
+{% endfor %}
+
+{% for pro in Product %}
+{% if pro.qur != None and pro.pricels != None %}
+
+<p class="totalwhm" >{% widthratio pro.qur 1 pro.pricels %}</p>
+
+{% endif %}
+{% endfor %}
+
+{% for pro in Product %}
+{% if pro.qu != None and pro.pricels != None %}
+
+<p class="totalwhmuur" >{% widthratio pro.qu 1 pro.pricels %}</p>
+
+{% endif %}
+{% endfor %}
+
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div   class="content-wrapper">
+      {% include 'parts/allert.html'%}
+      <!-- Content Header (Page header) -->
+  
+  
+      <!--الاحصائيات-->
+      <!-- <h3 class="card-title">اجمالي عدد الكتب</h3>  
+      <p class="text-bold text-lg" id="id">{{all}}</p> -->
+
+      <div class="content">
+        
+        <div  class="gred"> 
+           
+          <div   class="fact">
+            الكمية الأصليه
+            <p class="qurrigfu8f8e"></p>
+              
+          </div> 
+          <div  class="fact">
+                مجموع الأصل <p class="totalwhmy"></p>
+          </div>
+          
+    
+
+        <div  class="fact">
+          الكمية المتبقيه <p class="quffffffs"></p>
+         </div>
+        <div  class="fact">
+          مجموع المتبقي <p class="totalwhmuury"></p>
+        </div>
+      
+
+
+        <div  class="fact">
+          الكمية الحالية
+           <p class="totaltalotstyy"></p>
+         </div>
+        <div  class="fact">
+          مجموع الحالي
+           <p class="totaltalotst"></p>
+        </div>
+      </div>
+        <!-- form add books -->
+         <div style="display: flex; gap: 4px;" >
+        <a class="card-title vvd btn-warning w-25 text-size-5"   href="{% url 'mo' %}"> المحافظاة </a>
+        <a class="card-title vvd btn-danger w-25 " href="{% url 'cattger' %}">  الفئات</a>
+
+         <a class="card-title vvd btn-info w-25 " href="{% url 'addindex' %}">اضافة المنتجات</a>
+         <a class="card-title vvd btn-warning w-25" href="{% url 'Videoss' %}">  الاعلانات</a>
+
+        </div>
+        <a class="card-title vvd btn-primary w-100 mt-1" href="{% url 'gxd' %}"> تقرير تاجر</a>
+        
+
+
+
+
+           <form   enctype="multipart/form-data" method="POST" class="mt-5 mb-5 w-100"  style="display: block;">
+        
+       
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="text"id="lg" class="form-control" placeholder="2025-02-24
+
+                " name="lg" >
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="text"id="ls" class="form-control" placeholder="  2025-02-24
+
+                " name="ls" >
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="text" id="name" class="form-control" placeholder="  اسم المنتج" name="name" >
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="number"id="number" class="form-control" placeholder="  رقم صاحب المنتج" name="number" >
+
+              </div>
+              <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 col-xll-6">
+                <input type="text"id="facat" class="form-control" placeholder="  المنتجات المتعددة" name="facat" >
+
+              </div>
+           
+              <!-- col-md-12 col-xl-12 col-sm-12 col-xll-112 -->
+              <div class="col-lg-6 ">
+                <input type="text"id="gx" class="form-control" placeholder="اسم  التاجر" name="gx" >
+              </div>
+              <div class="col-lg-12 ">
+                <input type="text"id="id" class="form-control" placeholder=" ID " name="id" >
+              </div>
+              <div class="col-lg-6 ">
+                <input type="text"id="id" class="form-control" placeholder=" uuid " name="uuid" >
+              </div>
+            </div>
+            
+          <input type="submit" name="p" class=" w-100 mt-4 mb-3" style= " background-color: aquamarine; border-radius:30px; color: rgb(255, 128, 0); border: 2px solid rgb(0, 255, 157); font-size: 25px; font-weight: 700; " value="بحث">
+       
+       
+        </form>
+          <div id="bookform" class="card card-primary collapse">
+            <div class="card-header">
+              <h3 class="card-title btn btn-outline-primary">اضافة المنتج</h3>
+              <h3 class="card-title btn btn-outline-primary"><a href="{% url 'Videoss' %}"> اضافه الاعلانات</a> </h3>
+
+              
+            </div>
+            <!-- Button trigger modal -->
+
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="POST" enctype="multipart/form-data"  > 
+              {% include 'parts/allert.html'%}
+
+              <div class="card-body">
+                {% csrf_token %} 
+           {{from}}
+                <small id='totalrente' class="form-text text-muted"></small>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">اضافة</button>
+              </div>
+            </form>
+          </div>
+  
+                <!-- /.card -->
+          </div>
+          <!-- end form add books -->
+  
+  
+          <!-- تصنيفات-->
+           <div style="overflow-x: auto;">
+            <div class="d-flex justify-content-center mb-3">
+            
+              {% for cat in category%}
+                  <i class="nav-item cat{{cat.id}} ">
+                    <a id="" class="nav-link bg-primary" href="#">{{ cat.name}}</a>
+                  </i>
+                  {% endfor %}
+           
+            </div>
+           </div>
+      
+
+          <!-- books -->
+
+          <div class="row">
+
+          <!-- الكتب -->
+       
+          <div style="overflow-x: auto;">
+            <table class="table">
+              <thead>
+                <tr style="background-color: black; color: yellow;">
+                  <td> 
+                    تحديد </td>
+                  <td>الكنترول</td>
+                  <td>ID</td>
+                  <td>uuid</td>
+                  <td>التفعيل</td>
+                  <td>حذف</td>
+                  <td>تعديل</td>
+                  <td>انتهاء</td>
+                  <td>تفعيل المنتج</td>
+
+                 
+                  <td>حاله الانتهاء</td>
+
+
+                  <td>التاجر</td>
+
+                  <!-- <td>اسم صاحب المنتج</td> -->
+                  <td>رقم صاحب التاجر</td>
+                  <td>اسم المنتج</td>
+                  
+                  <td>الكمية الموجودة حاليا</td>
+                  <td>الكمية الصلية</td>
+                  <td>السعر الحقيقي للمنتج</td>
+                  <td>سعر  البيع للمنتج</td>
+                  <td>السعر  الوهمي</td>
+                  <td>   الفئات</td>
+                  <td>  متعدد الفئات</td>
+                  <td>قيمة العمولة</td>
+                  <td>الشخص الذي أضاف المنتج</td>
+                  <td>  تاريخ بداية المنتج</td>
+                  <td>صورة المنتج</td>
+                  <td> صورة اضافيه للمنتج</td>
+
+                </tr>
+              </thead>
+              
+              <form method="post" action="{% url 'delete_selected_products' %}">
+                {% csrf_token %}
+              
+              <tbody>
+                {% for pro in Product%}
+                <tr  class="  bookhide book{{pro.category.id}}" id="cart-{{forloop.counter}}">
+                  <td><input type="checkbox" name="products" value="{{ pro.id }}" class="checkbox"></td>
+                  <td>
+                    <div style="position: absolute;" class="btn-group">   
+                      <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: black; color: aqua;">
+                        <p class="sr-only">Toggle Dropdown</p>
+                      </button>
+                      {% if pro.user_updete == request.user %}
+                      <div class="dropdown-menu" style="background-color: #111; color: aqua;">
+                        {% if pro.facat == True%}
+                        <a class="dropdown-item"  style="color: rgb(255, 0, 64);"  href="{% url 'w_to_colar' pro.id %}"> اضافة الوان ومقاسات</a>
+                        {% endif %}
+                        {% if pro.boonimg == True %}
+                        <a class="dropdown-item" style="color: rgb(255, 0, 64);"  href="{% url 'dimgs' pro.id %}">اضافة الوان </a>
+                        {% endif %}
+                        
+                        
+                        <!-- <a class="dropdown-item" href="{% url 'add_to_colar' pro.id%}">اضافة الوان</a> -->
+                       
+                    
+                      </div>
+                      {% endif %}
+
+                    </div>
+                  </td>
+                  <td ><P style="background-color:#111;color:#fff;padding:7px; text-align:center;">{{pro.id}}</p></td>
+                  <td ><P style="background-color:#111;color:#fff;padding:7px; text-align:center;">{{pro.uuid}}</p></td>
+
+                    {% if pro.is_active == True %}
+                    <td>
+                      <P style="padding:4px; border-radius:50%; color:#fff;">
+                          <svg xmlns="http://www.w3.org/2000/svg" style="color: green;" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                          </svg>
+                        </p>
+                      </td>
+                   
+                    {%else%}
+                    <td>
+                      <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                      </svg>
+                    </td>
+  
+                    {%endif%}
+                  <td>
+                  <a  class="btn btn-outline-danger" href="{% url 'deleteb' pro.id%}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                      <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                    </svg>
+                  </a>
+                    
+                  </td>
+                  <td>
+                    <a style="color: aqua;" class="btn btn-outline-primary"  href="{% url 'updateb' pro.id%}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                      </svg>
+                    </a>
+                  </td>
+                  <td>
+                    <a style="color: aqua;" class="btn btn-outline-info"  href="{% url 'profintion' pro.id%}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                      </svg>
+                    </a>
+                  </td>
+                  <td>
+                    <a style="color: rgb(0, 255, 21);" class="btn btn-outline-info"  href="{% url 'update_is_active' pro.id%}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                      </svg>
+                    </a>
+                  </td>
+
+
+                  <td style="color: #fff; font-size: 15px;">
+                    {% if pro.statusu == 'completed'%}
+                
+                    <p style="padding: 5px; text-align:center; color: rgb(7, 242, 7); background-color: #111; border-radius: 5px;">{{pro.statusu}}</p>
+                
+                    {% elif pro.statusu == 'work'%}
+
+                    <p style="padding: 5px; text-align:center; color: yellow; background-color: #111; border-radius: 5px;">{{pro.statusu}}</p>
+                
+                  {% elif pro.statusu == 'conduct' %}
+                   
+                    <p style="padding: 5px;  text-align:center; color: rgb(210, 8, 251); background-color: #111; border-radius: 5px;">{{pro.statusu}}</p>
+                
+                    {% else %}
+                   
+                    <p style="padding: 5px; text-align:center; color: red; background-color: #111; border-radius: 5px;">{{pro.statusu}}</p>
+                  
+                    {% endif%}
+                  </td>
+
+                  <td>
+
+
+                   {{pro.gx}}
+                  </td>
+                  <!-- <td>
+                    <p>{{pro.namel}}</p>
+                  </td> -->
+                  <td>
+                   <a href="tel:+20{{pro.gx.number}}"><p  class="widget-user-username">{{pro.gx.number}}</p></a> 
+                   <!-- {{pro.gx.number}} -->
+                  </td>
+                  <td>
+                    <p class="widget-user-username">{{pro.name}}</ح>
+                  </td>
+                  <td class="">
+                    <p class="description-header" >{{pro.qu}}</p>
+                  </td>
+                  <td class="">
+                    <p class="description-header" >{{pro.qur}}</p>
+                  </td>
+                  <td class=" " style="display: none;">
+                    <p class="description-header" >{% widthratio pro.qur 1 pro.pricels %}</p>
+                  </td>
+                  <td class=" " style="display: none;">
+                    <p class="description-header" >{% widthratio pro.qu 1 pro.pricels %}</p>
+                  </td>
+                  <td >
+                    <p class="description-header">{{pro.pricels}}</p>
+                  </td>
+                  <td>
+                    <p class="description-header">{{pro.price}}</p>
+                  </td>
+                  <td>
+                    <p class="description-header">{{pro.price_decint}}</p>
+                  </td>
+                  <td>
+                    <p class="description-header">{{pro.category.name}}</p>
+                  </td>
+                  <td>
+                    {% if pro.facat == True %}
+
+                    {{pro.facat}}
+                    <p>متعدد</p>
+                    {% else %}
+                    <p>ليس متعدد</p>
+
+                    {% endif  %}
+                  </td>
+                  <td>
+                    <p class="description-header">{{pro.qus}}</p>
+                  </td>
+                  <td>
+                    <p class="description-header">{{pro.user_updete}}</p>
+                  </td>
+                  <td>
+                    <p class="description-header">{{pro.publish_date|date:'Y-m-d'}}</p>
+                  </td>
+                  <td>
+                    <div class="widget-user-image">
+                      {% if pro.photo %}
+                      <img style="width:100px; height: 100px;" class="img-circle elevation-2" src="{{pro.photo.url}} " alt="User Avatar">
+                      {%else%}
+                      <p>no</p>
+                      {%endif%}
+                  </td>
+                  <td>
+                    <div class="widget-user-image">
+                      {% if pro.photos%}
+                      <img style="width:100px; height: 100px;" class="img-circle elevation-2" src="{{pro.photos.url}} " alt="User Avatar">
+                      {%else%}
+                      <p>no</p>
+                      {%endif%}
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              <button type="button" onclick="selectAll()" class="vvd btn-warning ml-2">تحديد الكل</button>
+              <button type="button" onclick="removell()" class="vvd btn-info ml-2"> الغاء التحديد</button>
+
+              <button type="submit" class="vvd btn-danger ml-2">حذف المحدد</button>
+            </form>
+            
+
+            </table>
+          </div>
+
+           
+          
+       
+       
+          </div>    
+      </div>
+    </div>
+
+    <div class="ring ">انتظار
+      <p></p>
+    </div>
+        <!-- /.container-fluid -->
+  </div>
+      <!-- /.content -->
+</div>
+<script>
+  function selectAll() {
+    let checkboxes = document.querySelectorAll('input[name="products"]');
+    checkboxes.forEach((checkbox) => checkbox.checked = true);
+  }
+</script>
+<script>
+  function removell() {
+    let checkboxes = document.querySelectorAll('input[name="products"]');
+    checkboxes.forEach((checkbox) => checkbox.checked = false);
+  }
+</script>
+    <!-- /.content-wrapper -->
+{% endblock%}
+
+
+
+
+

@@ -1,0 +1,42 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+   .vvv{
+    background-color: yellow;
+    color: red;
+    font-size: 13px;
+    padding: 5px;
+    
+
+  }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <h4 style="text-align: center;">
+        اضافة المراكز
+    </h4>
+    <a class="card-title btn btn-outline-primary" href="{% url 'readMr' mo.id %}"> المراكز</a>
+
+    <form   enctype="multipart/form-data" method="POST" >
+        
+       
+        {% csrf_token %}
+        <input type="text"id="mr" class="form-control" placeholder="المراكز" name="mr" required>
+        <input type="submit" class="btn btn-outline-primary w-100" placeholder="حفظ" >
+
+
+    </form>
+
+
+
+</div>
+</div>
+
+  
+<!-- abdodjangopaymants -->
+{%endblock%}

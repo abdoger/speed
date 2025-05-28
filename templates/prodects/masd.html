@@ -1,0 +1,362 @@
+
+
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+{% block title %}| card {% endblock%}
+
+{% block content %}
+
+
+<style>
+  body
+  {
+    background-color: #fff;
+  }
+  .my-num{
+  color: red;
+  font-weight: bold;
+  border: 1px solid darkred;
+  padding: 2px 10px;
+  border-radius: 50px;
+  background-color: yellow;
+}
+
+</style>
+  <style>
+    .h{
+  display: flex;
+   gap: 6px;
+   word-wrap: break-word;
+}
+ .kkkk{
+  display: flex; 
+   align-items: center;
+    background-color: aquamarine; 
+    width: 100%;
+     border-radius: 20px;
+ }
+    .table_section{
+      /* height: 65px; */
+      overflow-X: auto;
+    }
+    table{
+      width: 100%;
+      table-layout: fixed;
+      min-width: 1000px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    table tr:nth-child(odd){
+      background-color: #f8f8fb;
+    }
+    table tr{
+      background-color: #fff;
+      text-align: center;
+    }
+    table th{
+      position: static;
+      top: 0;
+      background-color: #f6f9fc;
+      color: #111;
+      font-weight: 66px;
+      font-size: 15px;
+      background-color: #eee;
+      text-align: right;
+    }
+    th{
+      border-bottom:1px solid #2d2b98;
+      padding: 10px 20px;
+      white-space: break-all;
+      /* text-align: center; */
+    }
+    tr td
+    {
+      text-align: right;
+    }
+    tr{
+      /* border-bottom:1px solid #0298cf; */
+      padding: 10px 20px;
+      white-space: break-all;
+      text-align: center;
+      padding-bottom: 66px;
+      margin-top: 66px;
+      
+    }
+    tr,td{
+     padding: 0.8rem 0.8rem  ;
+     text-align: left;
+     min-width: 120px;
+     font-size: 14px;
+
+    }
+    tr:hover{
+      border-bottom:1px solid #2d2b98;
+
+    }
+    td img{
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+      border-radius: 15px;
+      border: 5px solid #ced0d2;
+
+    }
+    tr:hover td{
+      color: #0298cf;
+      background-color: #f6f9fc;
+      cursor: pointer;
+    }
+    button{
+      outline: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 5px;
+      color: #fff;
+    }
+    td button:nth-child(1){
+      background-color: #0298cf;
+    }
+    td button:nth-child(2){
+      background-color: #f80000;
+    }
+    .status{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: orange;
+      color: #fff;
+      text-align: center;
+     
+    }
+    .data{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: rgb(255, 68, 0);
+      color: #fff;
+      text-align: center;
+     
+    }
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1px;
+    }
+    .grid div{
+     
+      background-color: #fff;
+      border:1px hsl(129,36%,85%) solid;
+      color: hsl(176,88%,27%);
+      font-weight: 900;
+      font-size: large;
+    }
+    .gred{
+        display: grid;
+        grid-template-columns: repeat(1,auto);
+        gap: 1px;
+    }
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 2em 1em 1em 2em;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+    }
+    .fact h2{
+        font-size: 1.8em;
+        box-shadow: #181a34;
+    }
+    .fact p{
+        font-size: 1em;
+        font-weight: 700;
+        color: #50526b;
+        line-height: 1.8em;
+        text-align: justify;
+        margin-top: 0.8em;
+
+    }
+ 
+  </style>
+<div   class="content-wrapper" style="background-color: #fff;">
+   
+<div class="my-form  p-1 roudend " style="background-color: #fff;">
+
+      <div class="pymrnt-1" style="height: 44px; text-align: center; width: 100%; background-color: rgb(0, 166, 255); border-radius: 10px; margin-bottom: 5px;">
+        <h5 style="padding-top:10px;text-align: center; color: #fff; width: 100%;  text-size-adjust: 100%; "> <span style="">
+
+        </span>
+        {% trans "  حاصل المصاريف " %}
+      </h5>
+      </div>
+
+{% include 'parts/allert.html'%}
+
+
+{% if  request.user.is_authenticated or request.user.is_anonymous %}
+
+
+
+
+<div class="pymrnt-2 gred">
+<div class="fact">
+    <h2 class="masddsd"></h2>
+    <p>حاصل المصاريف</p>
+</div>
+
+
+
+</div>
+
+<a href="{% url 'mas' %}" class="pymrnt-2 btn btn-primary ml-3">اضف قيمة الصرف</a>
+
+<!-- زززززززززززز -->
+
+
+
+
+
+
+<form   enctype="multipart/form-data" method="POST" >
+        
+
+  {% csrf_token %}
+ 
+
+
+
+<!-- <div class="card-body"> -->
+  <div class="row">
+ 
+   
+    <div class="col col-6">
+      <label for="mo" class="pymrnt-10"> 
+       
+        {% trans " بداية التاريخ"%}
+         </label>
+      <input type="text" class="pymrnt-11 form-control " placeholder="ID" name="gr" >
+      
+    </div>
+
+    <div class="col col-6">
+      <label for="mo" class="pymrnt-10"> 
+       
+        {% trans "  نهاية التاريخ"%}
+         </label>
+      <input type="text" class="pymrnt-11 form-control " placeholder="ID" name="mr" >
+      
+    </div>
+   
+
+
+    <div class="col col-6">
+      <label for="mo" class="pymrnt-7">  
+       
+        {% trans  " اسم  "%}</label>
+        <input type="text"id="inputship_address" class="pymrnt-4 form-control " name="name" >
+
+    </div>
+
+    <div class="col col-6">
+      <label for="mo" class="pymrnt-10"> 
+       
+        {% trans " user"%}
+         </label>
+      <input type="text" class="pymrnt-11 form-control " placeholder="ID" name="user" >
+      
+    </div>
+
+  </div>
+ 
+  <button type="submit"  name="btnpayment" class="pymrnt-12 mt-3 btn btn-primary" >{% trans " بحث " %}
+  
+  </button>
+ 
+
+
+</form>
+
+
+<!-- llllllllllllllllll -->
+
+  <div class="table_section" >
+    <table>
+      <thead>
+        <tr class="pymrnt-3">
+          <th>{% trans  "  ID "%}</th>
+          <th>{% trans  "   اسم الصارف"%}</th>
+          <th>{% trans  "   القيم المصروفة"%}</th>
+          <th>{% trans  "    التاريخ"%}</th>
+
+          <th>{% trans  "   اليوزر المستخدم "%}</th>
+
+          <th>{% trans  "    تعديل "%}</th>
+
+          <th>{% trans  " حذف "%}</th>
+    
+          <th>{% trans  " الملحوظه "%}</th>
+
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in ma %}
+        <tr class="pymrnt-{{forloop.counter}}" style="padding-bottom: 67px;">
+            <td ><span class="status">{{i.id}}</span></td>
+
+            <td ><span class="status">{{i.name}}</span></td>
+            <td ><span class="status masddsds">{{i.qu}}</span></td>
+            <td ><span class="status ">{{i.publish_date|date:'Y-m-d'}}</span></td>
+
+            <td ><span class="status">{{i.user}}</span></td>
+            <td ><a href="{% url 'updatemasd' i.id %}" class="btn btn-outline-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                </svg>
+                <a></td>
+  
+              <td ><a href="{% url 'deletemasd' i.id %}" class="btn btn-outline-danger">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                      <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1M.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8z"/>
+                    </svg><a></td>
+            <td><span class="status ">{{i.nots}}</span></td>
+        
+
+        </tr>
+         {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endif%}   
+
+</div>
+
+</div>
+
+</div>
+
+{% for i in gx %}
+{% if i.ns != None %}
+
+   <span class="status toatacomplites">{% widthratio i.ns 1 i.pricels %}</span>
+ 
+    {% endif %}
+
+
+    {% if i.nd != None %}
+
+
+    <span class="status toatanonecomplites">{% widthratio i.nd 1 i.pricels %}</span>
+    {% endif %}
+{% endfor %}
+
+
+
+{% endblock %}

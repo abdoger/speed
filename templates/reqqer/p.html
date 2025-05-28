@@ -1,0 +1,238 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+  .fact{
+  /* width: 25%; */
+  background-color: #ffffff;
+  box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+  margin: 5px 5px 5px 5px;
+  padding: 1em 1.8em;
+  border-radius: 0.6em;
+  border: none;
+  border-bottom: 3px solid #566fff;
+  display: block;
+}
+</style>
+<style>
+  .table_section{
+    /* height: 65px; */
+   
+    overflow-X: auto;
+  }
+
+  table{
+    /* width: 100%; */
+    /* table-layout: fixed; */
+    /* min-width: 1000px; */
+    border-collapse: collapse;
+    
+    /* background-color: #f6f9fc; */
+  }
+  table th{
+    position: static;
+    top: 0;
+    /* background-color: #f6f9fc; */
+    color:  #fff;
+
+  }
+  table th{
+    border-bottom: 1px solid #04b6f7;
+    font-weight: 900;
+    background-color: #777;
+  
+  }
+  table thead{
+    background-color: #777;
+    color : #04b6f7;
+  }
+  table th,tr{
+    /* border-bottom: 1px solid #0298cf; */
+    padding: 10px 20px;
+    white-space: break-all;
+    /* color : #111; */
+    text-align: center;
+    /* font-weight: 900; */
+  
+    
+  }
+  td img{
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 5px solid #ced0d2;
+
+  }
+  tr:hover td{
+    color: #0298cf; 
+    /* background-color: #f6f9fc; */
+    cursor: pointer;
+  }
+  button{
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
+  }
+  td button:nth-child(1){
+    background-color: #0298cf; font-weight: 900
+  }
+  td button:nth-child(2){
+    background-color: #f80000;
+  }
+
+
+
+
+
+
+</style>
+
+
+<div style="direction: rtl;" class="wrapper p-1">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    <div class="fact">
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-6 mb-3">
+          <input type="text" class="form-control " name="username" placeholder="الاسم" >
+         </div>
+         <div class="col-6 mb-3">
+          <input type="text" class="form-control " name="zip_number" placeholder="رقم الهاتف" >
+        </div>
+          <div class="col-12 mb-1">
+          <input type="text" class="form-control " name="email" placeholder="الحساب" >
+        </div>
+          <input type="submit" class=" w-100 mt-1 mb-3" style="border-radius:30px; color: rgb(0, 255, 76); border: 3px solid aqua; font-size: 25px; font-weight: 700; background-color: aquamarine;" value="بحث">
+      </div>
+    </form>
+  </div>
+<div style="overflow-x: auto;" class="table_section">
+  <table class="table">
+    <thead>
+      <tr >
+        <th scope="col">id</th>
+        <th scope="col">الاسم</th>
+        <th scope="col">الاسم الأول</th>
+      
+        <th scope="col">الحساب</th>
+        <th scope="col">العنوان</th>
+        <th scope="col">رقم الهاتف</th>
+        <th scope="col"> مفعل</th>
+
+        <th scope="col">صورة البروفايل</th>
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+       
+      
+      {%for users in userprofile %}
+        <tr>
+          
+          <td>{{users.id}}</td>
+          <!-- <td>{{users.user.groups.name}}</td> -->
+
+          <td><a href="{% url  'orderOrderUser' user_id=users.user.id    %}" >{{users.user.username}}</a></td>
+          <td>{{users.user.first_name}}</td>
+          <!-- <td>{{users.user.groups.name}}</td> -->
+
+          <td>{{users.user.email}}</td>
+          <td>{{users.address}}</td>
+          <td><a href="tel:+2{{users.zip_number}}">{{users.zip_number}}</a></td>
+          {% if users.user.is_active %}
+          <td>
+            <svg xmlns="http://www.w3.org/2000/svg" style="color: green;" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+          </svg></td>
+          {% else %}
+          <td>  <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+          </svg></td>
+
+          {% endif %}
+
+          {% if users.userimg %}
+          <td><img style="width: 100px; border-radius: 50%;" src="{{users.userimg.url}}" alt=""></td>
+
+          {%else%}
+          <!-- <p>ليوجد صوره للعميل</p> -->
+          {% endif %}
+
+      
+
+
+          
+           
+         
+        </tr>
+        {% endfor  %}
+        
+    
+    
+     
+    </tbody>
+  </table>
+</div>
+ 
+
+
+
+   
+    <!-- <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">id</th>
+            <th scope="col">الاسم</th>
+            <th scope="col">الاسم الاول</th>
+            <th scope="col">الاسم الثانى</th>
+            
+            <th scope="col">العنوان</th>
+            <th scope="col">الثانى</th>
+           
+            <th scope="col">البلد</th>
+            <th scope="col">الرقم</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for userprofile in userprofile %}
+          <tr>
+            <td>{{userprofile.id}}</td>
+            <td>{{userprofile.user.username}}</td>
+            <!-- <td>{{userprofile.user.first_name}}</td> -->
+            <!-- <td>{{userprofile.user.last_name}}</td>
+            <td>{{userprofile.user.email}}</td>
+            
+            <td>{{userprofile.address}}</td>
+            <td>{{userprofile.address2}}</td>
+            <td>{{userprofile.city}}</td>
+            <td>{{userprofile.zip_number}}</td>
+            <td>{{userprofile.zip_number}}</td>
+
+
+            
+          
+          {%endfor%}
+        </tr> -->
+        
+         
+        <!-- </tbody>
+      </table> -->
+
+
+
+
+    </div> 
+  </div> 
+      
+ {% endblock%}
+     

@@ -1,0 +1,47 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+    <div style="display: flex; justify-content: center;" class="pymrnt-1">
+        <div  style="display: flex; justify-content: center; align-items: center; height: 36px; background-color: rgb(255, 111, 0); color: #fff; border-radius: 4px; width: 100%;">
+            <h6> حالة العمل على الطلب</h6>
+        </div>
+    </div>
+
+ 
+    <!-- form start -->
+
+    <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <select name="statusu" id="" class="pymrnt-3 form-control mt-3">
+       
+        <option value="">حالة العمل</option>
+        <option value="conduct">conduct</option>
+        <option value="completed">completed</option>
+        <option value="work">work</option>
+        <option value="none">none</option>
+
+      </select>
+    
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">تم</button>
+      </div>
+      
+    </form>
+  </div>
+
+
+
+
+</div>
+</div>
+  
+
+{% endblock%}

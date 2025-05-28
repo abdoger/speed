@@ -1,0 +1,520 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+
+{% block title %}| card {% endblock%}
+
+
+{% block style %}
+<style>
+
+.status{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+     
+      background-color: orange;
+      color: #fff;
+      text-align: center;
+     
+    }
+
+.ringf
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  background:#3c3c3c;
+  border:3px solid #fd07f5;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-family:sans-serif;
+  font-size:20px;
+  color:aqua;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px #fff000;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+  display:none;
+}
+.ring:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid #fff000;
+  border-right:3px solid #fff000;
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+.ringf span
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+.ringf span:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fff000;
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px #fff000;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}
+
+.my-num{
+  color: red;
+  font-weight: bold;
+  border: 1px solid darkred;
+  padding: 2px 10px;
+  border-radius: 50px;
+  background-color: yellow;
+}
+@media (max_length = 412px) {
+  .gx{
+    font-size: 0.1px;
+  }
+}
+</style>
+<style>
+  .jst{
+    width: 50%;
+  }
+
+
+  @media screen and (max-width: 360px ) {
+    .jst{
+    width: 100% !important;
+  } 
+  }
+  @media screen and  (max-width: 500px ) {
+    .jst{
+    width: 100% !important;
+  } 
+  }
+
+  .gred{
+        display: grid;
+        grid-template-columns: repeat(4,auto);
+        gap: 1px;
+    }
+    @media screen and (max-width:500px) {
+      .gred{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        gap: 1px;
+        
+    }
+    }
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+    }
+    .fact h2{
+        font-size: 1.8em;
+        box-shadow: #181a34;
+    }
+    .fact p{
+        font-size: 1em;
+       
+        color: #50526b;
+        line-height: 1.8em;
+        text-align: justify;
+        margin-top: 0.8em;
+        font-weight: bold;
+
+    }
+    .vs{
+      width: 80px; display: flex; justify-content: space-between; align-items: center;  margin-top: 3px;
+    }
+    @media screen and (max-width : 700px) {
+      .vs{
+      display: block; 
+      text-align: center;
+    }
+      
+    }
+    .loaderloader{
+      pointer-events: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #111;
+      animation: anl 1s  ease infinite;
+      display:none;
+      cursor : not-allowed;
+     
+  }
+  @keyframes anl{
+      0%{
+          transform: rotate(0turn);
+      }
+      100%{
+          transform: rotate(1turn);
+      }
+  }
+  .sh{
+    outline: auto;
+    padding: 6px;
+    text-align: center;
+  }
+</style>
+
+{% endblock  %}
+{% block content %}
+
+<div   class="content-wrapper p-1">
+<div class="my-form   roudend " >
+
+  <div class="preloader-wrapper">
+    <div class="preloader">
+    </div>
+  </div>
+
+  
+  
+
+{% if not request.user.is_authenticated or request.user.is_anonymous%}
+<h5 class="alerd alert-warning">
+  {% trans   "يجب التسجيل اولا" %}
+  <a href="{%url 'signin' %}" class="" style="color: red;">Loggen in</a>
+</h5>
+
+{% elif  order %}
+{% include 'parts/allert.html'%}
+<div>
+
+
+  <!-- <div class="mt-2 mb-3    text-align-center" style=" border:  2px solid rgb(0, 238, 255); width: 100%; color: #fff; background-color: rgb(0, 229, 255); border-radius: 10px; margin-bottom: 5px;">
+    <h2  style="color: #fff; text-align: center;">{% trans  "  السله" %} </h2>
+  </div> -->
+
+ 
+
+<div data-aos="zoom-in">
+<div class="mt-2 mb-3    text-align-center" style=" border:  2px solid rgb(0, 238, 255); width: 100%; color: #fff; background-color: rgb(0, 229, 255); border-radius: 10px; margin-bottom: 5px;">
+  <h2  style="color: #fff; text-align: center;">{% trans  "  السله" %} </h2>
+</div>
+</div>
+
+
+
+
+
+
+<!-- kkkkkkkkkk -->
+<div class=" w-100 d-flex gap-4 mt-3" >
+  <a  cla href="{% url 'payment' %}" 
+            class="pymrnt-2  sh btn-primary w-50 ml-2">
+            {% trans  " تاكيد الطلب"%}
+            </a>
+
+            <a  href="{% url 'prodects' %}" 
+            class="pymrnt-3  sh btn-info w-50 mr-2">{% trans   "تسوق من المنتجات"%}
+            </a>
+</div>
+
+
+            
+  
+  <div style=" overflow-x: auto; margin-top: 15px; ">
+  {% for line in orderdetails %}
+ 
+  <div style=" margin-top: 10px; width: 100%; display: flex; justify-content: center; align-items: center; background-color: #fff; border-radius: 20px; border-bottom: 1px solid #0298cf;" id="cart-{{forloop.counter}}"> 
+    <!-- id="cart-{{forloop.counter}}" -->
+      <div style="display: flex; width: 100%; justify-content: space-between; align-items: center; padding-left: 10px; padding-right: 10px; margin-bottom: 3px;">
+         
+          <div>
+
+            <div>
+
+
+              {% if line.product.facat == True %}
+              {% if line.OrderDetailsimg %}
+              <img src="{{line.OrderDetailsimg.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+              {% else %}
+              <img src="{{line.product.photo.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+         
+              {% endif %}
+              {% elif line.product.boonimg == True %}
+              <img src="{{line.OrderDetailsimg.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+    
+              {% elif line.imgf %}
+              <img src="{{line.imgf}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+              {% else %}
+          
+              <img src="{{line.product.photo.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+    
+    
+             {% endif %}
+<br>
+         
+
+              
+            </div>
+          </div>
+
+          <div class="io">
+
+      
+  
+          <div class="vs">
+            
+              <p style="padding: 3px;"><a href="{% url 'sub_qty' orderdetails_id=line.id %}"
+                class=" btn btn-outline-warning btn-sm cmd">-</a></p>
+              <p>{{line.quantity}}</p>
+              <p>
+                <a href="{% url 'add_qty' orderdetails_id=line.id %}"
+               class=" btn btn-outline-warning btn-sm  cmd"> 
+               
+               + </a>
+              </p>
+          <!-- rac  com -->
+  
+          </div>
+        </div>
+          <div>
+            <p style="color: #0298cf; font-weight: bold;"> {% trans  "السعر "%} {{line.price}}</p>
+            {% if   line.colar %}
+            <p style="color: #0298cf; font-weight: bold;">{% trans  "الون"%}:{{line.colar}}</p>
+            {%endif%}
+            {% if   line.size %}
+            <p style="color: #0298cf; font-weight: bold;">{% trans  "المقاس"%}:{{line.size}}</p>
+            {%endif%}
+
+            {% if line.product.boonimg == True  %}
+            
+            <p style="color: #0298cf; font-weight: bold;">{{line.nameimg}}</p>
+            {% elif line.product.facat == True  %}
+     
+            <p style="color: #0298cf; font-weight: bold;">{{line.product.name}} {{line.colar}}</p>
+            
+            {% else %}
+              <p style="color: #0298cf; font-weight: bold;">{{line.product.name}}</p>
+              {% endif %}
+            
+  
+          </div>
+  
+     
+          
+          <div id="cart-1">
+              <p style="font-weight: bold; color: red;">{% trans  "المجموع"%} <p style="font-weight: bold; color: red;" > {% widthratio line.price 1 line.quantity%}جنيه</p></p>
+              {% if t  == True %}
+              <p style="font-weight: bold; color: rgb(255, 119, 0);">{% trans  "العموله"%}</p>
+              <p style="font-weight: bold; color: rgb(255, 119, 0); " class="qusq" > {% widthratio line.product.qus 1 line.quantity%}</p>
+
+              {% endif %}
+  
+          </div>
+       
+          <div>
+              <p><a href="{%url 'remove_from_card' orderdetails_id=line.id%}" class="com btn btn-outline-danger btn-sm rac">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                </svg>
+              </a></p>
+          
+  
+          </div>
+  
+      </div>
+ 
+  </div>
+
+  {% empty  %}
+      <h6 class="alerd alert-danger " style="text-align: center; padding: 6px;">
+        {% trans  " لا يوجد منتجات متطلوبه"%}
+      </h6>
+   {% endfor %}
+  </div>
+
+      <div   class="gred">
+          <div id="cart-1" class="fact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-r-circle" viewBox="0 0 16 16">
+              <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.5 4.002h3.11c1.71 0 2.741.973 2.741 2.46 0 1.138-.667 1.94-1.495 2.24L11.5 12H9.98L8.52 8.924H6.836V12H5.5zm1.335 1.09v2.777h1.549c.995 0 1.573-.463 1.573-1.36 0-.913-.596-1.417-1.537-1.417z"/>
+            </svg>
+             <h6  style="font-weight: 900; font-size:15px;"> {% trans  "رقم الطلب "%}</h6>
+
+             <span >{{order.id}}</span>
+  
+          </div>
+          
+       
+  
+          <div id="cart-2" class="fact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
+              <h6 style="font-weight: 900; font-size:15px;" > {% trans  "صاحب الطلب "%}</h6>
+              <p  >{{order.user.first_name|add:'  '|add:order.user.last_name}}</p>
+   
+           </div>
+           
+         
+           <div  id="cart-3" class="fact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+              <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+              <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+              <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+              <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            </svg>
+              <h6 style="font-weight: 900; font-size:15px;" > {% trans  "المجموع الكلى "%}</h6>
+              <p> <span >{{total}}{% trans  "جنيه"%}</span> </p>
+   
+           </div>
+           
+           {% if t  == True %}
+           <div id="cart-4" class="fact">
+           
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">
+              <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+              <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+              <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+              <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+            </svg>
+           
+                      <h6 style="font-weight: 900; font-size:15px;" >{% trans  "مجموع العموله الكلى"%}</h6>
+
+                      <p>  <span  class=" bbbbbbbdfdffew"  ></span></p>
+            
+         </div>
+         {% endif %}
+         
+       
+         <div id="cart-5"  class="fact">
+           
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-r-circle" viewBox="0 0 16 16">
+            <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.5 4.002h3.11c1.71 0 2.741.973 2.741 2.46 0 1.138-.667 1.94-1.495 2.24L11.5 12H9.98L8.52 8.924H6.836V12H5.5zm1.335 1.09v2.777h1.549c.995 0 1.573-.463 1.573-1.36 0-.913-.596-1.417-1.537-1.417z"/>
+          </svg>
+      
+                    <h6 style="font-weight: 900; font-size:15px;">  {% trans  "عدد المنتجات المطلوبة "%}</h6>
+
+                    <p>  <span >{{orderdetails.count}}</span></p>
+     
+       </div>
+       
+    
+       <div id="cart-6" class="fact">
+           
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+          <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
+        </svg>
+        <h6 style="font-weight: 900; font-size:15px;" >{% trans  "تاريخ الطلب "%} </h6>
+
+        <p>  <span >{{order.order_date|date:'Y/m/d'}}</span></p>
+
+</div>
+
+
+       
+        
+  
+      </div>
+  
+
+    </div>
+    {% else %}
+<h5 class="p-3" style="width: 100%; color: #fff; background-color: #fbb230; border-radius: 10px; margin-bottom: 5px;">
+   العربه فارغه<a href="{% url 'prodects'%}" class="text-danger"> تسوق  من المنتجات</a>
+    
+</h5>
+
+
+{% endif%}   
+
+  <!-- jjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+<script>
+  let save = document.querySelectorAll('.cmd'); 
+
+save.forEach(item=>{
+
+   let fr = item.addEventListener('click',
+  
+   (eo) => {
+   
+    // eo.preventDefault(1000)
+    item.classList.add('loaderloader')
+    eo.disabled = true;
+    item.style.background = "red";
+    item.style.cursor = 'not-allowed';
+  
+  }
+  );
+  
+
+  });
+
+
+  
+
+</script>
+
+{% endblock %}

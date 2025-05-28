@@ -1,0 +1,165 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<style>
+  .containers{
+    width: 100%;
+    height: 38%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 15px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+    gap: 6px;
+  }
+  .contanu{
+    width: 50%;
+
+  }
+  .contanu_n{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: hsl(176,88%,27%);
+    font-weight: bold;
+  }
+  .r{
+    border: 1px solid hsl(60, 11%, 91%);
+  
+  }
+  .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+    }
+    @media screen and (max-width: 750px) {
+      .containers{
+        display: block;
+        width: 100%;
+        height: 50%;
+        gap: 5px;
+      }
+      .contanu{
+        width: 100%;
+      }
+    }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+  
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+  <div class="fact">
+      <h5  style=" text-align: center;">{% trans "معلوماتك الشخصيه" %}</h5>
+    
+  </div>
+    {% include 'parts/allert.html'%}
+    {% if request.user.is_authenticated %}
+    <div style="display: flex; align-items: center; justify-content: center; width: 100%; border-radius: 50%; ">
+      
+      <div class="containers">
+        <div class="contanu">
+          {% if userimg %}
+          <img  src="{{userimg.url}}"  alt="" style=" width: 100%; height: 100%; border-radius: 10px; ">
+          {% else %}
+          <svg style=" width: 40px; border-radius: 50%; "  xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+          </svg>
+        {% endif %}
+        </div>
+        <div class="contanu">
+          <div class="contanu_n">
+            <p>   الاسم : </p>
+            <p>    {{fname}} </p>
+          </div>
+          <p class="r"></p>
+          <div class="contanu_n">
+            <p>   الاميل :  </p>
+            <p>   {{email}} </p>
+          </div>
+          <p class="r"></p>
+          <div class="contanu_n">
+            <p>   العنوان :  </p>
+            <p>   {{address}} </p>
+          </div><p class="r"></p>
+          <div class="contanu_n">
+            <p>   رقم الهاتف : </p>
+            <p>   {{zip_number}} </p>
+          </div><p class="r"></p>
+         
+         
+        </div>
+
+      </div>
+     
+    </div>
+    
+    <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    
+      <div class="card-body">
+     
+        <label for="name">{% trans "الاسم" %}</label>
+        
+        <input id="name"  type="text" class="form-control" placeholder="الاسم" name="fname" value="{{fname}}" >
+        <label for="email">{% trans "الاميل" %}</label>
+        
+        <input id="email" readonly type="email" class="form-control" placeholder="الاميل"name="email" value="{{email}}">
+        <label for="number"  >{% trans "كلمة المرور" %}</label>
+        
+        <input id="number" readonly  type="number" class="form-control" placeholder="البسورد"name="passS" value="{{passS}}">
+        <label for="address">{% trans "العنوان بالتفصيل" %}</label>
+
+        <input id="address" type="text" class="form-control" placeholder="العنوان" name="address" value="{{address}}">
+        
+        <label for="zip_number">{% trans "رقم الهاتف " %}</label>
+       
+        
+        <input id="zip_number" type="number" class="form-control" placeholder="رقمك"name="zip_number" value="{{zip_number}}">
+        <label for="userimg">{% trans "اضف صورة البروفيل" %}</label>
+        
+        <input id="userimg" type="file" class="form-control" placeholder="صورة اليوزد" name="userimg" value="{{userimg}}">
+        
+       
+
+        <small id='totalrente' class="form-text text-muted"></small>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-warning  m-1 p-2" name="btnsavee">{% trans "تغير معلوماتك الشخصيه" %}
+            
+        </button>
+      </div>
+    </form>
+    {% else %}
+<H4 class="alert alert">
+  you must be
+  <a href="{%url 'signin'%}" >signin</a>
+
+</H4>
+
+    {% endif %}
+
+
+  </div>
+</div>
+</div>
+  
+
+{% endblock%}

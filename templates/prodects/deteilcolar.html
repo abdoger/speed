@@ -1,0 +1,258 @@
+
+
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+
+
+<style>
+  body
+  {
+    background-color: #fff;
+  }
+  .my-num{
+  color: red;
+  font-weight: bold;
+  border: 1px solid darkred;
+  padding: 2px 10px;
+  border-radius: 50px;
+  background-color: yellow;
+}
+
+</style>
+  <style>
+    .h{
+  display: flex;
+   gap: 6px;
+   word-wrap: break-word;
+}
+ .kkkk{
+  display: flex; 
+   align-items: center;
+    background-color: aquamarine; 
+    width: 100%;
+     border-radius: 20px;
+ }
+    .table_section{
+      /* height: 65px; */
+      overflow-X: auto;
+    }
+    table{
+      width: 100%;
+      table-layout: fixed;
+      min-width: 1000px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    table tr:nth-child(odd){
+      background-color: #f8f8fb;
+    }
+    table tr{
+      background-color: #fff;
+      text-align: center;
+    }
+    table th{
+      position: static;
+      top: 0;
+      background-color: #f6f9fc;
+      color: #111;
+      font-weight: 66px;
+      font-size: 15px;
+      background-color: #eee;
+      text-align: right;
+    }
+    th{
+      border-bottom:1px solid #2d2b98;
+      padding: 10px 20px;
+      white-space: break-all;
+      /* text-align: center; */
+    }
+    tr td
+    {
+      text-align: right;
+    }
+    tr{
+      /* border-bottom:1px solid #0298cf; */
+      padding: 10px 20px;
+      white-space: break-all;
+      text-align: center;
+      padding-bottom: 66px;
+      margin-top: 66px;
+      
+    }
+    tr,td{
+     padding: 0.8rem 0.8rem  ;
+     text-align: left;
+     min-width: 120px;
+     font-size: 14px;
+
+    }
+    tr:hover{
+      border-bottom:1px solid #2d2b98;
+
+    }
+    td img{
+      height: 40px;
+      width: 40px;
+      /* object-fit: contain; */
+      border-radius: 15px;
+      border: 5px solid #ced0d2;
+
+    }
+    tr:hover td{
+      color: #0298cf;
+      /* background-color: #f6f9fc; */
+      cursor: pointer;
+    }
+    button{
+      outline: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 5px;
+      color: #fff;
+    }
+    td button:nth-child(2){
+      background-color: #0298cf;
+    }
+    td button:nth-child(1){
+      background-color: #f80000;
+    }
+    .status{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: orange;
+      color: #fff;
+      text-align: center;
+     
+    }
+    .data{
+      border-radius: 80px;
+      font-weight: 900;
+      padding: 5px 10px;
+      margin-top: 99px;
+      background-color: rgb(255, 68, 0);
+      color: #fff;
+      text-align: center;
+     
+    }
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+    }
+ 
+  </style>
+<div   class="content-wrapper" style="background-color: #fff;">
+   
+<div class="my-form  p-1 roudend " style="background-color: #fff;">
+
+
+    <div class="preloader-wrapper">
+        <div class="preloader">
+        </div>
+      </div>
+      <div class="pymrnt-1 fact" >
+        <p > <span style="">
+
+        </span>
+        {% trans "  اضافة الوان ومقاسات  " %}
+      </p>
+      </div>
+
+
+      
+
+{% include 'parts/allert.html'%}
+
+
+{% if  request.user.is_authenticated or request.user.is_anonymous %}
+<div class="mb-2">
+<a class="pymrnt-2 btn btn-info" style="color: white;" >{{color.name}}</a>
+<a class="pymrnt-3 btn btn-info" href="{% url 'add_to_colar' color.id %}">اضافة الوان</a>
+</div>
+  <div class="table_section" >
+    <table>
+      <thead>
+     
+        <tr class="pymrnt-3" style="text-align: center; background-color: #666; color: white;">
+          <td>الون</td>
+          <td> اضافة مقاسات</td>
+          <td>الكميه</td>
+          <td>صورة المنتج</td>
+          
+
+          <td>delete</td>
+          <td>update</td>
+
+     
+      </tr>
+      </thead>
+      <tbody>
+    
+         {% for i in color.productcolors.all %}
+         <tr class="pymrnt-{{forloop.counter}}" style="padding-bottom: 67px; text-align: center;">
+             <td><p style="padding: 6px; border-radius: 5px; font-weight: 500;   color: #0298cf;">{{i.name}}</p></a></td>
+             <td><a href="{% url 'w_size' i.productcolor.pk  i.pk   %}" class="btn btn-outline-warning" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="com bi bi-eye-slash" viewBox="0 0 16 16">
+                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+              </svg>
+             </a></td>
+
+             <td><p style="padding: 6px; border-radius: 5px;  color: #0298cf; font-weight: 500;">{{i.qucolor}}</p></td>
+             {% if i.color %}
+             <td><img style="width:100px; height: 100px;"   src="{{i.color.url}}" alt=""></td>
+             {% else %}
+             <td>لايوجد صوره</td>
+             {% endif %}
+             <td><a href="{% url 'd_color' i.productcolor.pk  i.pk   %}" class="btn btn-outline-danger">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+              </svg>
+             </a></td>
+             <td><a href="{% url 'update_color' i.productcolor.pk  i.pk   %}" class="btn btn-outline-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+              </svg>
+             </a></td>
+             
+     
+         </tr>
+         {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<!-- تتتتتتتتتتتتتتتتتتتتت -->
+
+
+<!-- تتتتتتتتتتتتتتتتتتتتتتتتتت -->
+
+
+{% endif%}   
+
+</div>
+
+</div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+

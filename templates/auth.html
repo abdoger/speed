@@ -1,0 +1,10 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% include 'parts/allert.html'%}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="submit">
+</form>
+{% endblock content %}

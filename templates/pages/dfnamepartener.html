@@ -1,0 +1,96 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+     .loaderloader{
+      pointer-events: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #fff;
+      animation: anl 1s ease infinite;
+      display:none;
+      cursor : not-allowed;
+      background: yellow;
+     
+  }
+  @keyframes anl{
+      0%{
+          transform: rotate(0turn);
+      }
+      100%{
+          transform: rotate(1turn);
+      }
+  }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title"> اختر شركة شحن لى وصول الطلب {{d}} </h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+
+    <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    
+      <div class="card-body">
+
+        {{form}}
+       
+      </div>
+    
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary submit-btn">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 5px;">
+
+                <div class="loaderloader"></div>
+              اضافه
+                </div> 
+           
+        </button>
+      </div>
+    </form>
+  </div>
+
+  
+  <div class="ring ">انتظار
+    <span></span>
+  </div>
+
+
+</div>
+</div>
+<script>
+    let save = document.querySelector('.submit-btn'); 
+    let id_ramepartener = document.getElementById('id_ramepartener'); 
+    
+
+
+  let displays = document.querySelector('.loaderloader');
+ 
+  save.addEventListener('click',()=>{
+    if (id_ramepartener.value != '' ){
+        setTimeout(()=>{
+         displays.style.display = "block";
+
+         save.disabled = true;
+         save.style.cursor = 'not-allowed';
+         save.style.background= "yellow";
+
+        },3);
+      
+  
+  }
+})
+</script>
+  
+
+{% endblock%}

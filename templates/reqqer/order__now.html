@@ -1,0 +1,798 @@
+{% extends 'base.html'%}
+{% load static %}
+{%load crispy_forms_tags %}
+{% block title %}| card {% endblock%}
+{%load crispy_forms_tags %}
+{% block style %}
+
+<style>
+    body{
+      height:100vh;
+    }
+
+    .jj{
+        overflow-x: auto;
+        height:100vh;
+        
+        
+        
+    }
+
+    body table thead   {
+  
+  position: sticky;
+  z-index:4444;
+
+
+  top:0;
+ 
+  
+  
+  
+
+}
+
+    @media print{
+      form,#print {
+        display: none;
+        background-color: aqua;
+      }
+      table{
+        display: block;
+      }
+    }
+    .gred{
+        display: grid;
+        grid-template-columns: repeat(4,auto);
+        gap: 1px;
+    }
+    @media screen and (max-width:500px) {
+      .gred{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        gap: 1px;
+    }
+    }
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+    }
+    .fact h2{
+        font-size: 1.8em;
+        box-shadow: #181a34;
+    }
+    .fact p{
+        font-size: 1em;
+        font-weight: 400;
+        color: #50526b;
+        line-height: 1.8em;
+        text-align: justify;
+        margin-top: 0.8em;
+
+    }
+</style>
+{% endblock%}
+
+{% block content %}
+<div   class="content-wrapper">
+    <div class="my-form   roudend  ">
+
+
+        {% include 'parts/allert.html'%} 
+
+    
+
+        <div class="gred" >
+          <div class="fact">
+            العمولة الكلية
+          <div id="amolad"  ></div>
+        </div>
+        <div class="fact">
+              سعر البيع
+            <div id="Paymentts" ></div>
+        </div>
+        <div class="fact">
+            السعر الأساسي
+            <div id="Paymenttpricesd" ></div>
+        </div>
+        <div class="fact">
+         الأرباح
+         <div id="uuuu" ></div>
+
+        </div>
+
+        <div class="fact">
+           طلبات لم يتم البدأ فيها
+          <div id="prosesd" ></div>
+          
+         </div>
+        
+
+         <div class="fact">
+          العمولة المستلمة للمسوق
+          <div class="coin" ></div>
+  
+        </div>
+        <div class="fact">
+          العمولةالكليه 
+          <div  class="colcolsd"></div>
+  
+        </div>
+
+        <div class="fact">
+         طلبات لم يتم الشحن
+         <h6 id="ffffdfddf" ></h6>
+         
+        </div>
+        <div class="fact" style="border-top: 9px solid #fbb230;">
+          عدد الطلبات
+          <h6 class="displaynones" ></h6>
+          
+         </div>
+
+        
+
+       
+       
+        <div class="fact">
+          
+          <h6>  الأرباح الكلية بعد العمل</h6>
+        
+           <h6 id="totalscoin" ></h6>
+  
+         
+       </div>
+
+       <div class="fact">
+          
+        <h6>  المصاريف</h6>
+      
+         <h6 >{{ma}}</h6>
+
+       
+     </div>
+
+
+     <div class="fact">
+          
+      <h6>  المصاريف بالبحت </h6>
+    
+       <h6 class="nasaref">{{nasaref}}</h6>
+
+     
+   </div>
+   <div class="fact" style="border-top: 12px solid red;">
+   الارباح النهائيه
+    <h6 class="lotmakreds" ></h6>
+    
+   </div>
+      </div>
+      
+        
+
+
+        <form action="" method="post" novalidate style="width: 100%;">
+            {% csrf_token %}
+            <div class=" row mt-3">
+              <div class="col-lg-6 mb-3">
+                <input type="text" name="start_data" class="form-control" placeholder="start_data">
+            </div>
+            <div class="col-lg-6 mb-3">
+              <input type="text" name="end_data" class="form-control" placeholder="end_data">
+          </div>
+          <div class="col-lg-6 mb-3">
+            <input type="text" name="user" class="form-control" placeholder="user">
+        </div>
+        <div class="col-lg-6 mb-3">
+         
+          <input type="text" name="groups" class="form-control" placeholder="groups">
+      </div>
+      <div class="col-lg-6 mt-3">
+        <select name="status" class="form-control"  id="">
+          <option selected value=""> حالة الطلب</option>
+          <option value="اوردر جديد">اوردر جديد</option>
+          <option value=" تم التاكيد"> تم التاكيد</option>
+          <option value="تم التوصيل">تم التوصيل</option>
+          <option value="اوردر ملغى">اوردر ملغى</option>
+          <option value="عم رد">عدم الرد</option>
+          <option value="اتشحن">اتشحن</option>
+          <option value="مرتج">مرتج</option>
+          <option value="فى التوصيل">فى التوصيل</option>
+
+        </select>
+       
+    </div>
+
+    <div class="col-lg-6 mt-3">
+      <select name="status_pay" class="form-control"  id="">
+        <option selected value=""> حالة الدفع</option>
+        <option value=" تم الدفع  "> تم الدفع </option>
+  
+        <option value=" لم يتم الدفع "> لم يتم الدفع  </option>
+   
+      </select>
+     
+  </div>
+    <div class="col-lg-6 mt-3">
+      <select name="statusu" id="" class="form-control">
+       
+        <option value="">حالة العمل</option>
+        <option value="conduct">conduct</option>
+        <option value="completed">completed</option>
+        <option value="work">work</option>
+        <option value="none">none</option>
+
+      </select>
+  </div>
+   
+      <div class="col-lg-6 mt-3">
+        <input type="text" name="idgroups" class="form-control" placeholder="id" id="idIV">
+    </div>
+    <div class="col-lg-6 mt-3">
+      <input type="text" name="phonenapber" class="form-control" placeholder="رقم صاحب الطلب">
+  </div>
+  <div class="col-lg-12 mt-3">
+    <input type="text" class="form-control" placeholder=" user_updete " name="user_updete" >
+  </div>
+    
+              </div>
+              <input type="submit" class=" w-100 mt-3 mb-3" style="border-radius:30px; color: aqua; border: 1px solid aqua; font-size: 25px; font-weight: 700; background-color: #fff;" value="بحث">
+
+          </form>
+          <form id="userForm" class="w-100 text-align-center">
+            <input type="number" id="idsd" class="form-control w-100 ml-3 mt-5" >
+            <button type="submit" class=" btn  btn-info mt-2 ml-3">localStorage</button>
+          </form>
+       <button id="print" style="color: #111; background-color:#777 ;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+            <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
+            <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+          </svg>
+        </button>
+        
+        <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 5px; " class="mb-3 mt-3">
+          <a href="{% url 'masd' %} " class="btn btn-info">تقرير المصريف</a>
+          <a href="{% url 'Ordercsv' %}" class="btn btn-warning"> xslx</a>
+        </div>
+   
+
+<div class="jj " id="content">
+    <table class="table table-hover " >
+        <thead  id="cart-1" style="background-color: black; color: aqua; border-bottom:2px solid aqua;" class="table  w-100">
+            <tr >
+              <td>control</td>
+
+              <td>ID</td>
+                <td>تعديل</td>
+                <td>واصل العمولة</td>
+                <td>حالة عمل الطلب</td>
+               
+                <td> حذف </td>
+                <td> حالة الدفع </td>
+
+                <td> الطلب </td>
+                <td> بوسطه </td>
+                <td> تاكيد بوسطه </td>
+                <td>  تقرير شركاة الشحن </td>
+                <td>    تاكيد شركة الشحن </td>
+                <td>      ok </td>
+                <td>حالة عمل الطلب</td>
+               
+                <td>  pdf </td>
+                <td> تمام من شركة الشحن </td>
+
+                <td> الحالة من شركة الشحن </td>
+                
+                <td> ok </td>
+                <td> راجع كميه من شركة الشحن </td>
+                <td>اسم العميل</td>
+                <td> الجروب</td>
+                <td>التاريخ </td>
+                <td>انتهاء الطلب</td>
+                <td> قيمة الشحن</td>
+
+                <td>واصل العمولة</td>
+               
+
+                <td> قيمة دفع العميل بعد الاستلام</td>
+                <td> الحالة</td>
+              
+
+                <td> الحساب الذى عدل عليه</td>
+
+                <td> المجموع الكلي</td>
+                <td> الاسم</td>
+                <td> العنوان  </td>
+                <td>  رقم صاحب الطلب </td>
+
+                <td> الحموله الكليه</td>
+                <td> المنجات المطلوبة</td>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in orser %}
+            <tr >
+              <td style="display: none;" class="displaynone">1</td>
+              
+              <td>
+                <div style="position: absolute;" class="btn-group">   
+                  <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: black; color: aqua;">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                
+                  <div class="dropdown-menu w-100" style="background-color: #fff; color: aqua; width:280px !important; font-weight:bold !important; opacity:80000609 !important;">
+                    {% if  i.s == True or i.is_Orderpartener %}
+                    <a class="dropdown-item w-100" style="background-color:green; color:#111; width:400px;" > تم التوصيل الى شركة الشحن</a>
+                    {%else%}
+                    <a class="dropdown-item"  style="background-color:red; color:#111;" > لم يتم التوصيل الى شركة الشحن</a>
+
+                    {% endif %}
+                    {% if i.user_group.name == 'castomar' %}
+                    {% if  i.coin == i.ffffd  %}
+                    <a class="dropdown-item w-100" style="background-color:green; color:#111;   " > نم اكتمال العمولة</a>
+                    {%else%}
+                    <a class="dropdown-item"  style="background-color:red; color:#111; " > لم يتم اكتمال العمولة</a>
+
+                    {% endif %}
+                    {% endif %}
+
+
+                    {% if  i.status != 'اوردر جديد' and   i.status != None%}
+                    <a class="dropdown-item w-100" style="background-color:green; color:#111; width:400px;" >  تم اختيار حاله</a>
+                    {%else%}
+                    <a class="dropdown-item"  style="background-color:red; color:#111;" >لم يتم اختيار حاله</a>
+
+                    {% endif %}
+
+                    {% if  i.a == True %}
+                    <a class="dropdown-item w-100" style="background-color:green; color:#111; width:400px;" >     تم تاكيد الطلب</a>
+                    {%else%}
+                    <a class="dropdown-item"  style="background-color:red; color:#111;"> لم يتم تاكيد الطلب</a>
+
+                    {% endif %}
+
+                    {% if  i.ba != 0  %}
+                    <a class="dropdown-item w-100"  style="background-color:green; color:#111; width:400px;" >        تم العمل فى الطلب</a>
+                    {%else%}
+                    <a class="dropdown-item"  style="background-color:red; color:#111;">   لم يتم العمل فى الطلب</a>
+
+                    {% endif %}
+
+                    
+                    {% if  i.status_pay == ' تم الدفع  ' %}
+                    <a class="dropdown-item w-100"  style="background-color:green; color:#111; width:400px;" > {{i.status_pay }}    </a>
+                    {%else%}
+                    <a class="dropdown-item  w-100"  style="background-color:red; color:#111;">    {{i.status_pay }}</a>
+
+                    {% endif %}
+
+
+           
+                    
+                  </div>
+                  
+
+                </div>
+              </td>
+              {% if  i.status != 'اوردر جديد' and   i.status != None%}
+              <td><P  style="text-align: center; background-color:rgb(38, 255, 0);  color:#fff ;font-weight:900; padding:4px;border-radius:50%; " >{{i.id}}</p></td>
+                {%else%}
+                <td><P  style="text-align: center; background-color:red;  color:#fff; font-weight:900; padding:4px;border-radius:50%; " >{{i.id}}</p></td>
+
+
+                    {% endif %}
+                <td><a style="color: white; background: rgb(10, 201, 245); border-radius: 90%;" class="com dropdown-item" href="{% url 'updateorder' i.id%}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                  </svg></a></td>
+                  <td><a style="color: white; background: yellow; border-radius: 90%;" class="com dropdown-item" href="{% url 'updatecoun' i.id%}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                  </svg></a></td>
+                  <td><a style="color: white; background: yellowgreen; border-radius: 90%;" class="com dropdown-item" href="{% url 'fanth' i.id%}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                  </svg></a></td>
+                <td><a style="color: white; background: red; border-radius: 90%;" class="com dropdown-item" href="{% url 'deleteorder' i.id%}">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                </svg></a></td>
+
+                   <!-- حالة الدفع -->
+                   <td><a style="color: white; background: green; border-radius: 90%;" class="com dropdown-item" href="{% url 'Status_pay' i.id%}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                  </svg></a></td>
+                
+
+                  <td><a href="{% url 'totals' i.id%}" style="color: rgb(250, 92, 7);  " ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="com bi bi-eye-slash" viewBox="0 0 16 16">
+                    <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                    <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                    <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                  </svg>
+                 
+                </a></td>
+
+                <td><a href="{% url 'gdx' i.id %}" style="color: rgb(250, 92, 7);  " > 
+                  بوسطه<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="com bi bi-eye-slash" viewBox="0 0 16 16">
+                  <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                  <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                  <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                </svg>
+               
+              </a></td>
+              {% if i.posta == False or i.posta == None %}
+              <td ><p style="background-color: #111; padding: 5px ; color: red; border-radius: 10px;padding: 5px;">{{i.posta}}</p></td>
+              {% else %}
+              <td ><p style="background-color: #111; padding: 5px ; color: aqua; border-radius: 10px;padding: 5px;">{{i.posta}}</p></td>
+              
+              {% endif %}
+
+              {% if i.posta == False or i.posta == None and  i.is_Orderpartener == False or i.is_Orderpartener == None %}
+              <p class="is_finished" style="background-color: #111; padding: 5px ; color: aqua; border-radius: 10px;padding: 5px; display: none;">1</p>
+
+              {% endif %}
+              <td><a href="{% url 'reportpartener' i.id %}" style="color: rgb(250, 92, 7);  " > 
+                تقرير شركة الشحن<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="com bi bi-eye-slash" viewBox="0 0 16 16">
+                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+              </svg>
+              {% if  i.is_Orderpartener == False or i.is_Orderpartener == None %}
+              <td ><p style="background-color: #111; padding: 5px ; color: red; border-radius: 10px;padding: 5px;">{{i.is_Orderpartener}}</p></td>
+              {% else %}
+              <td ><p style="background-color: #111; padding: 5px ; color: aqua; border-radius: 10px;padding: 5px;">{{i.is_Orderpartener}}</p></td>
+          
+              {% endif %}
+             
+            </a></td>
+
+            <!-- i.ba != 0  and i.status != 'اوردر جديد' and   i.status != None and i.coin == i.ffffd and i.a == True and i.s == True or  i.is_Orderpartener == True  -->
+            {%  if not i.user_group.name == 'castomar' %}
+            {% if  i.ba != 0 and i.status != 'اوردر جديد' and   i.status != None and i.a == True  %} 
+            {% if i.s == True  or i.is_Orderpartener == True %}
+            <td>
+             
+              <P style="padding:4px; border-radius:50%; color:#fff;">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: green;" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </svg>
+              </p>
+            </td>
+            {%else%}
+            <td>
+              <P style=" padding:5px; border-radius:50%; color:#fff;">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+              </p>
+
+            
+            </td>
+
+            {% endif %}
+
+            {%else%}
+          
+            <td>
+              <P style=" padding:5px; border-radius:50%; color:#fff;">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+              </p>
+            
+            </td>
+
+            {% endif %}
+
+            {%else%}
+
+            {% if   i.ba != 0 and i.status != 'اوردر جديد' and   i.status != None and i.a == True  and i.coin == i.ffffd   %} 
+            {% if i.s == True  or i.is_Orderpartener == True %}
+            <td>
+             
+              <P style="padding:4px; border-radius:50%; color:#fff;">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: green;" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </svg>
+              </p>
+            </td>
+            {%else%}
+            <td>
+              <P style=" padding:5px; border-radius:50%; color:#fff;">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+              </p>
+
+            
+            </td>
+
+            {% endif %}
+
+            {%else%}
+          
+            <td>
+              <P style=" padding:5px; border-radius:50%; color:#fff;">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+              </p>
+
+            
+            </td>
+
+            {% endif %}
+
+            {% endif %}
+            <td style="color: #fff; font-size: 15px;">
+              {% if i.statusu == 'completed' %}
+              
+              <p style="background-color: rgb(8, 248, 8); padding: 5px ; color: #ffffff; border: 2px solid rgb(30, 99, 30); border-radius: 10px;padding: 5px;">{{i.statusu}}</p>
+           
+            
+              {% elif i.statusu == 'work'%}
+             
+              <p  style="background-color: yellow; padding: 5px ; color: #111; border: 2px solid rgb(1, 4, 1); border-radius: 10px;padding: 5px;">{{i.statusu}}</p>
+            
+            {% elif i.statusu == 'conduct' %}
+              
+              <p  style="background-color: aqua; padding: 5px ; color: #111; border: 2px solid rgb(0, 0, 0); border-radius: 10px;padding: 5px;">{{i.statusu}}</p>
+          
+              {% else %}
+
+              <p style="background-color: #111; padding: 5px ; color: red; border-radius: 10px;padding: 5px;">{{i.statusu}}</p>
+          
+              {% endif%}
+            </td>
+          
+              
+              <td><a href="{% url 'pdf' i.id %}">pdf</a></td>
+            
+               {% if i.status_copping == 'اتشحن' %}
+
+              <td ><p style="background-color: #111; padding: 5px ; border: 1px solid rgb(0, 229, 8) ; color: rgb(5, 255, 5); border-radius: 10px;padding: 5px;">{{i.status_copping}}</p></td>
+              {% elif i.status_copping == "فى الوصول" %}
+              <td ><p style="background-color: #111; padding: 5px ; border: 1px solid rgb(5, 255, 201) ; color: rgb(5, 255, 201); border-radius: 10px;padding: 5px;">{{i.status_copping}}</p></td>
+    {%else%}
+    <td ><p style="background-color: #111; padding: 5px ; border: 1px solid red ; color: red; border-radius: 10px;padding: 5px;">{{i.status_copping}}</p></td>
+
+    {%endif%}
+    <td><a href="{% url 'updateordercom' i.id %}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+      </svg>
+    </a></td>
+   
+      {% if i.is_st == True   %}
+      <td>
+       
+        <P style="padding:4px; border-radius:50%; color:#fff;">
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: green;" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+          </svg>
+        </p>
+      </td>
+      {%else%}
+      <td>
+        <P style=" padding:5px; border-radius:50%; color:#fff;">
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+          </svg>
+        </p>
+      </td>
+      {% endif %}
+      
+      {% if  i.coppings == 0 or  i.coppings == None  %}
+      <td>
+        <P style="padding:4px; border-radius:50%; color:#fff;">
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: green;" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+          </svg>
+        </p>
+      </td>
+      {%else%}
+      <td>
+        <P style=" padding:5px; border-radius:50%; color:#fff;">
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+          </svg>
+        </p>
+      </td>
+      {% endif %}
+
+                <td><p style="color: #111; font-size: 12px;">{{i.user.username}}</p></td>
+                <td>{{i.user_group.name}}</td>
+                <td>{{i.order_date|date:'Y-m-d'}}</td>
+                {% if i.is_finished == False %}
+                <td ><p style="background-color: #111; padding: 5px ; color: red; border-radius: 10px;padding: 5px;">{{i.is_finished}}</p></td>
+                <p class="is_finished" style="background-color: #111; padding: 5px ; color: aqua; border-radius: 10px;padding: 5px; display: none;">1</p>
+                {% else %}
+                <td ><p style="background-color: #111; padding: 5px ; color: aqua; border-radius: 10px;padding: 5px;">{{i.is_finished}}</p></td>
+                {% endif %}
+                {% if i.na %}
+                  <td>{{i.na}}</td>
+                {% else %}
+                <td>لا يوجد</td>
+                {% endif %}
+                <td >{{i.coin}}</td>
+                
+                
+
+               
+                {% if i.gets == 0 %}
+                <td ><p  style="background-color: #111; padding: 5px ; color: red; border-radius: 10px;padding: 5px; border:red 1px solid;">{{i.gets}}</p></td>
+                <p class="proses" style="background-color: #111; padding: 5px ; color: red; border-radius: 10px;padding: 5px; border:red 1px solid; display: none;">1</p>
+
+
+                {% else %}
+                {%if i.user_group.name == 'castomar'%}
+                <td ><p style="background-color: #111; padding: 5px ; color: aqua; border-radius: 10px;padding: 5px;">{{i.getshhr}}</p></td>
+                {% else %}
+                <td ><p style="background-color: #111; padding: 5px ; color: aqua; border-radius: 10px;padding: 5px;">{{i.gets}}</p></td>
+                {% endif %}
+
+                {% endif %}
+                 
+                {% if i.status == 'avalible'%}
+                <td class="description-header text-success">{{i.status}}</td>
+              
+                {% elif i.status == 'rental'%}
+                <td class="description-header text-warning">{{i.status}}</td>
+              
+                {% else %}
+                <td class="description-header text-danger">{{i.status}}</td>
+                
+                {% endif%}
+               
+                <td >{{i.user_updete}}</td>
+                
+    
+                <td > <p style="background-color: #111; color: yellow; padding: 5px;">{{i.ffff}}</p></td>
+                {% for is in i.Payments.all %}
+                {% if is.shipment_address %}
+                <td>{{is.name}}</td>
+                <td>{{is.shipment_address}}</td>
+
+                {% else %}
+                <td>m</td>
+                {% endif %}
+                <!-- <td>{{is.shipment_address}}</td> -->
+                <td><p style="background-color: #111; padding: 5px ; border-radius: 5px; color: aqua;"><a href="tel:+20{{is.shipment_phone}}">{{is.shipment_phone}}</a></p></td>
+    
+    
+                {% endfor %}
+    
+                {% for iss in i.orderss.all %}
+                
+                
+                <td style="background-color: #fbb230; gap: 2px; color:#fff; display: none;"> 
+                   
+                    <div>
+                    <h6 style="display: block; color: rgb(241, 3, 166);">الكميه المطلوبه{{iss.quantity}}</h6>
+                    <h6 style="display: block; color: rgb(241, 3, 166);">سعر المنتج{{iss.price}}</h6>
+                    <h6 style="display: block; color: rgb(241, 3, 166);" class="quprised">{% widthratio  iss.quantity 1 iss.price   %} </h6>
+                    
+       
+
+                    <h6 style="display: block; color: rgb(241, 3, 166);">
+                      {% if iss.product.boonimg == True  %}
+                      <p>{{iss.nameimg}}</p>
+                      {% else %}
+                        <p>{{iss.product.name}}</p>
+                        {% endif %}
+                    </h6>
+                    <p class="" style="color: rgb(255, 0, 47);">الدفع{% widthratio  iss.ba 1 iss.price   %}</p>
+             
+                    {% if iss.ba  != None and  iss.price   != None    %}
+                    <P class="Paymentt">{% widthratio  iss.ba 1 iss.price   %}</P>
+                   
+
+                    {% endif%}
+
+                    {% if iss.product.pricels != None    %}
+                    <h6 class="Paymenttprices" style="display: block; color: rgb(241, 3, 166);">{% widthratio  iss.ba 1 iss.product.pricels  %}</h6>
+                   
+
+                    {% endif%}
+                    
+
+            <P class="salaryrental"></P>
+                    {% if i.user_group.name == 'castomar' %}
+                    <p style="color: rgb(0, 17, 255);" >العموله الاساسيه{{iss.product.qus}}</p>
+                    
+                    <p style="color: rgb(0, 17, 255);" >العموله:{% widthratio  iss.product.qus 1 iss.ba  %}</p>
+                    {% if iss.ba  != None and  iss.product.qus   != None  %}
+                    <P class="amola">{% widthratio  iss.product.qus 1 iss.ba  %}</P>
+                    {% endif%}
+              
+
+                    
+                    <!-- <p>{% widthratio  iss.quantity 1 '5' as bb %}</p>
+                    <p>{{bb}}</p> -->
+
+                    {% endif %}
+                    <p style="color: yellow;">رقم صاحب المنتج:- <a href="tel:+20{{iss.product.number}}">{{iss.product.number}}</a></p>
+              
+                    <td class="colcolsds">{{i.tatalsds__quantitys}}</td>
+    
+                </td >
+           
+    
+    
+                {% endfor %}
+    
+            </tr>
+    
+            {% endfor %}
+    
+           
+            
+               
+    
+                
+             
+    
+    
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+{% for i in orser %}
+         
+{% if i.coin != None %}
+
+<P class="coins">{{i.coin}}</P>
+
+{% endif%}
+{% endfor %}
+
+</div>
+</div>
+<p class="idsd__user">idsd__{{request_user}}</p>
+
+<script>
+  document.getElementById('userForm').addEventListener('submit',function(e){
+    // e.preventDefault();
+    const idsd__user = document.querySelector('.idsd__user');
+    const idsdsd = idsd__user.innerHTML;
+    console.log("idsdsd");
+    console.log(idsd__user.innerHTML);
+    const idsd =   document.getElementById('idsd').value;
+    localStorage.setItem(idsdsd,idsd);
+    let getlocal = localStorage.getItem(idsdsd);
+    console.log(getlocal);
+   
+  
+  })
+</script>
+<script>
+   const idsd__user = document.querySelector('.idsd__user');
+   const idsdsd = idsd__user.innerHTML;
+   let getlocal = localStorage.getItem(idsdsd);
+    console.log(getlocal)
+    if (getlocal)
+  {
+    document.getElementById('idsd').value = getlocal;
+    // document.getElementById('idsd').value = getlocal;
+    document.getElementById('idIV').value = getlocal;
+
+
+  }
+</script>
+
+
+{% endblock %}

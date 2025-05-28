@@ -1,0 +1,55 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+   .vvv{
+    background-color: yellow;
+    color: red;
+    font-size: 13px;
+    padding: 5px;
+    
+
+  }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <h4>
+         المراكز
+    </h4>
+
+    <a class="card-title btn btn-outline-primary" href="{% url 'add_to_Mr' mo.id %}">اضافة المراكز</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <td>المراكز</td>
+                <td> تعديل</td>
+                <td> حزف</td>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for i in mo.mos.all  %}
+            <tr>
+                <td>{{i.mr}}</td>
+                <td><a href="{% url 'update_mr' i.mo.id  i.id %}" class="btn btn-outline-primary">تعديل</a></td>
+                <td><a href="{% url 'MRelete' i.mo.id  i.id %}" class="btn btn-outline-danger">حذف</a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+</div>
+
+  
+<!-- abdodjangopaymants -->
+{%endblock%}

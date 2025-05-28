@@ -1,0 +1,43 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">تعديل الكتاب</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form   enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+    
+      <div class="card-body">
+
+        {% include 'parts/allert.html'%}
+        
+        <input type="text" class="form-control" placeholder="name" name="user">
+        <input type="number" class="form-control" placeholder="password"name="passS" value="{{pass}}">
+    
+        
+
+
+        <small id='totalrente' class="form-text text-muted"></small>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary" name="passs">حفظ</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+  
+
+{% endblock%}

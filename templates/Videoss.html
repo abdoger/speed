@@ -1,0 +1,83 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+
+   <div   class="container" style="border-radius: 10%; ">
+  
+    <p style="text-align: center;">الاعلانات</p>
+   <div style="width: 100%; background-color: black; color: aqua; text-align: center;">
+    <p>احصاءية الاعلانات</p>
+     <p class="txys"></p>
+   </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-6">
+            <input type="text" class="form-control " name="lg" placeholder="بداية التاريخ" required >
+
+          </div>
+          <div class="col-6">
+            <input type="text" class="form-control " name="ls" placeholder="نهاية التاريخ" required>
+
+          </div>
+            <div class="col-12">
+            <input type="text" class="form-control " name="username" placeholder="الاسم"required >
+           
+
+            <input type="submit" class="btn btn-outline-primary w-100 mt-3 mb-3" value="بحث">
+    
+          </div>
+    
+        </div>
+      </form>
+      <a href="{% url 'postvido'  %}" class="btn btn-outline-info">اضافه</a>
+    <div style="overflow-x: auto;">
+    <table class="table" >
+        <thead style="background-color: black; color: aqua;">
+            <tr>
+                <td>اسم المعلن</td>
+                <td>رقم المعلن</td>
+              
+                <td>السعر</td>
+                <td>تاريخ الانتاج</td>
+                <td >الحزف</td>
+                <td>تعديل</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in pro_delete %}
+            <tr style="background-color: black; color: yellow;">
+                <td>{{x.captaion}}</td>
+              
+                <td>{{x.phone}}</td>
+                <td><p class="upos">{{x.prise}}</p></td>
+                <td>{{x.tp_created_at|date:'Y-m-d'}}</td>
+
+                <td ><a href="{% url 'deletevideo' x.id %}" class="btn btn-outline-danger">الحزف</a></td>
+                <td><a href="{% url 'updateviev' x.id %}" class="btn btn-outline-primary">تعديل</a></td>
+                
+            
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+   
+
+   </div>
+
+
+
+
+  </div>
+</div>
+  
+
+{% endblock%}

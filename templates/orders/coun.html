@@ -1,0 +1,59 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+    .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+    }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper ">
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary ">
+    <div  class="pymrnt-1 fact">
+            <h6>واصل العمولة</h6>
+        
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+   
+    <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div  class="pymrnt-1 fact">
+      <h6 class="pymrnt-2 " >   أعلى قيمة وصول     {{tj}}</h6>
+    </div>
+      
+        <!-- <label for="coin" class="pymrnt-2"  >واصل العمولة</label> -->
+        <input id="coin"  type="number" name="coin" placeholder="واصل العمولة" class="pymrnt-3 form-control w-100 ">
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">واصل</button>
+        </div>
+      <!-- <button type="submit" class="pymrnt-4 p-2 mt-2  " style=" border: 1px solid  rgb(255, 111, 0); background-color: rgb(255, 111, 0); color: #fff; border-radius: 5px; ">واصل</button> -->
+
+      
+     </div>
+    
+      
+    </form>
+  </div>
+
+
+
+
+</div>
+</div>
+  
+
+{% endblock%}

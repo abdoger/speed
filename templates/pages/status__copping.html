@@ -1,0 +1,55 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">حالة الشحن </h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+
+    <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    
+      <div class="card-body">
+
+        <label for="mr" class="pymrnt-9"> حالة الشحن </label>
+        <select name="mo"  id="mo" class="pymrnt-8 form-control  " required>
+          
+
+      
+          <option value="اتشحن">اتشحن</option>
+          <option value="عدم الرد">عدم الرد</option>
+          <option value="فى الوصول">فى الوصول</option>
+          <option value="الطلب ملغى">الطلب ملغى</option>
+
+        
+        </select>
+      </div>
+      <div class="col-6 col-xxl-12">
+        <label for="mr" class="pymrnt-9"> 
+       
+      </div>
+    
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">تم</button>
+      </div>
+    </form>
+  </div>
+
+  
+ 
+
+
+</div>
+</div>
+  
+
+{% endblock%}

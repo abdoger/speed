@@ -1,0 +1,48 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <!-- Content Header (Page header) -->
+<div  class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">اضافت صوره </h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+
+    <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    
+      <div class="card-body">
+
+        <input type="file" name="photos" class="form-control" required>
+        
+        <input type="number" name="quimg" placeholder="الكميه" class="form-control" required>
+        <input type="name" name="name" placeholder="سم المنتج" class="form-control" required>
+        <input type="name" name="asname" placeholder="  سم المنتج بالانجليزى" class="form-control" required>
+
+       
+      </div>
+    
+      <div class="card-footer">
+        <button type="submit" name="s" class="btn btn-primary">ايضافه</button>
+      </div>
+    </form>
+  </div>
+
+  
+  <div class="ring ">انتظار
+    <span></span>
+  </div>
+
+
+</div>
+</div>
+  
+
+{% endblock%}

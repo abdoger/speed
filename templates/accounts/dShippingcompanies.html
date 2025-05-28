@@ -1,0 +1,346 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load i18n %}
+{% block title %}| card {% endblock%}
+
+
+{% block content %}
+<style>
+
+    .status{
+          border-radius: 80px;
+          font-weight: 900;
+          padding: 5px 10px;
+         
+          background-color: orange;
+          color: #fff;
+          text-align: center;
+         
+        }
+    
+    .ringf
+    {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:150px;
+      height:150px;
+      background:#3c3c3c;
+      border:3px solid #fd07f5;
+      border-radius:50%;
+      text-align:center;
+      line-height:150px;
+      font-family:sans-serif;
+      font-size:20px;
+      color:aqua;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      text-shadow:0 0 10px #fff000;
+      box-shadow:0 0 20px rgba(0,0,0,.5);
+      display:none;
+    }
+    .ring:before
+    {
+      content:'';
+      position:absolute;
+      top:-3px;
+      left:-3px;
+      width:100%;
+      height:100%;
+      border:3px solid transparent;
+      border-top:3px solid #fff000;
+      border-right:3px solid #fff000;
+      border-radius:50%;
+      animation:animateC 2s linear infinite;
+    }
+    .ringf span
+    {
+      display:block;
+      position:absolute;
+      top:calc(50% - 2px);
+      left:50%;
+      width:50%;
+      height:4px;
+      background:transparent;
+      transform-origin:left;
+      animation:animate 2s linear infinite;
+    }
+    .ringf span:before
+    {
+      content:'';
+      position:absolute;
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      background:#fff000;
+      top:-6px;
+      right:-8px;
+      box-shadow:0 0 20px #fff000;
+    }
+    @keyframes animateC
+    {
+      0%
+      {
+        transform:rotate(0deg);
+      }
+      100%
+      {
+        transform:rotate(360deg);
+      }
+    }
+    @keyframes animate
+    {
+      0%
+      {
+        transform:rotate(45deg);
+      }
+      100%
+      {
+        transform:rotate(405deg);
+      }
+    }
+    
+    .my-num{
+      color: red;
+      font-weight: bold;
+      border: 1px solid darkred;
+      padding: 2px 10px;
+      border-radius: 50px;
+      background-color: yellow;
+    }
+    @media (max_length = 412px) {
+      .gx{
+        font-size: 0.1px;
+      }
+    }
+    </style>
+    <style>
+      .table_section{
+        /* height: 65px; */
+       
+        overflow-X: auto;
+      }
+    
+      table{
+        width: 100%;
+        table-layout: fixed;
+        min-width: 1000px;
+        border-collapse: collapse;
+        
+        /* background-color: #f6f9fc; */
+      }
+      table th{
+        position: static;
+        top: 0;
+        /* background-color: #f6f9fc; */
+        color:  #fff;
+        font-size: 15px;
+      }
+      table th{
+        border-bottom: 1px solid #0298cf;
+      
+      }
+      table th,tr{
+        /* border-bottom: 1px solid #0298cf; */
+        padding: 10px 20px;
+        white-space: break-all;
+        text-align: center;
+      }
+      td img{
+        height: 60px;
+        width: 60px;
+        object-fit: cover;
+        border-radius: 15px;
+        border: 5px solid #ced0d2;
+    
+      }
+      tr:hover td{
+        color: #0298cf; font-weight: 900;
+        /* background-color: #f6f9fc; */
+        cursor: pointer;
+      }
+      button{
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 10px;
+        color: #fff;
+      }
+      td button:nth-child(1){
+        background-color: #0298cf; font-weight: 900
+      }
+      td button:nth-child(2){
+        background-color: #f80000;
+      }
+      .h{
+      display: flex;
+       gap: 6px;
+       word-wrap: break-word;
+    }
+     .ffact{
+      display: flex; 
+       align-items: center;
+        background-color: aquamarine; 
+        width: 30%;
+         border-radius: 20px;
+     }
+    @media screen and (max-width: 500px )  {
+      .h{
+      display: block !important;
+    
+       width: 100%;
+      }
+      .fagct{
+      display: flex; 
+       align-items: center;
+        background-color: aquamarine; 
+        margin-bottom: 5px;
+        width: 100% !important;
+         border-radius: 20px;
+     }
+    }
+    @media screen and (max-width: 1000px )  {
+      .h{
+      display: block !important;
+    
+       width: 100%;
+      }
+      .fafct{
+      display: flex; 
+       align-items: center;
+        background-color: aquamarine; 
+        margin-bottom: 5px;
+        width: 100% !important;
+         border-radius: 20px;
+     }
+    }
+    
+    .gred{
+            display: grid;
+            grid-template-columns: repeat(4,auto);
+            gap: 1px;
+        }
+        @media screen and (max-width:500px) {
+          .gred{
+            display: grid;
+            grid-template-columns: repeat(2,auto);
+            gap: 1px;
+        }
+        }
+        .fact{
+            /* width: 25%; */
+            background-color: #ffffff;
+            box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+            margin: 5px 5px 5px 5px;
+            padding: 1em 1.8em;
+            border-radius: 0.6em;
+            border: none;
+            border-bottom: 3px solid #566fff;
+            /* display: flex; */
+        }
+        .fact h2{
+            font-size: 1.8em;
+            box-shadow: #181a34;
+        }
+        .fact p{
+            font-size: 1em;
+           
+            color: #50526b;
+            line-height: 1.8em;
+            text-align: justify;
+            margin-top: 0.8em;
+            font-weight: bold;
+    
+        }
+        .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+    }
+    </style>
+<div   class="content-wrapper">
+   
+<div class="my-form  p-1 ">
+<p class="fact" style="text-align:center;">
+    {% trans " اعدادات شركات الشحن " %}
+</p>
+{% include 'parts/allert.html'%}
+<hr>
+{% if  request.user.is_authenticated or request.user.is_anonymous%}
+
+<div style="overflow-y: auto;">
+<table class="table table-hover">
+    <thead style="background-color: #777; color:#fff; ">
+      <tr style="color:#fff;">
+     
+        <th scope="col">{% trans "ID"%}</th>
+        <th scope="col">{% trans "اسم التاجر "%}</th>
+        <th scope="col">{% trans  " رقم الهاتف"%}</th>
+        
+        <th scope="col">{% trans " العنوان "%}</th>
+      
+        <th scope="col"> {% trans "الايميل" %}</th>
+        <th scope="col">{% trans " صورة اليوزر" %}</th>
+
+        
+      </tr>
+    </thead>
+    <tbody>
+   
+
+
+
+{%for order in user %}
+
+<tr class="pymrnt-{{forloop.counter}}">
+    
+    <td>
+ <a href="{% url 'or_shipping' order.user.email %}">{{order.id}}</a>
+    </td>
+    <td>
+{{order.user.first_name}}
+    </td>
+  
+    <td>
+        {{order.zip_number}}
+    </td>
+    <td>
+        {{order.address}}
+    </td>
+    <td>
+        {{order.user.email}}
+    </td>
+  
+    
+        {% if order.userimg %}
+        <td> <img src="{{order.userimg.url}}"> </td>
+        {%else%}
+        <td>no</td>
+        {%endif%}
+
+
+{% endfor %}
+
+  
+    <tbody>
+       </table>
+    </div>
+
+    {%endif%}
+
+</div>
+
+</div>
+
+
+
+
+{% endblock %}

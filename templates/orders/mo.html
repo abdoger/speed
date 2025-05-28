@@ -1,0 +1,44 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+   .vvv{
+    background-color: yellow;
+    color: red;
+    font-size: 13px;
+    padding: 5px;
+    
+
+  }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper">
+    {% include 'parts/allert.html'%}
+    <h4 style="text-align: center;">
+        اضافة المحفظات
+    </h4>
+    <a class="card-title btn btn-outline-primary" href="{% url 'mo' %}"> المحفظات</a>
+
+
+    <form   enctype="multipart/form-data" method="POST" >
+        
+       
+        {% csrf_token %}
+        <input type="text"id="mo" class="form-control" placeholder="الموحاقظه" name="mo" required>
+        <input type="number"id="na" class="form-control" placeholder="قيمت الشحن" name="na"  required>
+        <input type="submit" class="btn btn-outline-primary w-100" placeholder="حفظ" >
+
+
+    </form>
+
+
+
+</div>
+</div>
+
+  
+<!-- abdodjangopaymants -->
+{%endblock%}

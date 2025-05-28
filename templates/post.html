@@ -1,0 +1,63 @@
+
+
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+<div style="direction: rtl;" class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper p-5">
+    <div class="preloader-wrapper">
+      <div class="preloader">
+      </div>
+    </div>
+    {% include 'parts/allert.html'%}
+    <form method="POST" >
+        {% csrf_token %}
+        <input type="text" placeholder="........تعليق" name="post" class="form-control" required>
+        <br>
+        <button type="submit"  class="w-100 btn btn-outline-primary">علق</button>
+    </form>
+    {% for i in postss  %}
+    <div class="row" style="border-radius: 10px;  background-color:  #fbb230; color: #fff; width: 100%; margin-top: 16px ;border: 1px solid #f69d02;; display: flex; justify-content: space-between; padding: 13px; word-wrap: break-word;">
+  
+          <div style="display: flex; justify-content: space-between; align-items: center; ">
+            {% if i.img %}
+            <img  src="{{i.img.url}}" alt="" style=" width: 10%; border-radius: 50%; ">
+            {%else%}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
+            {% endif %}
+            <p> المعلق:  {{i.created_UserProfile.username}}</p>
+            <p>تاريخ التعليق: {{i.created_dt}}</p>
+          </div>
+         
+      
+        <div class="" style="width: 100%; word-wrap: break-word;">
+           
+            <p style="word-wrap: break-word; width: 99%;">massage:  {{i.massage}}</p>
+            
+
+            {% if i.created_dt == user %}
+              <a href="#">تعديل</a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+    
+  </div>
+  <!-- /.content-wrapper -->
+</div>
+
+
+
+
+
+
+{% endblock%}

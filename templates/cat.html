@@ -1,0 +1,24 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        {% for i in all_orders %}
+        <p>{{i.name}}</p>
+        {% endfor %}
+    </body>
+    <form action="" method="post" novalidate >
+        {% csrf_token %}
+
+        <div class="col-lg-6">
+            <input type="text" name="cat" class="form-control" placeholder="user" required>
+        </div>
+        <!-- <div class="col-lg-6">
+            <input type="text" name="cat" class="form-control" placeholder="user">
+        </div> -->
+        <div class="col-lg-6">
+          <input type="submit" name="groups" class="form-control" placeholder="groups">
+      </div>
+    </form>
+</html>

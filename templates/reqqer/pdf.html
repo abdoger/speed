@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>{% if pdf_title %}{{ pdf_title }}{% else %}PDF{% endif %}</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+                width: 50%;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+                /* text-align: right;*/
+                padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>speedfuthur</p>
+            </div>
+        <div>
+        <div class='details'>
+            <img src="{{order.qr_code.url}}" >
+             Order Number {{order.id}}
+           
+            <hr class='hrItem' />
+        </div>
+
+        <table style=" width: 100%; display: flex; justify-content: space-between; align-items: center;">
+        <thead>
+       <tr>
+        <td>product</td>
+        <td>quantity</td>
+        <td>price</td>
+        <td>size</td>
+        <td>color</td>
+        <td>Total</td>
+       </tr>
+        </thead>
+        <tbody>
+            {% for i in det %}
+         <tr>
+        <td>{{i.product.asname}}</td>
+        <td>{{i.quantity}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.size}}</td>
+        <td>{{i.colar}}</td>
+      
+        <td>{{i.total}}</td>
+
+       </tr>
+       {% endfor %}
+        </tbody>
+        </table>
+    </div>
+    </body>
+</html>

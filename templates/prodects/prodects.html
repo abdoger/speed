@@ -1,0 +1,966 @@
+
+
+{% extends 'base.html'%}
+{% load static %}
+{% block style %}
+
+
+
+
+<!-- jjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+<style>
+
+  
+  .gbody{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50%;
+      width: 100%;
+    
+      /* border : 1px solid red; */
+      
+  }
+  .gbody img{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .gbody .containersd{
+    width: 100%;
+  box-sizing: border-box;
+    
+  }
+  .gbody .swiper{
+    width: 100%;
+    padding: 16px 0;
+
+  }
+  .gbody .swiper-slide{
+    position: relative;
+    width: 200px;
+    
+    aspect-ratio: 3/4;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    cursor: grab;
+    user-select: none;
+    overflow: hidden;
+  }
+  .gbody .swiper-slide img{
+    object-fit: cover;
+    pointer-events: none;
+
+  }
+  .gbody .caption{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+   
+    transform: translateY(70px);
+    transition: 1s;
+
+  }
+  .gbody .swiper-slide:hover .caption{
+    transform: translateY(0);
+  }
+  .gbody h1{
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+
+  }
+  .gbody .ion-icon{
+    color: antiquewhite;
+    font-size: 1.5rem;
+    opacity: 0.65;
+    transition: all 0.35s ease;
+    cursor: pointer;
+  }
+  .gbody .ion-icon:hover{
+    opacity: 1;
+  }
+  .gbody .ion-icon.active{
+    color: red;
+    opacity: 1;
+  }
+  .gbody .ion-icon.pulse{
+    animation:  pulse 0.8s 1 ease-in-out;
+  }
+  @keyframes pulse{
+    0% , 100%{
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.5);
+    }
+  }
+  .gbody .swiper-wrapper{
+    transition-timing-function: linear !important;
+  }
+  /* @media screen and (max-width: 990px){
+    .product-grid{ margin-bottom: 30px; }
+} */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+</style>
+<!-- jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj -->
+
+
+
+<style>
+  :root{
+      --first-color: hsl(176,88%,27%);
+      --first-color-alt:hsl(129,44%,94%);
+      --border-color:hsl(129,36%,85%);
+      --body-color:hsl(0,0%,100%);
+
+      --body-color:hsl(0,0%,100%);
+      --text-color:hsl(154,13%,32%);
+      --text-color-light:hsl(60,1%,56%);
+      
+      --transition: cubic-bezier(0,0,0.05,1) ;
+
+
+  }
+  body{
+    background-color: var(--body-color);
+  }
+  .container{
+      max-width: 1320px;
+      margin-inline: auto;
+      padding-inline: 0.75rem;
+  }
+  .flex{
+      display: flex;
+      align-items: center;
+      column-gap: .5rem;
+  }
+  .section{
+      padding-block: 4rem;
+  }
+  .prodects_container {
+      display: grid;
+      grid-template-columns:  repeat(5, 1fr);
+      
+      overflow: hidden;
+      
+      column-gap: .5rem;
+
+  }
+  @media (max-width:900px) {
+      .prodects_container {
+      display: grid;
+      grid-template-columns:  repeat(2, 1fr);
+      }
+      
+  }
+  .prodect_item{
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    transition:  all 0.2s var(--transition);
+    margin-bottom: 7px;
+  }
+  .prodect__banner{
+      padding: .625rem .75rem .75rem  ;
+  }
+  .prodect_images{
+      position: relative;
+      
+  }
+  .prodect_images{
+      display: block;
+      overflow: hidden;
+      border-radius: 1.25rem;
+  }
+  .prodect_img{
+    vertical-align: middle;
+    transition:  all 1.5s var(--transition);
+  }
+  .prodect_item:hover .prodect_img{
+     transform: scale(1.1);
+  }
+  .prodect__banner,
+  .prodect_images{
+    
+      position: relative;
+  }
+  .prodect_img.hover{
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  .tab__ptn.active-tab{
+      color: red;
+      background-color: hsl(154,13%,32%);;
+  }
+  .prodect_actions{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      display: flex;
+      column-gap: .5rem;
+      transition: all .2s var(--transition);
+  }
+  .tab_item:not(.active-tab){
+      display: none;
+  } 
+  .prodect_images{
+      overflow: hidden;
+      border-radius: 1.5rem;
+  }
+  .prodect_images img{
+    width: 100%;
+      
+  }
+  .action_btn{
+      width: 40px;
+      height: 40px;
+      line-height: 42px;
+      text-align: center;
+      border-radius: 50px;
+      background-color: var(--first-color-alt);
+      border: 1px solid var(--body-color) ;
+      color: var(--text-color);
+      font-size: small;
+      position: relative;
+  }
+  .prodct_bage{
+      position: absolute;
+      left:  1.25rem;
+      top: 1.25rem;
+      background-color: rgb(245, 11, 132);
+      color: white;
+      width: 35px;
+      height: 25px;
+      padding: 0.25rem 0.625rem;
+      line-height: 18px;
+      border-radius: 40%;
+      text-align: center;
+      font-size: small;
+     
+  }
+  .action_btn::before,
+  .action_btn::after{
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+transition:  all .3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  }
+  .action_btn::before{
+      content: '';
+      top: -2px;
+      border: .5rem solid transparent;
+      border-top-color: var(--first-color) ;
+  }
+  .action_btn::after{
+      content: attr(aria-label);
+      bottom: 100%;
+      background-color: var(--first-color);
+      color: var(--body-color);
+      font-size: small;
+      font-weight: 500;
+      white-space: nowrap;
+      padding-inline: .625;
+      border-radius: 3px;
+      line-height: 2.58;
+      padding: 4px;
+
+  }
+  .prodect_img.hover,
+  .prodect_actions,
+  .action_btn::before,
+  .action_btn::after,
+  .prodect_item:hover  .prodect_img.defaulf{
+      opacity: 0;
+  }
+  .prodect_item:hover .prodect_img.hover,
+  .prodect_item:hover .prodect_actions,
+  .action_btn:hover::before,
+  .action_btn:hover::after{
+      opacity: 1;
+  }
+  .action_btn:hover::before,
+  .action_btn:hover::after{
+      transform:  translateX(-50%) translateY(-0.5rem);
+  }
+  .action_btn:hover{
+      background-color: var(--first-color);
+      border-color: var(--first-color) ;
+      color: var(--body-color);
+  }
+  .prodect_item:hover{
+      box-shadow:  0 0 10px hsla(0, 0%, 0%, 0.1);
+  }
+  .brodect__content{
+      padding:  0 1.25rem 1.125rem;
+      position: relative;
+
+  }
+  .prodect_category{
+      color: var(--text-color-light);
+      font-size: smaller;
+  }
+  .prodect_title{
+      font-size: 14px;
+      margin-block:  0.75rem 0.5rem;
+      color: black;
+      text-decoration: none;
+
+  }
+  .prodect_rating{
+      color: hsl(42, 100%, 50%);
+      font-size: smaller;
+      margin-bottom: 0.75rem;
+  }
+  .cart_btn{
+      position: absolute;
+      bottom: 1.6rem;
+      left: 6px;
+  }
+  .new__price{
+      color: var(--first-color);
+      font-weight: 600;
+  }
+  .old__price{
+      color: var(--text-color-light);
+      font-weight: small;
+      text-decoration: line-through;
+  }
+  .prodect_price .new__price{
+      font-size: large;
+      font-weight: 900;
+  }
+  a{
+      text-decoration: none;
+  }
+  .prodect_rating i{
+      font-size: 20px;
+      font-weight: 900;
+  }
+   .slider-btns{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 25px auto 10px auto;
+    padding: 0px 10px;
+    
+  }
+ 
+  .slider-btns button{
+   position: static !important;
+   transform: translate(0,0);
+   display: flex;
+   font-size: 388px !important;
+   margin-left: 33px;
+   padding: 3px;
+   justify-content: center;
+   top: 2.875rem !important; 
+
+  } 
+  
+  /* .slider-btns{
+    overflow: initial !important;
+  } */
+
+  .swiper-button-next::after,
+    .swiper-button-prev::after{
+        content: 'f';
+    }
+    .swiper-button-next,
+    .swiper-button-prev{
+        /* top: -1.875rem !important; */
+        background-color: var(--first-color-alt);
+        border: 1px solid var(--border-color);
+        color: var(--border-color) !important;
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 50%;
+        font-size: 19rem !important;
+        font-weight: 100 !important;
+        text-align: center;
+        cursor: pointer;
+        overflow: hidden;
+
+    }
+    .vr{
+      color: red !important;
+    }
+  
+    .price{
+      color: var(--first-color);
+      font-size: 12px;
+    }
+
+</style>
+
+{% endblock  %}
+
+
+{% block content %}
+
+<div style="direction: rtl;" class="wrapper ">
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper p-1">
+    
+    
+    {% include 'parts/allert.html'%}
+
+      <div class=" gbody">
+        <div class="containersd">
+          <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper" data-aos='fade-down'>
+                <!-- Slides -->
+                {% for pro in Product %}
+                <div class="pymrnt-{{forloop.counter}}  swiper-slide" >
+                  <img  src="{{pro.photo.url}}" alt="">
+                  <div class="caption">
+                    <div class="w-100 d-flex align-items-center justify-content-between">
+                <div>
+                  <p> {{pro.name}}</p>
+                  <p> {{pro.price}}  جنيه</p>
+                 
+
+                </div>
+
+                      <!-- <ion-icon name="heart" class="like-btn"></ion-icon> -->
+                      <a  href="{% url 'prodect' uuid=pro.uuid %}" style="color:#fff" class="com" >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                      </svg>
+                      </a>
+                    </div>
+  
+                  </div>
+                </div>
+                {% endfor %}
+          
+                
+        
+               
+              
+              </div>
+             
+            </div>
+  
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- <section class="content">    -->
+
+                       
+          <!-- Default box -->
+          <section class="prodects section ">
+
+            <div class="tab_items">
+                <div class="tab_item active-tab">
+                    <div class=" prodects_container grid">
+                      {% for pro in Product|slice:'10' %}
+                        <div class="prodect_item  bookhide book{{pro.category.id}} "  data-aos="{% cycle 'fade-up' 'fade-down' 'zoom-in' 'flip-left' %}">
+                            <div class="prodect__banner">
+    
+                                <div  class="prodect_images">
+                                    <img src="{{pro.photo.url}}" alt="" class="prodect_img defaulf">
+                                    {% if pro.photos %}
+                                    <img src="{{pro.photos.url}}" alt="" class="prodect_img hover">
+                                    {%else%}
+                                    <img src="{{pro.photo.url}}" alt="" class="prodect_img hover">
+
+                                    {%endif%}
+                                 
+                                </div>
+                               <div class="prodect_actions">
+                                <a  href="{% url 'prodect_favorite' uuid=pro.uuid%}"  class="action_btn" aria-label="اعجاب">
+                                  <i ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                    <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+                                  </svg></i>
+                                </a>
+                              
+                                <a href="{% url 'prodect' uuid=pro.uuid%}" class="action_btn" aria-label=" تفاصيل المنتج ">
+                                    <i><i class="fa fa-eye"></i> </i>
+                                </a>
+    
+                                </div>
+    
+                                <!-- <div class="prodct_bage light-pink">
+                                  {% if pro.qudesconts %}
+                                 {{pro.qudesconts}}%
+                                  {%else%}
+0
+                                  {%endif%}
+                                </div> -->
+    
+                            </div>
+    
+                            
+    
+                            <div class="brodect__content">
+                                <span class="prodect_category">{{pro.category.name}}</span>
+                              
+                                    <h3 class="prodect_title">
+                                      {{pro.name}}
+                                    </h3>
+                                    {% if qus %}
+                                    <p class="price" style="font-weight:600;">العموله: {{pro.qus}}</p>
+                                    {% endif %}
+                                
+                                <div class="prodect_rating">
+                                  <li class="fas fa-star"></li>
+                                  <li class="fas fa-star"></li>
+                                  <li class="fas fa-star"></li>
+                                  <li class="far fa-star"></li>
+                                  <li class="far fa-star"></li>
+                                </div>
+                                <div class="prodect_price flex">
+                                    <span class="new__price">
+                                       ج {{pro.price}}
+                                    </span>
+                                    <span class="old__price">
+                                        {{pro.price_decint}}
+                                    </span>
+                                </div>
+                                <a href="{% url 'prodect' uuid=pro.uuid %}"class="action_btn cart_btn" aria-label="اضف الى السله">
+                                    <i> <svg style="color: #202020;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                    </svg></i>
+                                </a>
+                            </div>
+                        </div>
+                        {%endfor%} 
+    
+  
+    
+    
+                  
+    
+    
+                      
+    
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+          <!-- <div class="card card-solid"> -->
+         
+              
+
+                
+                <!-- بداية الكتاب -->
+
+                <!-- <div class="row">
+                  {% for pro in Product|slice:'8' %}
+                   <div class="col-lg-3   bookhide book{{pro.category.id}}" id="cart-{{forloop.counter}}">
+                      <div class="product-grid">
+                          <div class="product-image">
+                              <i href="#" class="image" >
+                                  <img class="img-1"  src="{{pro.photo.url}} " alt="User Avatar">
+                              </i>
+                              <ul class="product-links">
+                              
+                                  <li><a href="{% url 'prodect_favorite' uuid=pro.uuid%}" class="com"><i class="fa fa-heart"></i></a></li>
+                                  <li><a  href="{% url 'prodect' uuid=pro.uuid%}" class="com">
+                                  
+                                    <svg style="color: #202020;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                                    </svg>
+                                  </a></li>
+                                  
+                              </ul>
+                          </div>
+                          <div class="product-content">
+                              <h3 class="title" style="font-weight:600;">{{pro.name}}</h3>
+                              <div class="price" style="font-weight:600;">جنيه {{pro.price}}</div>
+                              {% if qus %}
+                              <div class="price" style="font-weight:600;">العموله: {{pro.qus}}</div>
+                              
+                              {% endif %}
+                              <ul class="rating">
+                                  <li class="fas fa-star"></li>
+                                  <li class="fas fa-star"></li>
+                                  <li class="fas fa-star"></li>
+                                  <li class="far fa-star"></li>
+                                  <li class="far fa-star"></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              -->
+              
+                <!-- {% empty %} -->
+                <!-- <h4 class="alert alert-warning">
+                   no prodects here,
+                   <a href="{% url 'prodects'%}" class="text-dark"> All prodectes</a>
+      
+                </h4> -->
+           
+              
+                <!-- {% endfor %} -->
+              <!-- </div> -->
+               
+                 <!-- نهاية الكتاب -->
+                   <!-- بداية الكتاب -->
+
+  
+       
+            <!-- /.card-body -->
+
+            <!-- /.card-footer -->
+          <!-- </div> -->
+          <!-- /.card -->
+
+         <div class="bodys">
+           
+          <div class="swiper">
+            <div class="slide-content">
+              <div class="swiper-wrapper">
+                {% for pro in Product %}
+                <div class="prodect_item  swiper-slide" data-aos="fade-up">
+                  <div class="prodect__banner">
+
+                      <div  class="prodect_images">
+                        <img src="{{pro.photo.url}}" alt="" class="prodect_img defaulf">
+                        {% if pro.photos %}
+                        <img src="{{pro.photos.url}}" alt="" class="prodect_img hover">
+                        {%else%}
+                        <img src="{{pro.photo.url}}" alt="" class="prodect_img hover">
+
+                        {%endif%}
+
+                      </div>
+                     <div class="prodect_actions">
+                      <a  href="{% url 'prodect_favorite' uuid=pro.uuid%}"  class="action_btn" aria-label="اعجاب">
+                        <i ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                          <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+                        </svg></i>
+                      </a>
+                    
+                      <a href="{% url 'prodect' uuid=pro.uuid%}" class="action_btn" aria-label=" تفاصيل المنتج ">
+                          <i><i class="fa fa-eye"></i> </i>
+                      </a>
+
+
+                      </div>
+
+                      <!-- <div class="prodct_bage light-pink">
+                        {% if pro.qudesconts %}
+                        {{pro.qudesconts}}%
+                         {%else%}
+0
+                         {%endif%}
+                      </div> -->
+
+                  </div>
+
+                  <div class="brodect__content">
+                      <span class="prodect_category">{{pro.category.name}}</span>
+                     
+                      <h3 class="prodect_title">
+                        {{pro.name}}
+                      </h3>
+                      {% if qus %}
+                      <p class="price" style="font-weight:600;">العموله: {{pro.qus}}</p>
+                      {% endif %}
+              
+                    
+                      <div class="prodect_rating">
+                        <li class="fas fa-star"></li>
+                        <li class="fas fa-star"></li>
+                        <li class="fas fa-star"></li>
+                        <li class="far fa-star"></li>
+                        <li class="far fa-star"></li>
+                      </div>
+                      <div class="prodect_price flex">
+                          <span class="new__price">
+                             ج {{pro.price}}
+                          </span>
+                          <span class="old__price">
+                              {{pro.price_decint}}
+                          </span>
+                      </div>
+                      <a href="{% url 'prodect' uuid=pro.uuid %}"class="action_btn cart_btn" aria-label="اضف الى السله">
+                          <i> <svg style="color: #202020;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                          </svg></i>
+                      </a>
+                  </div>
+              </div>
+             
+           
+                {% endfor %}
+
+              </div>
+            </div>
+        <div class="slider-btns">
+          <button  class="swiper-button-next "> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+          </svg></button>
+          <button   class="swiper-button-prev "></button>
+        </div>
+            
+            <!-- <div class="swiper-pagination"></div> -->
+          </div>
+
+         </div>
+<!-- <p>llll</p> -->
+
+<section class="prodects section ">
+
+  <div class="tab_items">
+      <div class="tab_item active-tab">
+          <div class="prodects_container grid">
+            {% for pro in Product|slice:'10:' %}
+              <div class="prodect_item  bookhide book{{pro.category.id}}"  data-aos="{% cycle 'fade-up' 'fade-down' 'zoom-in' 'flip-left' %}">
+                  <div class="prodect__banner">
+
+                      <div  class="prodect_images">
+                        <img src="{{pro.photo.url}}" alt="" class="prodect_img defaulf">
+                        {% if pro.photos %}
+                        <img src="{{pro.photos.url}}" alt="" class="prodect_img hover">
+                        {%else%}
+                        <img src="{{pro.photo.url}}" alt="" class="prodect_img hover">
+
+                        {%endif%}
+
+                      </div>
+                     <div class="prodect_actions">
+                      <a  href="{% url 'prodect_favorite' uuid=pro.uuid%}"  class="action_btn" aria-label="اعجاب">
+                        <i ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                          <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+                        </svg></i>
+                      </a>
+                    
+                      <a href="{% url 'prodect' uuid=pro.uuid%}" class="action_btn" aria-label=" تفاصيل المنتج ">
+                          <i><i class="fa fa-eye"></i> </i>
+                      </a>
+
+                      </div>
+
+                      <!-- <div class="prodct_bage light-pink">
+                        {% if pro.qudesconts %}
+                       {{pro.qudesconts}}%
+                        {%else%}
+0
+                        {%endif%}
+                      </div> -->
+
+                  </div>
+
+                  
+
+                  <div class="brodect__content">
+                      <span class="prodect_category">{{pro.category.name}}</span>
+                     
+                          <h3 class="prodect_title">
+                            {{pro.name}}
+                          </h3>
+                          {% if qus %}
+                          <p class="price" style="font-weight:600;">العموله: {{pro.qus}}</p>
+                          {% endif %}
+                  
+                      <div class="prodect_rating">
+                        <li class="fas fa-star"></li>
+                        <li class="fas fa-star"></li>
+                        <li class="fas fa-star"></li>
+                        <li class="far fa-star"></li>
+                        <li class="far fa-star"></li>
+                      </div>
+                      <div class="prodect_price flex">
+                          <span class="new__price">
+                             ج {{pro.price}}
+                          </span>
+                          <span class="old__price">
+                              {{pro.price_decint}}
+                          </span>
+                      </div>
+                      <a href="{% url 'prodect' uuid=pro.uuid %}"class="action_btn cart_btn" aria-label="اضف الى السله">
+                          <i> <svg style="color: #202020;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                          </svg></i>
+                      </a>
+                  </div>
+              </div>
+              {%endfor%} 
+
+
+
+
+        
+
+
+            
+
+          </div>
+      </div>
+  </div>
+
+</section>
+        
+    
+        <!-- </section> -->
+ <!-- <div style="display: flex ; justify-content: center; align-items: center;">
+  <ul class="pagination">
+    {%if Product.has_previous%}
+    <li class="">
+        <a href="?page={{Product.previous_page_number}}" class="page-link">previvous</a>
+    </li>
+    {%else%}
+    <li class="page-item disable" >
+        <span class="page-link " style="color: red;">previvous</span>
+    </li>
+    {%endif%}
+    {% for page_num in Product.paginator.page_range %}
+    {% if Product.number == page_num %}
+    <li class="page-item">
+        {{page_num}}
+        <span class="page-link"  style="color: red;">.</span>
+    </li>
+    {%else%}
+    <li class="page-item">
+        {{page_num}}
+
+
+        <a href="?page={{page_num}}"class="page-link">{{page_num}}</a>
+
+    </li>
+    {%endif%}
+    
+
+    {%endfor %}
+    {%if Product.has_next %}
+    <li class="page-item">
+        <a href="?page={{Product.next_page_number}}" class="page-link">Next</a>
+    </li>
+    {%else%}
+    <li class="page-item disable" >
+        <span class="page-link " style="color: red;">next</span>
+    </li>
+    {%endif%}
+  </ul>
+  
+ </div>
+       -->
+
+      </div>
+
+
+  
+
+
+     
+      <!-- /.content-wrapper -->
+    
+  </div>
+
+</div>
+
+{% block javascript %}
+<script>
+  window.addEventListener('load',()=>{
+     const loader = document.querySelector(".loader");
+     loader.classList.add("loader--hidden");
+     loader.addEventListener('transitionend',()=>{
+         document.body.removeChild(loader)
+     })
+  })
+ </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  let containersd = document.querySelector(".containersd");
+  let lineBtns = document.querySelectorAll(".like-btn");
+
+  let swiper = new Swiper(".swiper",{
+    spaceBetween:30,
+    slidesPerView:"auto",
+    loop:true,
+    speed: 5000,
+    freeMode:true,
+    allowTouchMove:false,
+    autoplay:{
+      delay:0,
+    },
+
+  });
+  function stopAutoplay(){
+    let swiperTranslate = swiper.getTranslate();
+    swiper.getTranslate(swiperTranslate);
+    swiper.autoplay.stop();
+
+  }
+  function startAutoplay(){
+    swiper.slideTo(swiper.activeIndex, 3000 ,false);
+    swiper.autoplay.start();
+    
+  }
+  containersd.addEventListener("mouseenter", () => stopAutoplay());
+  containersd.addEventListener("mouseleave", () => startAutoplay());
+
+  lineBtns.forEach((lineBtns)=>{
+    lineBtns.addEventListener("click",()=>{
+        lineBtns.classList.toggle("active");
+        lineBtns.classList.toggle("pulse");
+
+
+    })
+  })
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  var swipe = new Swiper(".slide-content", {
+    slidesPerView: 3,
+    spaceBetween: 6,
+    loop: true,
+    centerSlide: 'true',
+    fade: 'true',
+    grabCursor: 'true',
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints:{
+        0: {
+            slidesPerView: 2,
+        },
+        520: {
+            slidesPerView: 3,
+        },
+        950: {
+            slidesPerView: 5,
+        },
+    },
+  });
+</script>
+{% endblock%}
+
+
+
+{% endblock%}

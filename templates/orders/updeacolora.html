@@ -1,0 +1,67 @@
+
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<style>
+   .vvv{
+    background-color: yellow;
+    color: red;
+    font-size: 13px;
+    padding: 5px;
+    
+
+  }
+</style>
+<div style="direction: rtl;" class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div   class="content-wrapper p-3">
+
+
+
+    <div class="preloader-wrapper">
+      <div class="preloader">
+      </div>
+    </div>
+    {% include 'parts/allert.html'%}
+   
+
+
+    <form   enctype="multipart/form-data" method="POST" >
+        
+       
+        {% csrf_token %}
+<label for="marcat">اختر الون </label>
+<select name="color" id="marcat"  class="pymrnt-1  form-control" required>
+<option > اختر الون  </option>
+
+{% for i in color %}
+<option value="{{i.name}}">{{i.name}}</option>
+{%endfor%}
+
+</select>
+
+<label for="marcat">اختر المقاس </label>
+
+<select name="sisel" id="narsss"  class="pymrnt-2 form-control" required>
+<!-- <option > اختر المقاس  </option> -->
+  
+    </select>
+    <br>
+
+  <button type="submit" class="pymrnt-3 com" style="border: 1px solid #0298cf; background-color: #fff; color:#0298cf; padding: 7px; font-size: 18px; font-weight: 700; border-radius: 30px;">تعديل</button>
+
+
+    </form>
+
+    <p style="display: none;" id="iiiiiis">{{id}}</p>
+    <p style="display: none;"  id="oooooos">{{orderdetails_id}}</p>
+
+
+
+</div>
+</div>
+
+  
+<!-- abdodjangopaymants -->
+{%endblock%}

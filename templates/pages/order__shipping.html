@@ -1,0 +1,617 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+{% block style %}
+
+<style>
+
+  section {
+    font-size: small;
+    i-height: 1.4;
+  }
+  section p {
+    margin: 0;
+  }
+  
+  section .performance-facts {
+    border: 1px solid black;
+    margin: 20px;
+    float: left;
+    width: 500px;
+    padding: 0.5rem;
+    section table {
+      border-collapse: collapse;
+      word-wrap: break-word;
+    }
+  }
+  section .performance-facts__title {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0 0 0.25rem 0;
+  }
+  section .performance-facts__header {
+    border-bottom: 10px solid black;
+    padding: 0 0 0.25rem 0;
+    margin: 0 0 0.5rem 0;
+    section p {
+      margin: 0;
+    }
+  }
+  section .performance-facts__table {
+    width: 100%;
+    section thead tr {
+      section th,
+      section td {
+        border: 0;
+      }
+    }
+    section th,
+    section td {
+      font-weight: normal;
+      text-align: left;
+      padding: 0.25rem 0;
+      border-top: 1px solid black;
+      white-space: nowrap;
+      word-wrap: break-word;
+    }
+    section td {
+      &:last-child {
+        text-align: right;
+      }
+    }
+    section .blank-cell {
+      width: 1rem;
+      border-top: 0;
+    }
+    section .thick-row {
+       th,
+        td {
+        border-top-width: 5px;
+      }
+    }
+  }
+  section .small-info {
+    font-size: 0.7rem;
+  }
+  
+  section .performance-facts__table--small {
+    @extend .performance-facts__table;
+    /* border-bottom: 1px solid #999; */
+    margin: 0 0 0.5rem 0;
+    thead {
+       tr {
+        border-bottom: 1px solid black;
+      }
+    }
+   
+    section  td {
+      &:last-child {
+        text-align: left;
+      }
+    }
+    section  tr {
+        border-bottom: 1px solid black;
+        word-wrap: break-word;
+      }
+    section th,
+    section td {
+      border: 0;
+      padding: 0;
+      word-wrap: break-word;
+    }
+  }
+  
+  section .performance-facts__table--grid {
+    @extend .performance-facts__table;
+    margin: 0 0 0.5rem 0;
+    td {
+      &:last-child {
+        text-align: left;
+        &::before {
+          content: "•";
+          font-weight: bold;
+          margin: 0 0.25rem 0 0;
+        }
+      }
+    }
+  }
+  
+  section .text-center {
+    text-align: center;
+  }
+  section .thick-end {
+    border-bottom: 2px solid black;
+  }
+  section .thin-end {
+    border-bottom: 1px solid black;
+  }
+
+  .vvvvvvd  tr {
+        border-bottom: 1px solid black;
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        padding: 8px;
+      }
+
+      .cccccccccccd  tr {
+        border-bottom: 1px solid black;
+       
+        padding: 55px;
+        font-size: 15px;
+      }
+      .fact{
+        /* width: 25%; */
+        background-color: #ffffff;
+        box-shadow:  0 0 1.2em rgba(0, 4, 52, 0.1);
+        margin: 5px 5px 5px 5px;
+        padding: 1em 1.8em;
+        border-radius: 0.6em;
+        border: none;
+        border-bottom: 3px solid #566fff;
+        display: block;
+        font-weight: 600;
+        font-size: small;
+    }
+    .gred{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1px;
+    }
+   </style>
+   <style>
+
+
+    @media print{
+      .jkfjyfyfy , .table-hover ,button , .main-footer , .main-header {
+        display: none;
+       }
+       .fact{
+        display: none;
+       }
+      .gggggggggghhhhh{
+        display: block;
+      }
+   
+ 
+    }
+</style>
+
+{% endblock%}
+{% block content %}
+
+<div   class="content-wrapper">
+  {% include 'parts/allert.html'%}
+    <section class="my-form  p-1 roudend  ">
+<div class="gred"  >
+<div class="fact"  >
+  <p style="font-weight: 700; color: #566fff;"> مجموع الراجع
+    <i class="coppingcoppings"></i>
+  </p>
+   
+    <p >المجموع: <span id="dsd">{{totals}}</span></p>
+    <p>{{b.pr}}</p>
+     <p>رقم الطلب: {{order.id}}</p>
+     <p > قيمة الشحن: <span id="ds">{{order.na}}</span></p>
+     <p> المجموع الكلي<span id="totalsd"></span></p>
+     <p >  المجموع الكلي شامل الشحن
+      <i id="totalsn"></i></p>
+      
+
+
+     {% if group %}
+
+     <i> مجموع العموله <p class="c"></p></i>
+     {% endif %}
+     <p >   قيمة الدفع بعد الاستلام <i class="css" id="css"></i></p>
+
+     {% if order.user_group.name == 'castomar' %}
+ 
+       <p style="font-weight:700;color:red;">
+        المبلغ المطلوب شامل الشحن والعموله: 
+       </p>
+       <p class="csshtmljspy" style="font-weight:700;color:red;">   </p>
+
+     {% else %}
+
+       <p style="font-weight:700;color:red;">
+        المبلغ المطلوب شامل الشحن:
+     </p>
+       <p class="mrsd" style="font-weight:700;color:red;">   </p>
+
+     {%endif%}
+
+</div>
+
+
+
+<div class="fact"  >
+  <p>المحافظه {{order.ns.mo}}</p>
+  <!-- <i>
+    قيمة الشحن{{order.ns.na}}
+  </i> -->
+  <p>
+     الاسم
+    <i> {{order.ns.name}}</i>
+  </p>
+  <p>
+     رقم العميل <a href="tel:+20{{order.ns.shipment_phone}}
+    ">{{order.ns.shipment_phone}}
+  </a>
+</p>
+  <!-- <i>
+    قيمة الشحن{{order.ns.na}}
+  </i> -->
+  <p >
+    المركز :{{order.ns.mr}}
+  </p>
+  <p >
+    تاريخ الطلب : {{order.order_date|date:'Y/m/d'}}
+
+  </p>
+ 
+</div>
+
+</div>
+
+
+
+<div class="p-1 fact" style=" width: 100%; word-wrap: break-word; ">
+<p style="display: plock; "><p>الملحوظات:</p>
+  {{order.ns.momr}}</p>
+</div>
+
+
+<div style="overflow-x: auto;" >
+<table class="table table-hover" style="text-align: center;" >
+    <thead>
+        <tr style="border-bottom: 3px solid #566fff; background-color: #fff; color: #111; font-weight: 600; border-radius: 85px;">
+         
+            <td>اسم المنتج</td>
+          
+            <!-- <td> رقم صاحب المنتج</td>
+            <td> اسم صاحب المنتج</td> -->
+
+            <td>صورة المنتج</td>
+            <td>الكميه المطلوبه</td>
+            <td>سعر البيع</td>
+            <td>سعر الحقيقي</td>
+
+            <td>المجموع</td>
+            <td> الكميه الراجعه</td>
+            <td> الكميه الراجعه</td>
+            <td> مجموع الراجع</td>
+
+            <td>التأكيد</td>
+            <td>الون</td>
+            <td>المقاس</td>
+        
+            
+            <td>غير مستلم</td>
+            <td>القيمه المستلمه</td>
+            {% if group %}
+            <td>العمولة</td>
+
+            <td>العمولة الاساسيه للمنتج</td>
+
+            {% endif %}
+            <td>قيمة الدفع بعد الاستلام</td>
+
+        
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in all_orders %}
+        <tr>
+            <td>
+              {% if i.product.boonimg == True  %}
+            <p>{{i.nameimg}}</p>
+            {% else %}
+              <p>{{i.product.name}}</p>
+              {% endif %}
+            </td>
+            <!-- <td>
+             <a href="tel:20{{i.product.number}}">{{i.product.gx.number}}</a> 
+            </td>
+            <td>
+              <a href="tel:20{{i.product.number}}">{{i.product.gx.gx}}</a> 
+             </td> -->
+           <td>
+            <div>
+
+
+              {% if i.product.facat == True %}
+              {% if i.OrderDetailsimg %}
+              <img src="{{i.OrderDetailsimg.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+              {% else %}
+              <img src="{{i.product.photo.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+         
+              {% endif %}
+              {% elif i.product.boonimg == True %}
+              {% if i.OrderDetailsimg %}
+
+              <img src="{{i.OrderDetailsimg.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+              {% else %}
+              <img src="{{i.product.photo.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+              {% endif %}
+              {% elif i.imgf %}
+              <img src="{{i.imgf}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+              {% else %}
+          
+              <img src="{{i.product.photo.url}}" alt=""  style="width: 77px ; height: 77px; border-radius: 9px;">
+    
+    
+             {% endif %}
+<br>
+
+            </div>
+           </td>
+            <td> {{i.quantity}}</td>
+            
+            <td>{{i.product.price}}</td>
+            <td>{{i.product.pricels}}</td>
+            <td>{% widthratio i.price 1 i.quantity %}</td>
+            <td><a href="{% url 'update__copping' i.order.id i.id %}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+              </svg>
+            </a></td>
+            <td>{{i.copping}}</td>
+            {% if i.copping == 'None' %}
+            <td>{% widthratio i.price 1 0 %}</td>
+            {%else%}
+            <td class="coppingcopping">{% widthratio i.price 1 i.copping %}</td>
+            {%endif%}
+                       
+
+            <td>{{i.order.is_finished}}</td>
+            <td>{{i.colar}}</td>
+            <td>{{i.size}}</td>
+          
+            <td><p style="color: #566fff;">{{ i.testing   }}</p></td>
+            <td><p style="color: #566fff;">{{ i.ba   }}</p></td>
+            {% if i.order.user_group.name == 'castomar' %}
+            
+            <td><p style="color: #566fff;" class="sutotal">{% widthratio  i.product.qus 1 i.ba   %}</p></td>
+            <td><p style="color: #566fff;" >{{ i.product.qus  }}</p></td>
+
+            
+
+            {% endif %}
+            <td><p style="color: #566fff;" class="html">{% widthratio  i.ba 1 i.price   %}</p></td>
+           
+            
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<button id="print" style="color: aqua; border: none; background-color:rgb(7, 126, 86) ;"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+  <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1"/>
+  <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+</svg>
+</button>
+<div style="overflow-x: auto;">
+ 
+<div style="display: flex; justify-content: center; align-items: center;" class="gggggggggghhhhh">
+  <section class="performance-facts" >
+   
+  <div >
+   
+      <img style="width: 100%;height: 120px; border-radius: 6%;" src="{% static 'dist/img/IMG-20250202-WA0013.jpg' %}">
+  
+  </div>
+      
+    
+  
+    <table class="performance-facts__table cccccccccccd">
+      <tr>
+          
+          <th>المنتج</th>
+          <th>الكميه</th>
+          <th>السعر</th>
+          <th>اللون</th>
+          <th>المقاس</th>
+        
+          <th>المجموع</th>
+          {% if group %}
+          <th> العموله  </th>
+          {% endif %}
+  
+      </tr>
+      {% for i in all_orders %}
+            <tr>
+              <td>
+                {% if i.product.boonimg == True  %}
+              <p>{{i.nameimg}}</p>
+              {% else %}
+                <p>{{i.product.name}}</p>
+                {% endif %}
+              </td>
+            
+   
+  
+              <td><p style="color: #566fff;">{{ i.ba   }}</p></td>
+              
+              <td>{{i.price}}</td>
+            
+           
+              <td>{{i.colar}}</td>
+              <td>{{i.size}}</td>
+  
+  
+            
+              
+  
+             
+              <td><p style="color: #566fff;" class="totalr">{% widthratio  i.ba 1 i.price   %}</p></td>
+              
+              
+              {% if i.order.user_group.name == 'castomar' %}
+              
+              <td><p style="color: #566fff;" class="hhhyt" >{% widthratio  i.product.qus 1 i.ba   %}</p></td>
+  
+  
+              
+  
+              {% endif %}
+             
+              
+  
+          </tr>
+          {% endfor %}
+    </table>
+    <table class="performance-facts__table vvvvvvd">
+      <thead>
+     
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan="2">
+            <b>المجموع الكلي</b>
+            <b class="myuttuytuy"></b>
+          </th>
+          {% if group %}
+          <td>
+            <b>  مجموع العمولة :</b>
+          <b class="mreys">   </b>
+        </td>
+        {% endif %}
+        
+      
+        </tr>
+  
+        <tr>
+          <th colspan="2">
+            <b>  اسم العميل:   </b>
+            {{order.ns.name}}
+          </th>
+          <td>
+              <b> رقم العميل :</b>
+            <b>  {{order.ns.shipment_phone}} </b>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">
+              <b>   رقم اضافى  :  </b>
+              <b>   {{order.ns.shipment_phone_to}}  </b>
+          </th>
+          <td>
+          
+              <b> تفاصيل اكثر : </b>
+              <b>  {{order.ns.districtid}} </b>
+  
+  
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">
+              <b>  المحافظة :</b>
+              <b>  {{order.ns.mo}} </b>
+          </th>
+          <td>
+            <b>  المركز :</b>
+            <b>  {{order.ns.mr}} </b>
+  
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">
+              <b>   تاريخ  :  </b>
+              <b>   {{order.order_date|date:'Y/m/d'}} </b>
+          </th>
+          <td>
+          
+              <b>  رقم الطلب :</b>
+              <b>  {{order.id}} </b>
+  
+  
+          </td>
+        </tr>
+        <tr>
+          {% if order.user_group.name == 'castomar' %}
+          <th colspan="2">
+            <b>
+             المبلغ المطلوب شامل الشحن والعموله: 
+            </b>
+            <b class="csshtmljspy">   </b>
+ 
+         </th>
+       
+          {% else %}
+
+          <th colspan="2">
+            <b>
+             المبلغ المطلوب شامل الشحن:
+            </b>
+            <b class="mrsd">   </b>
+ 
+         </th>
+
+          {%endif%}
+          <td>
+            <b> قيمة الشحن : </b>
+            <b class="valus"> {{order.na}} </b>
+  
+          </td>
+        </tr>
+
+        <tr >
+          <th colspan="2"  >
+              <b >  الملاحظات :</b>
+              <div >
+              <div style=" display: flex; width: 100%; word-wrap: break-word; ">
+              <b style="width: 450px" >  {{order.ns.momr}} </b>
+            </div>
+            </div>
+          </th>
+       
+        </tr>
+  
+      </tbody>
+    </table>
+  
+    <p class="small-info">
+     رابط الموقع
+    </p>
+    <p class="small-info text-center">
+      
+      &bull;
+      http://127.0.0.1:8000/
+      &bull;
+  
+    </p>
+  
+  
+    <p class="small-info">
+      خدمة العملاء
+     </p>
+     {% for i in cint|slice:'3' %}
+     <p class="small-info text-center">
+       
+       &bull;
+       {{i.number}}
+       &bull;
+   
+     </p>
+     {%endfor%}
+
+  
+  </section>
+</div>
+
+</div>
+
+
+
+
+
+   </div>
+</div>
+
+
+{% endblock %}
